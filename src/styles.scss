@@ -1,1 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
+.centered {
+    text-align: center;
+}
+.capitalized {
+    text-transform: capitalize;
+}
+
+.justified {
+    text-align: justify;
+}
+
+.p-centered {
+    display: block;
+    margin: auto;
+}
+
+.info {
+    padding: 20px 0 0 0;
+}
