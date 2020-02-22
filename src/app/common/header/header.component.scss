@@ -6,7 +6,7 @@
         img {
             display: block;
             margin: auto;
-            width: 100px;
+            width: 120px;
             height: 100px;
         }
         .col {
@@ -15,7 +15,11 @@
                 color: #ffffff;
             }
             button {
-                float: right;
+                // float: right;
+                display: block;
+                margin-left: auto;
+                width: 200px;
+                height: 55px;
             }
         }
 
@@ -32,7 +36,7 @@
             ul {
                 margin: auto;
                 li {
-                    a {
+                    a, p {
                         color: #ffffff;
                     }
                 }
@@ -40,7 +44,9 @@
         }
     }
 }
-
+.only-mobile {
+    display: none;
+}
 @media screen and (max-width: 768px) {
     .navbar {
         .navbar-brand {
@@ -54,5 +60,9 @@
 
     .top-header {
         display: none;
+    }
+
+    .only-mobile {
+        display: block;
     }
 }

@@ -3,14 +3,14 @@
     <div class="row">
       <div class="col special">
         <!-- <div class="row"> -->
-          <p>(951) 248-1548</p>
+          <p><i class="fas fa-phone-alt"></i> (951) 248-1548</p>
         <!-- </div> -->
         <!-- <div class="row"> -->
-          <p>support@gmail.com</p>
+          <p><i class="fas fa-envelope"></i> support@gmail.com</p>
         <!-- </div> -->
       </div>
       <div class="col">
-        <img src="./../../../assets/81311566_110394513819654_8622330336312819712_o.png" alt="">
+        <img src="./../../../assets/teppanyaki_logo.png" alt="">
       </div>
       <div class="col special">
         <button class="btn btn-outline-success my-2 my-sm-0" type="button">Get a Quote</button>
@@ -21,7 +21,7 @@
 
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" href="#">
-       <img src="./../../../assets/81311566_110394513819654_8622330336312819712_o.png" alt="">
+       <img src="./../../../assets/teppanyaki_logo.png" alt="">
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -31,7 +31,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-link" routerLink="/home" routerLinkActive="active">Home <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item active">
           <a class="nav-link" href="#">Our Menu <span class="sr-only">(current)</span></a>
@@ -40,10 +40,17 @@
           <a class="nav-link" href="#">Reservation <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link" href="#">About Us <span class="sr-only">(current)</span></a>
+          <a class="nav-link" routerLink="/about" routerLinkActive="active">About Us <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item active">
           <a class="nav-link" href="#">Contact Us <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active only-mobile">
+          <p><i class="fas fa-phone-alt"></i> (951) 248-1548</p>
+          <p><i class="fas fa-envelope"></i> support@gmail.com</p>
+        </li>
+        <li class="nav-item active only-mobile">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="button">Get a Quote</button>
         </li>
       </ul>
     </div>

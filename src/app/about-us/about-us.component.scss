@@ -1,0 +1,17 @@
+section {
+    margin-bottom: 70px;
+}
+.card {
+    margin: 10px 0 10px 0;
+    &:hover {
+        .card-img-overlay {
+            visibility: visible !important;
+        }
+    }
+
+}
+
+.card-img-overlay {
+    visibility: hidden;
+    padding-top: 40%;
+}
