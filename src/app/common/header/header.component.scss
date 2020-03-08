@@ -47,6 +47,11 @@
 .only-mobile {
     display: none;
 }
+
+.active {
+    border-bottom: 2px solid red;
+}
+
 @media screen and (max-width: 768px) {
     .navbar {
         .navbar-brand {

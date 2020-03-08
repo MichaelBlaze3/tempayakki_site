@@ -1,3 +1,57 @@
-.about {
+.contact {
+    .right-side {
+        text-align: left;
+        border-left: 1px solid black;
+    }
+    .left-side {
+        text-align: right;
+        border-right: 1px solid black;
+    }
+}
 
+section {
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.card {
+    border: 0;
+    .card-title {
+        margin-top: 20px;
+    }
+}
+
+.division {
+    border-right: 1px solid #343a40;
+}
+
+i.fab, i.fas {
+    color:red;
+}
+
+.btn {
+    text-align: right;
+}
+@media screen and (max-width: 768px) {
+    .contact {
+        .right-side {
+            text-align: center;
+            border: 0;
+            margin-bottom: 30px;
+        }
+        .left-side {
+            text-align: center;
+            border: 0;
+            margin-bottom: 30px;
+        }
+
+        .division {
+            border-right: 0;
+        } 
+        .top-division {
+            padding-top: 20px;
+            border-top: 1px solid gray;
+        }
+    }
+    
 }

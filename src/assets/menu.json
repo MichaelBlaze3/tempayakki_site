@@ -1,0 +1,82 @@
+{
+    "categories": [
+        {
+            "category_1": [
+                {
+                    "name": "Dish 1",
+                    "description": "This will contain a description of the product including ingredients",
+                    "price": "9.99"
+                },
+                {
+                    "name": "Dish 2",
+                    "description": "This will contain a description of the product including ingredients",
+                    "price": "6.99"
+                },
+                {
+                    "name": "Dish 3",
+                    "description": "This will contain a description of the product including ingredients",
+                    "price": "5.99"
+                },
+                {
+                    "name": "Dish 4",
+                    "description": "This will contain a description of the product including ingredients",
+                    "price": "8.99"
+                },
+                {
+                    "name": "Dish 5",
+                    "description": "This will contain a description of the product including ingredients",
+                    "price": "10.99"
+                }
+            ],
+            "category_2": [
+                {
+                    "name": "Dish 1",
+                    "description": "This will contain a description of the product including ingredients",
+                    "price": "9.99"
+                },
+                {
+                    "name": "Dish 2",
+                    "description": "This will contain a description of the product including ingredients",
+                    "price": "6.99"
+                },
+                {
+                    "name": "Dish 3",
+                    "description": "This will contain a description of the product including ingredients",
+                    "price": "5.99"
+                }
+            ],
+            "category_3": [
+                {
+                    "name": "Dish 1",
+                    "description": "This will contain a description of the product including ingredients",
+                    "price": "9.99"
+                },
+                {
+                    "name": "Dish 2",
+                    "description": "This will contain a description of the product including ingredients",
+                    "price": "6.99"
+                },
+                {
+                    "name": "Dish 3",
+                    "description": "This will contain a description of the product including ingredients",
+                    "price": "5.99"
+                },
+                {
+                    "name": "Dish 4",
+                    "description": "This will contain a description of the product including ingredients",
+                    "price": "8.99"
+                },
+                {
+                    "name": "Dish 5",
+                    "description": "This will contain a description of the product including ingredients",
+                    "price": "10.99"
+                },                
+                {
+                    "name": "Dish 6",
+                    "description": "This will contain a description of the product including ingredients",
+                    "price": "10.99"
+                }
+            ]
+        }        
+    ]
+}
