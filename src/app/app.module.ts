@@ -10,7 +10,8 @@ import { HomeComponent } from './home/home.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { ContactComponent } from './contact/contact.component';
 import { MenuComponent } from './menu/menu.component';
-
+import { ReservationComponent } from './reservation/reservation.component';
+import { MessengerService } from './services/messenger.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +20,8 @@ import { MenuComponent } from './menu/menu.component';
     HomeComponent,
     AboutUsComponent,
     ContactComponent,
-    MenuComponent
+    MenuComponent,
+    ReservationComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +29,7 @@ import { MenuComponent } from './menu/menu.component';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [ MessengerService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

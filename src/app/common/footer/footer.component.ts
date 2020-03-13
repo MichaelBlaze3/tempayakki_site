@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { MessengerService } from '../../services/messenger.service';
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
@@ -7,9 +7,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
-  constructor() { }
-
-  ngOnInit() {
+  constructor(
+    private msg: MessengerService
+  ) { 
   }
 
+  ngOnInit() {
+    console.log(this.msg.getLanguage());
+  }
+
+
+  setLanguage(param: string){
+    if(this.msg.setLanguage(param)){
+      this.msg.announceNotification(param);
+    }
+  }
 }

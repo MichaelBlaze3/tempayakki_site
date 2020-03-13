@@ -1,0 +1,52 @@
+{
+    "en": {
+        "reservation": {
+            "contact": {
+                "header": "Contact Information",
+                "name": "First Name",
+                "last": "Last Name",
+                "addr": "Address",
+                "phone": "Phone Number",
+                "email": "Email"
+            },
+            "event": {
+                "header": "Event Information",
+                "addr": "Address of the Event",
+                "date": "Date of the Event",
+                "tte": "Estimated time to start(to eat)",
+                "gcount": "Guest Count",
+                "type": "Type of Event",
+                "style": "Serving Style",
+                "setup": "Setup Color",
+                "comments": "Comments"
+            }
+        },
+        "optional": "Optional",
+        "required": "Required"
+    },
+    "es": {
+        "reservation": {
+            "contact": {
+                "header": "Informacion de Contacto",
+                "name": "Nombre",
+                "last": "Apellido",
+                "addr": "Direccion",
+                "phone": "Numero Telefonico",
+                "email": "Correo Electronico"
+            },
+            "event": {
+                "header": "Informacion del Evento",
+                "addr": "Direccion del Evento",
+                "date": "Fecha del Evento",
+                "tte": "Tiempo Estimado de Inicio (servir comida)",
+                "gcount": "Cantidad de Invitados",
+                "type": "Tipo de Evento",
+                "style": "Estilo de Servicio",
+                "setup": "Opciones de Color",
+                "comments": "Comentarios"
+            }
+        },
+        "optional": "Opcional",
+        "required": "Necesario"
+    }
+}
