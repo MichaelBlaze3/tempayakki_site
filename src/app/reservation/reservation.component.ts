@@ -40,7 +40,9 @@ export class ReservationComponent implements OnInit, OnDestroy {
       comments: ''
     },
     opt: '',
-    req: ''
+    req: '',
+    default: '',
+    submit: ''
   }
 
   ngOnInit() {
@@ -48,17 +50,21 @@ export class ReservationComponent implements OnInit, OnDestroy {
   }
 
   getContent(){
-    this.httpClient.get('assets/language_content.json').subscribe( res => {
+    this.httpClient.get('assets/reservation_content.json').subscribe( res => {
       console.log(res);
       if(localStorage.getItem("language") == "es") {
         this.template = res['es'].reservation;
         this.template.opt = res['es'].optional;
         this.template.req = res['es'].required;
+        this.template.default = res['es'].select_default;
+        this.template.submit = res['es'].submit;
         console.log(this.template);
       } else {
         this.template = res['en'].reservation;
         this.template.opt = res['en'].optional;
         this.template.req = res['en'].required;
+        this.template.default = res['en'].select_default;
+        this.template.submit = res['en'].submit;
         console.log(this.template);
       }
     });
