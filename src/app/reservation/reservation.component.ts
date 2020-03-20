@@ -1,4 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { MessengerService } from '../services/messenger.service';
 import { Subscription } from 'rxjs';
@@ -9,6 +10,7 @@ import { Subscription } from 'rxjs';
 })
 export class ReservationComponent implements OnInit, OnDestroy {
 
+  contactFormGroup: FormGroup;
   subscription: Subscription;
   constructor(
     private httpClient: HttpClient,
@@ -34,10 +36,22 @@ export class ReservationComponent implements OnInit, OnDestroy {
       date:'',
       tte: '',
       gcount: '',
-      type: '',
-      style: '',
-      setup: '',
-      comments: ''
+      type: {
+        label: '',
+        items: []
+      },
+      style: {
+        label: '',
+        items: []
+      },
+      setup: {
+        label: '',
+        items: []
+      },
+      comments: {
+        label: '',
+        placeholder:''
+      }
     },
     opt: '',
     req: '',
