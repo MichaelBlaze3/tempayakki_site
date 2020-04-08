@@ -1,7 +1,5 @@
 .header-container {
     background-color: #000000;
-    background-color: #343a40!important;
-
     .top-header {
         img {
             display: block;
@@ -13,19 +11,33 @@
             padding-top: 25px;
             p {
                 color: #ffffff;
+                i {
+                    color: red;
+                }
+                a {
+                    text-decoration: none;
+                    color: white;
+                }
             }
             button {
-                // float: right;
                 display: block;
                 margin-left: auto;
                 width: 200px;
                 height: 55px;
+            }
+            &.special.social {
+                text-align: right;
+                p {
+                    display: inline;
+                    margin-right: 10px;
+                }
             }
         }
 
     }
 
     nav {
+        // font-family: YeonSung-Regular;
         a {
             &.navbar-brand {
                 display: none;
@@ -34,6 +46,7 @@
         }
         div {
             ul {
+                font-size: 22px;
                 margin: auto;
                 li {
                     a, p {
@@ -46,10 +59,20 @@
 }
 .only-mobile {
     display: none;
+    i {
+        color: red;
+    }
+    p {
+        color: #ffffff;
+        a {
+            color: #ffffff;
+        }
+    }
 }
 
-.active {
-    border-bottom: 2px solid red;
+a.nav-link.active {
+    // border-bottom: 2px solid red;
+    color: red !important;
 }
 
 @media screen and (max-width: 768px) {
@@ -57,7 +80,7 @@
         .navbar-brand {
             display: block !important;
             img {
-                width: 50px;
+                width: 70px;
                 height: 50px;
             }
         }

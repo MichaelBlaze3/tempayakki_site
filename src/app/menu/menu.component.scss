@@ -1,10 +1,51 @@
-.card {
-    display:block;
-    float: left;
-    border: 0;
+.bg-banner {
+    
+    background-size: 100%;
+    color: #ffffff;
+    &.c1 {
+        text-align: left;
+
+        background-image: url('../../assets/sushi-2853382_1920.jpg');
+    }
+    &.c2 {
+        text-align: right;
+        background-image: url('../../assets/sushi-2455981_1920.jpg');
+    }
+}
+.menu-container {
+    margin: 10px 0 40px 0;
+}
+
+.menu-item {
+    margin-top: 10px;
     margin-bottom: 20px;
+    .col-md-4 {
+        .card-text {
+            text-align: center;
+        }
+    }
+    .col-3 {
+        .card-text {
+            text-align: left;
+        }
+    }
+}
+
+.alert {
+    width: 100%;
+    margin: 15px;
+    border-radius: 0;
 }
 
 .no-margin {
     margin-bottom: 0;
+}
+
+.nav-link {
+    color: #000000;
+    border-radius: 0;
+    &.active {
+        background-color: red;
+        color: #ffffff;
+    }
 }

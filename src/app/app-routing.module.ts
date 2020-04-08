@@ -9,14 +9,14 @@ import { ReservationComponent } from './reservation/reservation.component';
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'menu', component: MenuComponent },
-  { path: 'about', component: AboutUsComponent },
+  // { path: 'about', component: AboutUsComponent },
   { path: 'contact', component: ContactComponent},
   { path: 'reservation', component: ReservationComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {scrollPositionRestoration: 'enabled'})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

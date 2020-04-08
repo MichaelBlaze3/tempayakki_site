@@ -1,87 +1,212 @@
 <section>
-    <div class="jumbotron jumbotron-fluid">
+    <div class="jumbotron jumbotron-fluid bg-banner c1">
         <div class="container">
-            <h1 class="display-4">Fluid jumbotron</h1>
-            <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+            <h1 class="display-4">Buffet</h1>
         </div>
     </div>
 </section>
 
 <section>
-    <ul class="nav mb-3 justify-content-center" id="pills-tab" role="tablist">
-        <li class="nav-item">
-            <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab"
-                aria-controls="pills-home" aria-selected="true">Category 1</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab"
-                aria-controls="pills-profile" aria-selected="false">Category 2</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab"
-                aria-controls="pills-contact" aria-selected="false">Category 3</a>
-        </li>
-    </ul>
-    <div class="tab-content" id="pills-tabContent">
-        <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-            <div class="container">
-                <div class="row">
-                    <div class="card col-md-6" *ngFor="let category of dishes.categories[0].category_1">
-                        <div class="row no-gutters">
-                            <div class="col-md-4">
-                                <img src="../../assets/dish1.jpg" class="card-img" alt="...">
-                            </div>
-                            <div class="col-md-8">
-                                <div class="card-body">
-                                    <h5 class="card-title">{{ category.name }}</h5>
-                                    <p class="card-text">{{ category.description }}</p>
-                                    <p class="card-text"> ${{ category.price }}</p>
-                                    <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
-                                </div>
-                            </div>
-                        </div>
+    <div class="container">
+        <div class="row">
+            <div class="alert alert-warning lert-dismissible fade show" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="alert-heading">Important!</h4>
+                <p>All prices are per person. All prices are subject to change without notice. </p>
+                <p>If you have any food allergies and/or special request, please be sure to take note of that before the
+                    event.</p>
+            </div>
+            <div class="alert alert-dark" role="alert">
+                <h4>Buffet details</h4>
+                <hr>
+                <ul>
+                    <li>Buffet is server for a minimum for 50 guests.</li>
+                    <li>Buffet includes fried rice or steamed rice, seasoned veggies, grilled edamame & season fruit
+                        salad with homemade dressing.</li>
+                </ul>
+                <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                    <div class="card-body">
+                        <p>Two chefs cooks for a minimum 50 guests, if you want to another extra chef you will have to
+                            pay an additional cost. Not included server.</p>
+                        <table class="table table-borderless">
+                            <tbody>
+                                <tr>
+                                    <td>Buffet chef service</td>
+                                    <td>3 hrs.</td>
+                                    <td>for parties of minimum 50 guest.</td>
+                                </tr>
+                                <tr>
+                                    <td>Buffet chef service</td>
+                                    <td>4 hrs.</td>
+                                    <td>for parties of 50-200 guest.</td>
+                                </tr>
+                                <tr>
+                                    <td>(2) Buffet server </td>
+                                    <td>3 hrs. $200</td>
+                                    <td>for parties of minimum 50 guest. </td>
+                                </tr>
+                                <tr>
+                                    <td>(4) Buffet server </td>
+                                    <td>4 hrs. $440 </td>
+                                    <td>for parties of 50-200 guest.</td>
+                                </tr>
+
+                            </tbody>
+                        </table>
                     </div>
+                </div>
+                <div class="accordion" id="accordionExample" (click)="changeTextBuffetBtn()">
+                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne"
+                        aria-expanded="true" aria-controls="collapseOne" *ngIf="!moreOrLessBuffet">
+                        More
+                    </button>
+                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne"
+                        aria-expanded="true" aria-controls="collapseOne" *ngIf="moreOrLessBuffet">
+                        Less
+                    </button>
                 </div>
             </div>
         </div>
-        <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-            <div class="container">
-                <div class="row">
-                    <div class="card col-md-6" *ngFor="let category of dishes.categories[0].category_2">
-                        <div class="row no-gutters">
-                            <div class="col-md-4">
-                                <img src="../../assets/dish1.jpg" class="card-img" alt="...">
+
+        <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab"
+                    aria-controls="pills-home" aria-selected="true">Main</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab"
+                    aria-controls="pills-profile" aria-selected="false">Kids</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab"
+                    aria-controls="pills-contact" aria-selected="false">Sides</a>
+            </li>
+        </ul>
+        <div class="tab-content" id="pills-tabContent">
+            <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                <div class="row menu-container">
+                    <!-- Start of menu list -->
+                    <div class="menu-item col-md-6" *ngFor="let category of dishes.categories[0].buffet.main">
+                        <div class="row">
+                            <div class="col-9 col-md-8">
+                                <h5 class="card-title">{{ category.name }}</h5>
+                                <p class="card-text">{{ category.description }}</p>
                             </div>
-                            <div class="col-md-8">
-                                <div class="card-body">
-                                    <h5 class="card-title">{{ category.name }}</h5>
-                                    <p class="card-text">{{ category.description }}</p>
-                                    <p class="card-text"> ${{ category.price }}</p>
-                                    <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
-                                </div>
+                            <div class="col-3 col-md-4">
+                                <h4 class="card-text"> ${{ category.price }}</h4>
                             </div>
                         </div>
                     </div>
+                </div> <!-- End of menu list -->
+            </div>
+            <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                <div class="row menu-container">
+                    <!-- Start of menu list -->
+                    <div class="menu-item col-md-6" *ngFor="let category of dishes.categories[0].buffet.kids">
+                        <div class="row">
+                            <div class="col-9 col-md-8">
+                                <h5 class="card-title">{{ category.name }}</h5>
+                                <p class="card-text">{{ category.description }}</p>
+                            </div>
+                            <div class="col-3 col-md-4">
+                                <h4 class="card-text"> ${{ category.price }}</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- End of menu list -->
+            </div>
+            <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+                <div class="row menu-container">
+                    <!-- Start of menu list -->
+                    <div class="menu-item col-md-6" *ngFor="let category of dishes.categories[0].buffet.sides">
+                        <div class="row">
+                            <div class="col-9 col-md-8">
+                                <h5 class="card-title">{{ category.name }}</h5>
+                            </div>
+                            <div class="col-3 col-md-4">
+                                <h4 class="card-text"> ${{ category.price }}</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- End of menu list -->
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="jumbotron jumbotron-fluid bg-banner c2">
+        <div class="container">
+            <h1 class="display-4">Catering</h1>
+        </div>
+    </div>
+</section>
+<!-- <div id="circle"></div> -->
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="alert alert-dark" role="alert">
+                <h4>Catering details</h4>
+                <hr>
+                <ul>
+                    <li>Minimum for catering 12 guest.</li>
+                    <li>All meals are served with fried rice or steamed rice, vegetables, grilled edamame, our special
+                        homemade sauce & season fruit salad.</li>
+                </ul>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                    <div class="card-body">
+                        <p>Two chefs cooks for a minimum 50 guests, if you want to another extra chef you will have to
+                            pay an additional cost. Not included server.</p>
+                        <table class="table table-borderless">
+                            <tbody>
+                                <tr>
+                                    <td>Teppanyaki chef service</td>
+                                    <td>3 hrs.</td>
+                                    <td>for parties of 12-25 guest</td>
+                                </tr>
+                                <tr>
+                                    <td>(2) Teppanyaki chef service </td>
+                                    <td>4 hrs.</td>
+                                    <td>for parties of 25-50 guest</td>
+                                </tr>
+                                <tr>
+                                    <td>Teppanyaki server </td>
+                                    <td>3 hrs.</td>
+                                    <td>for parties of 12-25 guest</td>
+                                </tr>
+                                <tr>
+                                    <td>(2) Teppanyaki server </td>
+                                    <td>4 hrs.</td>
+                                    <td>for parties of 25-50 guest</td>
+                                </tr>
+                                $50.00 extra for ½ hr. after the agreed time for both.
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="accordion" id="accordionExample" (click)="changeTextCateringBtn()">
+                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseTwo"
+                        aria-expanded="true" aria-controls="collapseOne" *ngIf="!moreOrLessCatering">
+                        More
+                    </button>
+                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseTwo"
+                        aria-expanded="true" aria-controls="collapseOne" *ngIf="moreOrLessCatering">
+                        Less
+                    </button>
                 </div>
             </div>
         </div>
-        <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
-            <div class="container">
+        <div class="row menu-container">
+            <div class="menu-item col-md-6" *ngFor="let category of dishes.categories[0].catering">
                 <div class="row">
-                    <div class="card col-md-6" *ngFor="let category of dishes.categories[0].category_3">
-                        <div class="row no-gutters">
-                            <div class="col-md-4">
-                                <img src="../../assets/dish1.jpg" class="card-img" alt="...">
-                            </div>
-                            <div class="col-md-8">
-                                <div class="card-body">
-                                    <h5 class="card-title">{{ category.name }}</h5>
-                                    <p class="card-text">{{ category.description }}</p>
-                                    <p class="card-text"> ${{ category.price }}</p>
-                                    <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
-                                </div>
-                            </div>
-                        </div>
+                    <div class="col-9 col-md-8">
+                        <h5 class="card-title">{{ category.name }}</h5>
+                        <p class="card-text">{{ category.description }}</p>
+                    </div>
+                    <div class="col-3 col-md-4">
+                        <h4 class="card-text"> ${{ category.price }}</h4>
                     </div>
                 </div>
             </div>
@@ -94,12 +219,9 @@
         <div class="container">
             <div class="row">
                 <div class="col">
-                    <p class="centered">For these and other delicious choices, you can take a look to our menu</p>
-                    <button type="button" class="btn btn-dark p-centered">Download</button>
+                    <h3 class="centered">For these and other delicious choices, you can take a look to our menu</h3>
+                    <button type="button" class="btn btn-dark p-centered">Get Our Menu</button>
                 </div>
-                <!-- <div class="col-md-5 col-lg-4 info"> -->
-                    <!-- <h1 class="centered capitalized">our menu</h1> -->
-                <!-- </div> -->
             </div>
         </div>
     </div>

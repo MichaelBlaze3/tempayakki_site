@@ -1,7 +1,17 @@
 .footer {
-    background-color: #343a40!important;
+    background-color: #000000!important;
     color: #ffffff;
     padding-bottom: 30px;
+    h1 {
+        font-size: 18px;
+    }
+    p {
+        font-size: 14px;
+    }
+    a {
+        text-decoration: none;
+        color: #ffffff;
+    }
 }
 
 .top-spacing {
@@ -10,6 +20,10 @@
 
 .legend {
     font-size: 16px;
+}
+
+.pointer {
+    cursor: pointer;
 }
 
 @media screen and (max-width: 768px) {
