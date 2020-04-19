@@ -1,0 +1,138 @@
+<section>
+    <div class="container">
+        <div class="steps-form">
+            <div class="steps-row setup-panel">
+                <div class="steps-step">
+                    <a href="#step-9" type="button" class="btn btn-indigo btn-circle current">1</a>
+                    <p>Event Info</p>
+                </div>
+                <div class="steps-step">
+                    <a href="#step-10" type="button" class="btn btn-default btn-circle" disabled="disabled">2</a>
+                    <p>Menu Options</p>
+                </div>
+                <div class="steps-step">
+                    <a href="#step-11" type="button" class="btn btn-default btn-circle" disabled="disabled">3</a>
+                    <p>Summary</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="container contact">
+    <div class="card mb-3">
+        <div class="card-body">
+            <section class="step-section event_info">
+                <form [formGroup]="contactFormGroup">
+                    <div class="form-row">
+                        <div class="col-12">
+                            <h3>{{ template.contact.header }}</h3>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="fName">{{ template.contact.name }}</label>
+                            <input type="text" class="form-control" formControlName="fName"
+                                [class.is-invalid]="contactFormGroup.get('fName').hasError('required') && contactFormGroup.get('fName').touched"
+                                placeholder="{{ template.req }}" id="fName" required>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="lName">{{ template.contact.last }}</label>
+                            <input type="text" class="form-control" formControlName="lName"
+                                [class.is-invalid]="contactFormGroup.get('lName').hasError('required') && contactFormGroup.get('lName').touched"
+                                placeholder="{{ template.req }}" id="lName" required>
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label for="address">{{ template.contact.addr }}</label>
+                            <input type="text" class="form-control" formControlName="addr"
+                                [class.is-invalid]="contactFormGroup.get('addr').hasError('required') && contactFormGroup.get('addr').touched"
+                                placeholder="{{ template.req }}" id="address" required>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="phone">{{ template.contact.phone }}</label>
+                            <input type="text" class="form-control" formControlName="phone"
+                                [class.is-invalid]="contactFormGroup.get('phone').hasError('required') && contactFormGroup.get('phone').touched"
+                                placeholder="{{ template.req }}" placeholder="{{ template.req }}" id="phone">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="email">{{ template.contact.email }}</label>
+                            <input type="text" class="form-control" formControlName="email"
+                                [class.is-invalid]="contactFormGroup.get('email').hasError('required') && contactFormGroup.get('email').touched"
+                                placeholder="{{ template.req }}" placeholder="{{ template.req }}" id="email">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-12">
+                            <h3>{{ template.event.header }}</h3>
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label for="evtAddr">{{ template.event.addr }}</label>
+                            <input type="text" class="form-control" formControlName="evtAddr"
+                                [class.is-invalid]="contactFormGroup.get('evtAddr').hasError('required') && contactFormGroup.get('evtAddr').touched"
+                                placeholder="{{ template.req }}" placeholder="{{ template.event.addr }}" id="evtAddr">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="evtDate">{{ template.event.date }}</label>
+                            <input type="date" class="form-control" formControlName="evtDate"
+                                [class.is-invalid]="contactFormGroup.get('evtDate').hasError('required') && contactFormGroup.get('evtDate').touched"
+                                placeholder="mm/dd/YYYY" name="trip-start" id="evtDate">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="evtTTE">{{ template.event.tte }}</label>
+                            <input type="text" class="form-control" formControlName="evtTTE"
+                                [class.is-invalid]="contactFormGroup.get('evtTTE').hasError('required') && contactFormGroup.get('evtTTE').touched"
+                                placeholder="Time" id="evtTTE">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="evtGC">{{ template.event.gcount }}</label>
+                            <input type="number" class="form-control" formControlName="evtGC"
+                                [class.is-invalid]="contactFormGroup.get('evtGC').hasError('required') && contactFormGroup.get('evtGC').touched"
+                                value="20" id="evtGC">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="evtToE">{{ template.event.type.label }}</label>
+                            <select class="form-control" formControlName="evtToE"
+                                [class.is-invalid]="contactFormGroup.get('evtToE').hasError('required') && contactFormGroup.get('evtToE').touched"
+                                id="evtToE">
+                                <option disabled>{{ template.default }}</option>
+                                <option *ngFor="let item of template.event.type.items"> {{ item.text }}
+                                </option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="evtSS">{{ template.event.style.label }}</label>
+                            <select class="form-control" formControlName="evtSS"
+                                [class.is-invalid]="contactFormGroup.get('evtSS').hasError('required') && contactFormGroup.get('evtSS').touched"
+                                id="evtSS">
+                                <option disabled>{{ template.default }}</option>
+                                <option *ngFor="let item of template.event.style.items"> {{ item.text }}
+                                </option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="evtSC">{{ template.event.setup.label }}</label>
+                            <select class="form-control" formControlName="evtSC"
+                                [class.is-invalid]="contactFormGroup.get('evtSC').hasError('required') && contactFormGroup.get('evtSC').touched"
+                                id="evtSC">
+                                <option disabled>{{ template.default }}</option>
+                                <option *ngFor="let item of template.event.setup.items"> {{ item.text }}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-danger" (click)="next()" [disabled]="contactFormGroup.get('fName').hasError('required') ||
+                                    contactFormGroup.get('lName').hasError('required') ||
+                                    contactFormGroup.get('lName').hasError('required') ||
+                                    contactFormGroup.get('addr').hasError('required') ||
+                                    contactFormGroup.get('phone').hasError('required') ||
+                                    contactFormGroup.get('email').hasError('required') ||
+                                    contactFormGroup.get('evtAddr').hasError('required') || 
+                                    contactFormGroup.get('evtDate').hasError('required') || 
+                                    contactFormGroup.get('evtTTE').hasError('required') || 
+                                    contactFormGroup.get('evtGC').hasError('required') || 
+                                    contactFormGroup.get('evtToE').hasError('required') || 
+                                    contactFormGroup.get('evtSS').hasError('required') || 
+                                    contactFormGroup.get('evtSC').hasError('required')">{{ template.next }}</button>
+                </form>
+            </section>
+        </div>
+    </div>
+</div>

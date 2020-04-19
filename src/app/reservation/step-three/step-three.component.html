@@ -1,0 +1,55 @@
+<section>
+    <div class="container">
+        <div class="steps-form">
+            <div class="steps-row setup-panel">
+                <div class="steps-step">
+                    <a href="#step-9" type="button" class="btn btn-indigo btn-circle done">1</a>
+                    <p>Event Info</p>
+                </div>
+                <div class="steps-step">
+                    <a href="#step-10" type="button" class="btn btn-default btn-circle done" disabled="disabled">2</a>
+                    <p>Menu Options</p>
+                </div>
+                <div class="steps-step">
+                    <a href="#step-11" type="button" class="btn btn-default btn-circle current"
+                        disabled="disabled">3</a>
+                    <p>Summary</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section>
+    <div class="container">
+        <h3>Summary</h3>
+        <div class="card" style="width: 100%">
+            <div class="card-header">
+                Contact Information
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item"> <strong>Name: </strong> {{ pInfo.fName }} {{ pInfo.lName }}</li>
+                <li class="list-group-item"><strong>Address: </strong> {{ pInfo.addr }}</li>
+                <li class="list-group-item"><strong>Phone: </strong>{{ pInfo.phone }}</li>
+                <li class="list-group-item"><strong>Email: </strong>{{ pInfo.email }}</li>
+                <li class="list-group-item"><strong>Total: </strong>{{ total }}</li>
+            </ul>
+            <div class="card-header">
+                Event Information
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item"> <strong>Event Address: </strong> {{ pInfo.evtAddr }}</li>
+                <li class="list-group-item"><strong>Date: </strong> {{ pInfo.evtDate }}</li>
+                <li class="list-group-item"><strong>Guest Count: </strong>{{ pInfo.evtGC }}</li>
+                <li class="list-group-item"><strong>Service Style: </strong>{{ pInfo.evtSS }}</li>
+                <li class="list-group-item"><strong>Type of Service: </strong>{{ pInfo.evtToE }}</li>
+            </ul>
+            <div class="card-header">
+                Cost
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item"> <strong>Total: </strong> {{ total }}</li>
+            </ul>
+        </div>
+        <button type="button" class="btn btn-danger" style="margin-top: 20px" (click)="finish()">{{ template.submit }}</button>
+    </div>
+</section>

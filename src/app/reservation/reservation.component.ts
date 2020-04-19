@@ -1,91 +1,41 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
-import { MessengerService } from '../services/messenger.service';
-import { Subscription } from 'rxjs';
+import { Component, OnInit, OnDestroy, AfterViewInit, ViewChild } from '@angular/core';
+import { StepOneComponent } from './step-one/step-one.component';
+import { StepTwoComponent } from './step-two/step-two.component';
+import { StepThreeComponent } from './step-three/step-three.component';
 @Component({
   selector: 'app-reservation',
   templateUrl: './reservation.component.html',
   styleUrls: ['./reservation.component.scss']
 })
-export class ReservationComponent implements OnInit, OnDestroy {
+export class ReservationComponent implements OnInit, OnDestroy, AfterViewInit {
 
-  contactFormGroup: FormGroup;
-  subscription: Subscription;
-  constructor(
-    private httpClient: HttpClient,
-    private messanger: MessengerService
-  ) { 
-    this.subscription = messanger.$notification.subscribe(res => {
-      this.getContent();
-    });
-  }
-  
-  template = {
-    contact: {
-      header: '',
-      name: '',
-      last: '',
-      addr: '',
-      phone: '',
-      email: ''
-    },
-    event: {
-      header: '',
-      addr:'',
-      date:'',
-      tte: '',
-      gcount: '',
-      type: {
-        label: '',
-        items: []
-      },
-      style: {
-        label: '',
-        items: []
-      },
-      setup: {
-        label: '',
-        items: []
-      },
-      comments: {
-        label: '',
-        placeholder:''
-      }
-    },
-    opt: '',
-    req: '',
-    default: '',
-    submit: ''
+  @ViewChild(StepOneComponent, {static: false}) stepOne: StepOneComponent;
+  @ViewChild(StepTwoComponent, {static: false}) stepTwo: StepOneComponent;
+  @ViewChild(StepThreeComponent, {static: false}) stepThree: StepOneComponent;
+
+  personalInformationObj: any;
+
+  constructor() { }
+
+  activeChild = "step1";
+  total = 0;
+  receiveMessage($event) {
+    this.personalInformationObj = $event.pInfo;
+    this.activeChild = $event.step;
+    this.total = $event.price;
   }
 
+  receiveMessageTwo($event){
+    this.activeChild = $event.step;
+    this.total = $event.price;
+  }
+
+  ngAfterViewInit() {}
+ 
   ngOnInit() {
-    this.getContent();
-  }
-
-  getContent(){
-    this.httpClient.get('assets/reservation_content.json').subscribe( res => {
-      console.log(res);
-      if(localStorage.getItem("language") == "es") {
-        this.template = res['es'].reservation;
-        this.template.opt = res['es'].optional;
-        this.template.req = res['es'].required;
-        this.template.default = res['es'].select_default;
-        this.template.submit = res['es'].submit;
-        console.log(this.template);
-      } else {
-        this.template = res['en'].reservation;
-        this.template.opt = res['en'].optional;
-        this.template.req = res['en'].required;
-        this.template.default = res['en'].select_default;
-        this.template.submit = res['en'].submit;
-        console.log(this.template);
-      }
-    });
   }
 
   ngOnDestroy() {
-    this.subscription.unsubscribe();
   }
 
 }

@@ -12,6 +12,20 @@
         text-decoration: none;
         color: #ffffff;
     }
+    .social {
+        p {
+            &.right {
+                text-align: right;
+            }
+            &.left {
+                text-align: left;
+            }
+            
+        }
+        a {
+            font-size: 20px;
+        }
+    }
 }
 
 .top-spacing {

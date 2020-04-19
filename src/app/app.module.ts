@@ -12,6 +12,9 @@ import { ContactComponent } from './contact/contact.component';
 import { MenuComponent } from './menu/menu.component';
 import { ReservationComponent } from './reservation/reservation.component';
 import { MessengerService } from './services/messenger.service';
+import { StepOneComponent } from './reservation/step-one/step-one.component';
+import { StepTwoComponent } from './reservation/step-two/step-two.component';
+import { StepThreeComponent } from './reservation/step-three/step-three.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +24,10 @@ import { MessengerService } from './services/messenger.service';
     AboutUsComponent,
     ContactComponent,
     MenuComponent,
-    ReservationComponent
+    ReservationComponent,
+    StepOneComponent,
+    StepTwoComponent,
+    StepThreeComponent
   ],
   imports: [
     BrowserModule,

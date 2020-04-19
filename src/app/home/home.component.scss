@@ -11,14 +11,19 @@ section.banner {
         padding: 7rem 2rem;
         h1 {
             font-size: 4rem;
+            font-weight: 600;
         }
         p {
-            font-size: 30px;
+            font-size: 36px;
+            font-weight: 500;
         }
     }
 }
 
 section.our-menu-intro {
+    padding-top: 40px;
+    padding-bottom: 50px;
+    background-color: #e9ecef;
     .jumbotron {
         margin-bottom: 0;
         padding: 0;
@@ -38,6 +43,7 @@ section.red-banner {
         border: 2px solid #ffffff;
         background-color: transparent;
         color: #ffffff;
+        margin-top: 30px;
         &:hover {
             background-color: #ffffff;
             color: #961c00;
@@ -53,7 +59,7 @@ section.red-banner {
 }
 
 .spacing {
-    margin: 20px 0 40px 0;
+    margin: 20px 0 0 0;
     button {
         border: none;
         background-color: #961c00;
@@ -100,16 +106,16 @@ section.gallery {
         width: 100%;
       }
       @media screen and (min-width: 992px) {
-        .special-h-col-2 {
-            height: 289px;
+            .special-h-col-2 {
+                height: 289px;
+            }
+            .special-h-col-3 {
+                height: 300px;
+            }
+            .special-h-col-4 {
+                height: 197px;
+            }
         }
-        .special-h-col-3 {
-            height: 300px;
-        }
-        .special-h-col-4 {
-            height: 197px;
-        }
-    }
 
       
         @media screen and (min-width: 1200px) {
@@ -141,6 +147,15 @@ section.gallery {
       }
 }
 
+@media screen and (min-width: 768px) {
+    .card-container {
+        .card {
+            .card-body {
+                min-height: 300px;
+            }
+        }
+    }
+}
 
 @media screen and (max-width: 768px) {
     section.banner {
@@ -151,7 +166,7 @@ section.gallery {
                 margin-top:36px;
             }
             p {
-                font-size: 18px;
+                font-size: 22px;
             }
         }
     }
@@ -163,7 +178,18 @@ section.gallery {
             }
         }
     }
+
     .info {
         padding: 0 30px;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .card-container {
+        .card {
+            .card-body {
+                min-height: 230px;
+            }
+        }
     }
 }

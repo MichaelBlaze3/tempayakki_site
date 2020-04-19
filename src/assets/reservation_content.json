@@ -127,7 +127,9 @@
         "optional": "Optional",
         "required": "Required",
         "select_default": "-- Select an option --",
-        "submit": "Send Message"
+        "previous": "Previous", 
+        "next": "Next",
+        "submit": "Send"
     },
     "es": {
         "reservation": {
@@ -257,6 +259,8 @@
         "optional": "Opcional",
         "required": "Requerido",
         "select_default": "-- Selecciona una opcion --",
-        "submit": "Enviar Mensaje"
+        "previous": "Anterior",
+        "next": "Siguiente",
+        "submit": "Enviar"
     }
 }

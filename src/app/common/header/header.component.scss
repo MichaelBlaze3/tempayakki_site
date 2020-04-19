@@ -29,7 +29,7 @@
                 text-align: right;
                 p {
                     display: inline;
-                    margin-right: 10px;
+                    margin: 0 15px 0 15px;
                 }
             }
         }
@@ -66,6 +66,9 @@
         color: #ffffff;
         a {
             color: #ffffff;
+            &.mobile-email {
+                font-size: 18px;
+            }
         }
     }
 }
@@ -84,6 +87,11 @@ a.nav-link.active {
                 height: 50px;
             }
         }
+    }
+
+    hr {
+        border: 1px solid #ffffff;
+        width: 100%;
     }
 
     .top-header {
