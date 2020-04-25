@@ -27,6 +27,7 @@ export class StepThreeComponent implements OnInit {
 
   @Input() pInfo: any;
   @Input() total: number;
+  @Input() order: [];
   constructor(
     private httpClient: HttpClient,
     private messanger: MessengerService
@@ -45,7 +46,6 @@ export class StepThreeComponent implements OnInit {
 
   getContent(){
     this.httpClient.get('../assets/reservation_content.json').subscribe( res => {
-      console.log(res);
       if(localStorage.getItem("language") == "es") {
         this.template.previous = res['es'].previous;
         this.template.next = res['es'].next;
@@ -61,7 +61,8 @@ export class StepThreeComponent implements OnInit {
   ngOnInit() {
     this.getContent();
     console.log(this.total);
-    console.log(this.pInfo)
+    console.log(this.pInfo);
+    console.log(this.order);
   }
 
   finish(){

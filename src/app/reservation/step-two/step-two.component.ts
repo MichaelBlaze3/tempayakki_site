@@ -37,6 +37,8 @@ export class StepTwoComponent implements OnInit, OnDestroy {
     });
   }
 
+  finalOrderList = [];
+
   total: number = 0;
   menu: any;
   subscription: Subscription;
@@ -83,16 +85,26 @@ export class StepTwoComponent implements OnInit, OnDestroy {
   calculateAndNext(){
     if(this.pInfo.evtSS == 'Catering') {
       this.menu.forEach(element => {
+        if (element.qty > 0) {
+          this.finalOrderList.push(element);
+        }
         this.total += element.qty * element.price
       });
       console.log(this.total);
     }
     if(this.pInfo.evtSS == 'Buffet') {
       this.menu.main.forEach(element => {
+        if (element.qty > 0) {
+          this.finalOrderList.push(element);
+        }
+        console.log(element);
         this.total += element.qty * element.price
       });
 
       this.menu.kids.forEach(element => {
+        if (element.qty > 0) {
+          this.finalOrderList.push(element);
+        }
         this.total += element.qty * element.price
       });
       console.log(this.total);
@@ -102,7 +114,8 @@ export class StepTwoComponent implements OnInit, OnDestroy {
   next() {
     console.log(this.menu);
     console.log(this.total);
-    this.messageEvent.emit({ price: this.total, step: 'step3' })
+    console.log(this.finalOrderList);
+    this.messageEvent.emit({ price: this.total, step: 'step3', order: this.finalOrderList })
 
   }
 

@@ -13,12 +13,11 @@ export class ReservationComponent implements OnInit, OnDestroy, AfterViewInit {
   @ViewChild(StepTwoComponent, {static: false}) stepTwo: StepOneComponent;
   @ViewChild(StepThreeComponent, {static: false}) stepThree: StepOneComponent;
 
-  personalInformationObj: any;
-
   constructor() { }
-
+  personalInformationObj: any;
   activeChild = "step1";
   total = 0;
+  order = [];
   receiveMessage($event) {
     this.personalInformationObj = $event.pInfo;
     this.activeChild = $event.step;
@@ -28,6 +27,7 @@ export class ReservationComponent implements OnInit, OnDestroy, AfterViewInit {
   receiveMessageTwo($event){
     this.activeChild = $event.step;
     this.total = $event.price;
+    this.order = $event.order;
   }
 
   ngAfterViewInit() {}

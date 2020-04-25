@@ -26,30 +26,97 @@
             <div class="card-header">
                 Contact Information
             </div>
-            <ul class="list-group list-group-flush">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        <p> <strong>Name: </strong> {{ pInfo.fName }} {{ pInfo.lName }} </p>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <p> <strong>Address: </strong> {{ pInfo.addr }}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        <p> <strong>Phone: </strong>{{ pInfo.phone }} </p>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <p><strong>Email: </strong>{{ pInfo.email }}</p>
+                    </div>
+                </div>
+            </div>
+            <!-- <ul class="list-group list-group-flush">
                 <li class="list-group-item"> <strong>Name: </strong> {{ pInfo.fName }} {{ pInfo.lName }}</li>
                 <li class="list-group-item"><strong>Address: </strong> {{ pInfo.addr }}</li>
                 <li class="list-group-item"><strong>Phone: </strong>{{ pInfo.phone }}</li>
                 <li class="list-group-item"><strong>Email: </strong>{{ pInfo.email }}</li>
                 <li class="list-group-item"><strong>Total: </strong>{{ total }}</li>
-            </ul>
+            </ul> -->
             <div class="card-header">
                 Event Information
             </div>
-            <ul class="list-group list-group-flush">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        <p> <strong>Event Address: </strong> {{ pInfo.evtAddr }} </p>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <p> <strong>Date: </strong> {{ pInfo.evtDate }}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        <p><strong>Guest Count: </strong>{{ pInfo.evtGC }}</p>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <p><strong>Service Style: </strong>{{ pInfo.evtSS }}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        <p><strong>Type of Service: </strong>{{ pInfo.evtToE }}</p>
+                    </div>
+                </div>
+            </div>
+            <!-- <ul class="list-group list-group-flush">
                 <li class="list-group-item"> <strong>Event Address: </strong> {{ pInfo.evtAddr }}</li>
                 <li class="list-group-item"><strong>Date: </strong> {{ pInfo.evtDate }}</li>
                 <li class="list-group-item"><strong>Guest Count: </strong>{{ pInfo.evtGC }}</li>
                 <li class="list-group-item"><strong>Service Style: </strong>{{ pInfo.evtSS }}</li>
                 <li class="list-group-item"><strong>Type of Service: </strong>{{ pInfo.evtToE }}</li>
-            </ul>
+            </ul> -->
             <div class="card-header">
                 Cost
             </div>
-            <ul class="list-group list-group-flush">
+            <div class="card-body">
+                <table class="table table-responsive">
+                    <caption>List of users</caption>
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Food</th>
+                            <th scope="col">Qty</th>
+                            <th scope="col">Unit Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of order; let i = index;">
+                            <th scope="row">{{ i + 1 }}</th>
+                            <td>{{ item.name }}</td>
+                            <td>{{ item.qty }}</td>
+                            <td>{{ item.price }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Total</th>
+                            <td colspan="4"> {{ total }}</td>
+                          </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!-- <ul class="list-group list-group-flush">
                 <li class="list-group-item"> <strong>Total: </strong> {{ total }}</li>
-            </ul>
+            </ul> -->
         </div>
-        <button type="button" class="btn btn-danger" style="margin-top: 20px" (click)="finish()">{{ template.submit }}</button>
+        <button type="button" class="btn btn-danger" style="margin-top: 20px"
+            (click)="finish()">{{ template.submit }}</button>
     </div>
 </section>
