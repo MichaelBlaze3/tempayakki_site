@@ -8,36 +8,40 @@
         <div class="col social">
           <div class="row">
             <div class="col-6">
-              <p class="right"><a href="https://www.facebook.com/Teppanyaki-catering-108426080664142/" target="_blank"><i
-                class="fab fa-facebook-f"></i></a> </p>
+              <p class="right"><a href="https://www.facebook.com/Teppanyaki-catering-108426080664142/"
+                  target="_blank"><i class="fab fa-facebook-f"></i></a> </p>
             </div>
             <div class="col-6">
               <p class="left"><a href="https://www.instagram.com/teppanyaki_catering/" target="_blank"><i
-                class="fab fa-instagram-square"></i></a> </p>
+                    class="fab fa-instagram-square"></i></a> </p>
             </div>
           </div>
         </div>
       </div>
-      <div class="col-12 col-md-3 col-lg-3 top-spacing centered">
+      <div class="col-12 col-md-5 col-lg-5 top-spacing centered">
         <h1 class="capitalized">contact us</h1>
         <p><i class="fas fa-phone-alt"></i> <a href="tel:+19513900992"> (951) 390-0992</a></p>
         <p><i class="fas fa-phone-alt"></i> <a href="tel:+19513709195"> (951) 370-9195</a></p>
-        <p><i class="fas fa-envelope"></i><a class="mobile-email" href="mailto:teppanyaki2catering@gmail.com"> teppanyaki2catering@gmail.com</a></p>
+        <p><i class="fas fa-envelope"></i><a class="mobile-email" href="mailto:teppanyaki2catering@gmail.com">
+            teppanyaki2catering@gmail.com</a></p>
       </div>
-      <div class="col-12 col-md-3 col-lg-3 top-spacing centered">
+      <div class="col-12 col-md-4 col-lg-4 top-spacing centered">
         <h1 class="capitalized">services</h1>
-        <p class="pointer">service 1</p>
-        <p class="pointer">service 2</p>
-        <p class="pointer">service 3</p>
+        <a class="nav-link" routerLink="/menu" routerLinkActive="active" (click)="toggleMenu()">Our
+            Menu <span class="sr-only">(current)</span></a>
+        <a class="nav-link" routerLink="/reservation" routerLinkActive="active"
+            (click)="toggleMenu()">Reservation <span class="sr-only">(current)</span></a>
+        <a class="nav-link" routerLink="/contact" routerLinkActive="active"
+            (click)="toggleMenu()">Contact Us <span class="sr-only">(current)</span></a>
       </div>
-      <div class="col-12 col-md-3 col-lg-3 top-spacing centered">
+      <!-- <div class="col-12 col-md-3 col-lg-3 top-spacing centered">
         <h1 class="capitalized">Languages</h1>
         <p class="pointer" (click)="setLanguage('en')"><i class="fas fa-globe-americas"></i>English</p>
         <p class="pointer" (click)="setLanguage('es')"><i class="fas fa-globe-americas"></i> Español</p>
-      </div>
+      </div> -->
     </div>
     <div class="row">
-      <h1 class="top-spacing p-centered legend">@2020 All Rights Reserved</h1>
+      <p class="top-spacing p-centered legend">@2020 All Rights Reserved</p>
     </div>
   </div>
 </footer>

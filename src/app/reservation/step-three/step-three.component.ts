@@ -1,8 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { MessengerService } from 'src/app/services/messenger.service';
+import { EmailService } from 'src/app/services/email.service';
 import { Subscription } from 'rxjs';
-
 export interface PersonalInfo {
   fName: string,
   lName: string,
@@ -28,9 +28,13 @@ export class StepThreeComponent implements OnInit {
   @Input() pInfo: any;
   @Input() total: number;
   @Input() order: [];
+  @Output() messageEvent = new EventEmitter<object>();
+  @Output() resetEvent = new EventEmitter<object>();
+
   constructor(
     private httpClient: HttpClient,
-    private messanger: MessengerService
+    private messanger: MessengerService,
+    private emailService: EmailService
   ) { 
     this.subscription = messanger.$notification.subscribe(res => {
       this.getContent();
@@ -59,6 +63,7 @@ export class StepThreeComponent implements OnInit {
   }
 
   ngOnInit() {
+    window.scrollTo(0, 0);
     this.getContent();
     console.log(this.total);
     console.log(this.pInfo);
@@ -66,7 +71,26 @@ export class StepThreeComponent implements OnInit {
   }
 
   finish(){
-    alert('Information will be submited');
+    let summary = {
+      personalInfo: this.pInfo,
+      order: this.order,
+      total: this.total
+    }
+    console.log(summary);
+    this.emailService.reservationEmail(summary).subscribe( (data:any) => {
+      console.log(data);
+      window.scrollTo(0, 0);
+      if(data.status === 200){
+        this.messageEvent.emit({class: 'success', msg: data.msg});   
+        this.reset('complete');  
+      } else {
+        this.messageEvent.emit({class: 'danger', msg: data.msg});        
+      }
+    });
+  }
+
+  reset(opt){
+    this.resetEvent.emit({ origin: opt });
   }
 
 }

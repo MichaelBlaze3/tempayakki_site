@@ -86,6 +86,9 @@ textarea.form-control {
     }
 }
 
+body {
+    font-family: Copperplate;
+}
 @font-face {
     font-family: Damion-Regular;
     src: url("./assets/fonts/Damion-Regular.ttf");
@@ -99,4 +102,19 @@ textarea.form-control {
 @font-face {
     font-family: YeonSung-Regular;
     src: url("./assets/fonts/YeonSung-Regular.ttf");
+}
+
+@font-face {
+    font-family: Copperplate;
+    src: url("./assets/fonts/OPTICopperplate.otf");
+}
+
+@font-face {
+    font-family: Copperplate-Light;
+    src: url("./assets/fonts/OPTICopperplate-Light.otf");
+}
+
+@font-face {
+    font-family: Copperplate-Bold;
+    src: url("./assets/fonts/OPTICopperplate-Heavy.otf");
 }

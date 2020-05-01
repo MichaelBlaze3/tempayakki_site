@@ -1,14 +1,15 @@
-
+.jumbotron {
+    margin-bottom: 0;
+    font-family: Copperplate;
+}
 section.banner {
     height: 500px;
 
     .jumbo-banner {
-        background-image: url('../../assets/bg_hd.png');
-        background-size: contain;
+        background-image: url(../../assets/gallery/dark_bg.jpg);
         height: 100%;
         color: #ffffff;
         text-align: center;
-        padding: 7rem 2rem;
         h1 {
             font-size: 4rem;
             font-weight: 600;
@@ -16,8 +17,16 @@ section.banner {
         p {
             font-size: 36px;
             font-weight: 500;
+            strong {
+                font-family: Copperplate-Bold;
+                color: #961c00;
+            }
         }
     }
+}
+
+.padding-10 {
+    padding-top: 10%;
 }
 
 section.our-menu-intro {
@@ -30,14 +39,18 @@ section.our-menu-intro {
     }
 }
 
-
 section.red-banner {
     padding-top: 40px;
     padding-bottom: 50px;
     background-color: #961c00;
-    h3 {
+    text-align: center;
+    h1 {
+        font-family: Copperplate-Bold;
+    }
+    h3, h4 {
         text-align: center;
         color: #ffffff;
+        font-family: Copperplate;
     }
     button {
         border: 2px solid #ffffff;
@@ -147,6 +160,27 @@ section.gallery {
       }
 }
 
+@media screen and (max-width: 320px) {
+    section.banner {
+        height: 500px;
+    
+        .jumbo-banner {
+            h1 {
+
+            }
+            p {
+                font-size: 19px !important;
+            }
+        }
+    }
+    h1 {
+        font-size: 32px;
+    }
+    h3 {
+        font-size: 24px;
+    }
+}
+
 @media screen and (min-width: 768px) {
     .card-container {
         .card {
@@ -158,6 +192,12 @@ section.gallery {
 }
 
 @media screen and (max-width: 768px) {
+    .banner {
+        height: 350px !important;
+        .hidden {
+            display: none;
+        }
+    }
     section.banner {
         .jumbo-banner {
             padding: 4rem 2rem;
@@ -182,13 +222,18 @@ section.gallery {
     .info {
         padding: 0 30px;
     }
+    
+    .padding-10 {
+        padding-top: 6% !important;
+    }
+    
 }
 
 @media screen and (min-width: 1200px) {
     .card-container {
         .card {
             .card-body {
-                min-height: 230px;
+                min-height: 280px;
             }
         }
     }

@@ -1,6 +1,12 @@
 
+<div class="container container_alert" *ngIf="alert.active">
+    <div class="alert" [ngClass]="{'alert-success': alert.class == 'success', 'alert-danger': alert.class == 'danger'}" role="alert">
+        {{ alert.msg }}
+    </div>
+</div>
+
 <app-step-one (messageEvent)="receiveMessage($event)" *ngIf="activeChild == 'step1'"></app-step-one>
 
 <app-step-two (messageEvent)="receiveMessageTwo($event)" [pInfo]="personalInformationObj" *ngIf="activeChild == 'step2'"></app-step-two>
 
-<app-step-three (messageEvent)="receiveMessage($event)" [pInfo]="personalInformationObj" [total]="total" [order]="order" *ngIf="activeChild == 'step3'"></app-step-three>
+<app-step-three (messageEvent)="alertStatus($event)" (resetEvent)="resetReservation($event)" [pInfo]="personalInformationObj" [total]="total" [order]="order" *ngIf="activeChild == 'step3'"></app-step-three>

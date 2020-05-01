@@ -3,7 +3,6 @@ import { HttpClient } from '@angular/common/http';
 import { MessengerService } from 'src/app/services/messenger.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
-
 @Component({
   selector: 'app-step-one',
   templateUrl: './step-one.component.html',
@@ -17,11 +16,15 @@ export class StepOneComponent implements OnInit, OnDestroy {
 
   constructor(
     private httpClient: HttpClient,
-    private messanger: MessengerService,
+    private messanger: MessengerService
   ) {
     this.subscription = messanger.$notification.subscribe(res => {
       this.getContent();
     });
+  }
+
+  patterns = {
+    email: "^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
   }
 
   template = {
@@ -65,20 +68,22 @@ export class StepOneComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+    window.scrollTo(0, 0);
     this.getContent();
     this.contactFormGroup = new FormGroup({
-      fName: new FormControl('', Validators.required),
-      lName: new FormControl('', Validators.required),
-      addr: new FormControl ('', Validators.required),
-      phone: new FormControl('', Validators.required),
-      email: new FormControl('', Validators.required),
-      evtAddr: new FormControl('', Validators.required),
+      fName: new FormControl('', [Validators.required, Validators.maxLength(25)]),
+      lName: new FormControl('', [Validators.required, Validators.maxLength(25)]),
+      addr: new FormControl ('', [Validators.required, Validators.maxLength(50)]),
+      phone: new FormControl('', [Validators.required, Validators.maxLength(15)]),
+      email: new FormControl('', [Validators.required, Validators.pattern(this.patterns.email)]),
+      evtAddr: new FormControl('', [Validators.required, Validators.maxLength(50)]),
       evtDate: new FormControl('', Validators.required),
       evtTTE: new FormControl('', Validators.required),
-      evtGC: new FormControl('0', Validators.required),
+      evtGC: new FormControl('', Validators.required),
       evtToE: new FormControl('', Validators.required),
       evtSS: new FormControl('', Validators.required),
-      evtSC: new FormControl('', Validators.required)
+      evtSC: new FormControl('', Validators.required),
+      comments: new FormControl('', Validators.maxLength(150))
     });
   }
 

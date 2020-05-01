@@ -3,15 +3,15 @@
         <div class="steps-form">
             <div class="steps-row setup-panel">
                 <div class="steps-step">
-                    <a href="#step-9" type="button" class="btn btn-indigo btn-circle current">1</a>
+                    <button class="btn btn-indigo btn-circle current">1</button>
                     <p>Event Info</p>
                 </div>
                 <div class="steps-step">
-                    <a href="#step-10" type="button" class="btn btn-default btn-circle" disabled="disabled">2</a>
+                    <button class="btn btn-default btn-circle">2</button>
                     <p>Menu Options</p>
                 </div>
                 <div class="steps-step">
-                    <a href="#step-11" type="button" class="btn btn-default btn-circle" disabled="disabled">3</a>
+                    <button class="btn btn-default btn-circle">3</button>
                     <p>Summary</p>
                 </div>
             </div>
@@ -27,36 +27,50 @@
                     <div class="form-row">
                         <div class="col-12">
                             <h3>{{ template.contact.header }}</h3>
+                            <span>* Required</span>
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="fName">{{ template.contact.name }}</label>
+                            <label for="fName">{{ template.contact.name }} * </label>
                             <input type="text" class="form-control" formControlName="fName"
-                                [class.is-invalid]="contactFormGroup.get('fName').hasError('required') && contactFormGroup.get('fName').touched"
-                                placeholder="{{ template.req }}" id="fName" required>
+                                [class.is-invalid]="contactFormGroup.get('fName').hasError('required') && contactFormGroup.get('fName').touched" id="fName" placeholder="Max length of 25 characters" maxlength="25" required>
+                                <span *ngIf="contactFormGroup.get('fName').hasError('required') && contactFormGroup.get('fName').touched"
+                                class="invalid-feedback">Required</span>
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="lName">{{ template.contact.last }}</label>
+                            <label for="lName">{{ template.contact.last }} * </label>
                             <input type="text" class="form-control" formControlName="lName"
                                 [class.is-invalid]="contactFormGroup.get('lName').hasError('required') && contactFormGroup.get('lName').touched"
-                                placeholder="{{ template.req }}" id="lName" required>
+                                placeholder="Max length of 25 characters" maxlength="25" id="lName" required>
+                                <span *ngIf="contactFormGroup.get('lName').hasError('required') && contactFormGroup.get('lName').touched"
+                                class="invalid-feedback">Required</span>
                         </div>
                         <div class="form-group col-md-12">
-                            <label for="address">{{ template.contact.addr }}</label>
+                            <label for="address">{{ template.contact.addr }} * </label>
                             <input type="text" class="form-control" formControlName="addr"
                                 [class.is-invalid]="contactFormGroup.get('addr').hasError('required') && contactFormGroup.get('addr').touched"
-                                placeholder="{{ template.req }}" id="address" required>
+                                placeholder="Max length of 50 characters" maxlength="50" id="address" required>
+                                <span *ngIf="contactFormGroup.get('addr').hasError('required') && contactFormGroup.get('addr').touched"
+                                class="invalid-feedback">Required</span>
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="phone">{{ template.contact.phone }}</label>
-                            <input type="text" class="form-control" formControlName="phone"
+                            <label for="phone">{{ template.contact.phone }} * </label>
+                            <input type="tel" class="form-control" formControlName="phone"
                                 [class.is-invalid]="contactFormGroup.get('phone').hasError('required') && contactFormGroup.get('phone').touched"
                                 placeholder="{{ template.req }}" placeholder="{{ template.req }}" id="phone">
+                                <span *ngIf="contactFormGroup.get('phone').hasError('required') && contactFormGroup.get('phone').touched"
+                                class="invalid-feedback">Required</span>
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="email">{{ template.contact.email }}</label>
-                            <input type="text" class="form-control" formControlName="email"
-                                [class.is-invalid]="contactFormGroup.get('email').hasError('required') && contactFormGroup.get('email').touched"
+                            <label for="email">{{ template.contact.email }} * </label>
+                            <input type="email" class="form-control" formControlName="email"
+                                [class.is-invalid]="(contactFormGroup.get('email').hasError('required') || contactFormGroup.get('email').hasError('pattern')) && contactFormGroup.get('email').touched"
                                 placeholder="{{ template.req }}" placeholder="{{ template.req }}" id="email">
+                            <span
+                                *ngIf="contactFormGroup.get('email').hasError('required') && contactFormGroup.get('email').touched"
+                                class="invalid-feedback">Required</span>
+                            <span
+                                *ngIf="contactFormGroup.get('email').hasError('pattern') && contactFormGroup.get('email').touched"
+                                class="invalid-feedback">Enter a valid email</span>
                         </div>
                     </div>
                     <div class="form-row">
@@ -64,31 +78,39 @@
                             <h3>{{ template.event.header }}</h3>
                         </div>
                         <div class="form-group col-md-12">
-                            <label for="evtAddr">{{ template.event.addr }}</label>
+                            <label for="evtAddr">{{ template.event.addr }} * </label>
                             <input type="text" class="form-control" formControlName="evtAddr"
                                 [class.is-invalid]="contactFormGroup.get('evtAddr').hasError('required') && contactFormGroup.get('evtAddr').touched"
                                 placeholder="{{ template.req }}" placeholder="{{ template.event.addr }}" id="evtAddr">
+                                <span *ngIf="contactFormGroup.get('phone').hasError('required') && contactFormGroup.get('phone').touched"
+                                class="invalid-feedback">Required</span>
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="evtDate">{{ template.event.date }}</label>
+                            <label for="evtDate">{{ template.event.date }} * </label>
                             <input type="date" class="form-control" formControlName="evtDate"
                                 [class.is-invalid]="contactFormGroup.get('evtDate').hasError('required') && contactFormGroup.get('evtDate').touched"
                                 placeholder="mm/dd/YYYY" name="trip-start" id="evtDate">
+                                <span *ngIf="contactFormGroup.get('evtDate').hasError('required') && contactFormGroup.get('evtDate').touched"
+                                class="invalid-feedback">Required</span>
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="evtTTE">{{ template.event.tte }}</label>
-                            <input type="text" class="form-control" formControlName="evtTTE"
+                            <label for="evtTTE">{{ template.event.tte }} * </label>
+                            <input type="time" class="form-control" formControlName="evtTTE"
                                 [class.is-invalid]="contactFormGroup.get('evtTTE').hasError('required') && contactFormGroup.get('evtTTE').touched"
-                                placeholder="Time" id="evtTTE">
+                                placeholder="Example: 06:30 PM" id="evtTTE">
+                                <span *ngIf="contactFormGroup.get('evtTTE').hasError('required') && contactFormGroup.get('evtTTE').touched"
+                                class="invalid-feedback">Required</span>
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="evtGC">{{ template.event.gcount }}</label>
+                            <label for="evtGC">{{ template.event.gcount }} * </label>
                             <input type="number" class="form-control" formControlName="evtGC"
                                 [class.is-invalid]="contactFormGroup.get('evtGC').hasError('required') && contactFormGroup.get('evtGC').touched"
-                                value="20" id="evtGC">
+                                value="20" min="0" id="evtGC">
+                                <span *ngIf="contactFormGroup.get('evtGC').hasError('required') && contactFormGroup.get('evtGC').touched"
+                                class="invalid-feedback">Required</span>
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="evtToE">{{ template.event.type.label }}</label>
+                            <label for="evtToE">{{ template.event.type.label }} * </label>
                             <select class="form-control" formControlName="evtToE"
                                 [class.is-invalid]="contactFormGroup.get('evtToE').hasError('required') && contactFormGroup.get('evtToE').touched"
                                 id="evtToE">
@@ -96,9 +118,11 @@
                                 <option *ngFor="let item of template.event.type.items"> {{ item.text }}
                                 </option>
                             </select>
+                            <span *ngIf="contactFormGroup.get('evtToE').hasError('required') && contactFormGroup.get('evtToE').touched"
+                            class="invalid-feedback">Required</span>
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="evtSS">{{ template.event.style.label }}</label>
+                            <label for="evtSS">{{ template.event.style.label }} * </label>
                             <select class="form-control" formControlName="evtSS"
                                 [class.is-invalid]="contactFormGroup.get('evtSS').hasError('required') && contactFormGroup.get('evtSS').touched"
                                 id="evtSS">
@@ -106,9 +130,11 @@
                                 <option *ngFor="let item of template.event.style.items"> {{ item.text }}
                                 </option>
                             </select>
+                            <span *ngIf="contactFormGroup.get('evtSS').hasError('required') && contactFormGroup.get('evtSS').touched"
+                            class="invalid-feedback">Required</span>
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="evtSC">{{ template.event.setup.label }}</label>
+                            <label for="evtSC">{{ template.event.setup.label }} * </label>
                             <select class="form-control" formControlName="evtSC"
                                 [class.is-invalid]="contactFormGroup.get('evtSC').hasError('required') && contactFormGroup.get('evtSC').touched"
                                 id="evtSC">
@@ -116,7 +142,13 @@
                                 <option *ngFor="let item of template.event.setup.items"> {{ item.text }}
                                 </option>
                             </select>
+                            <span *ngIf="contactFormGroup.get('evtSC').hasError('required') && contactFormGroup.get('evtSC').touched"
+                            class="invalid-feedback">Required</span>
                         </div>
+                        <div class="form-group col-12">
+                            <label for="comments">Comments</label>
+                            <textarea class="form-control" formControlName="comments" placeholder="" id="comments" rows="3"></textarea>
+                          </div>
                     </div>
                     <button type="button" class="btn btn-danger" (click)="next()" [disabled]="contactFormGroup.get('fName').hasError('required') ||
                                     contactFormGroup.get('lName').hasError('required') ||

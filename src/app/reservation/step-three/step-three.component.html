@@ -3,16 +3,15 @@
         <div class="steps-form">
             <div class="steps-row setup-panel">
                 <div class="steps-step">
-                    <a href="#step-9" type="button" class="btn btn-indigo btn-circle done">1</a>
+                    <button class="btn btn-indigo btn-circle done">1</button>
                     <p>Event Info</p>
                 </div>
                 <div class="steps-step">
-                    <a href="#step-10" type="button" class="btn btn-default btn-circle done" disabled="disabled">2</a>
+                    <button class="btn btn-default btn-circle done">2</button>
                     <p>Menu Options</p>
                 </div>
                 <div class="steps-step">
-                    <a href="#step-11" type="button" class="btn btn-default btn-circle current"
-                        disabled="disabled">3</a>
+                    <button class="btn btn-default btn-circle current">3</button>
                     <p>Summary</p>
                 </div>
             </div>
@@ -44,13 +43,7 @@
                     </div>
                 </div>
             </div>
-            <!-- <ul class="list-group list-group-flush">
-                <li class="list-group-item"> <strong>Name: </strong> {{ pInfo.fName }} {{ pInfo.lName }}</li>
-                <li class="list-group-item"><strong>Address: </strong> {{ pInfo.addr }}</li>
-                <li class="list-group-item"><strong>Phone: </strong>{{ pInfo.phone }}</li>
-                <li class="list-group-item"><strong>Email: </strong>{{ pInfo.email }}</li>
-                <li class="list-group-item"><strong>Total: </strong>{{ total }}</li>
-            </ul> -->
+
             <div class="card-header">
                 Event Information
             </div>
@@ -75,21 +68,16 @@
                     <div class="col-12 col-md-6">
                         <p><strong>Type of Service: </strong>{{ pInfo.evtToE }}</p>
                     </div>
+                    <div class="col-12 col-md-6">
+                        <p><strong>Time To Eat: </strong>{{ pInfo.evtTTE }}</p>
+                    </div>
                 </div>
             </div>
-            <!-- <ul class="list-group list-group-flush">
-                <li class="list-group-item"> <strong>Event Address: </strong> {{ pInfo.evtAddr }}</li>
-                <li class="list-group-item"><strong>Date: </strong> {{ pInfo.evtDate }}</li>
-                <li class="list-group-item"><strong>Guest Count: </strong>{{ pInfo.evtGC }}</li>
-                <li class="list-group-item"><strong>Service Style: </strong>{{ pInfo.evtSS }}</li>
-                <li class="list-group-item"><strong>Type of Service: </strong>{{ pInfo.evtToE }}</li>
-            </ul> -->
             <div class="card-header">
                 Cost
             </div>
             <div class="card-body">
-                <table class="table table-responsive">
-                    <caption>List of users</caption>
+                <table class="table table-responsive table-borderless">
                     <thead>
                         <tr>
                             <th scope="col">#</th>
@@ -103,20 +91,19 @@
                             <th scope="row">{{ i + 1 }}</th>
                             <td>{{ item.name }}</td>
                             <td>{{ item.qty }}</td>
-                            <td>{{ item.price }}</td>
+                            <td class="price_right">$ {{ item.price }}</td>
                         </tr>
                         <tr>
                             <th scope="row">Total</th>
-                            <td colspan="4"> {{ total }}</td>
+                            <td colspan="4" class="price_right"> ${{ total }}</td>
                           </tr>
                     </tbody>
                 </table>
+                <button type="button" class="btn btn-danger"
+                (click)="finish()">Submit</button>
+                <button type="button" class="btn btn-danger"
+                (click)="reset('cancel')">Cancel</button>
             </div>
-            <!-- <ul class="list-group list-group-flush">
-                <li class="list-group-item"> <strong>Total: </strong> {{ total }}</li>
-            </ul> -->
         </div>
-        <button type="button" class="btn btn-danger" style="margin-top: 20px"
-            (click)="finish()">{{ template.submit }}</button>
     </div>
 </section>
