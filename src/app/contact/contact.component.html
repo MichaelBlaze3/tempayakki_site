@@ -41,22 +41,23 @@
                 <div class="col-md-7">
                     <div class="card-body">
                         <h5 class="card-title top-division">Have a question? Let us know</h5>
+                        <span>* Required</span>
                         <form [formGroup]="supportFormGroup" (submit)="submitMessage(supportFormGroup)">
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <label for="fName">First Name</label>
-                                    <input type="text" class="form-control" formControlName="fName"
+                                    <label for="fName">First Name *</label>
+                                    <input type="text" class="form-control" formControlName="fName" placeholder="Required"
                                         [class.is-invalid]="supportFormGroup.get('fName').hasError('required') && supportFormGroup.get('fName').touched"
-                                        id="fName">
+                                        id="fName" maxlength="25" required>
                                     <span
                                         *ngIf="supportFormGroup.get('fName').invalid && supportFormGroup.get('fName').touched"
                                         class="invalid-feedback">Required</span>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="lName">Last Name</label>
-                                    <input type="text" class="form-control" formControlName="lName"
+                                    <label for="lName">Last Name *</label>
+                                    <input type="text" class="form-control" formControlName="lName" placeholder="Required"
                                         [class.is-invalid]="supportFormGroup.get('lName').hasError('required') && supportFormGroup.get('lName').touched"
-                                        id="lName">
+                                        id="lName" maxlength="25" required>
                                     <span
                                         *ngIf="supportFormGroup.get('lName').invalid && supportFormGroup.get('lName').touched"
                                         class="invalid-feedback">Required</span>
@@ -64,8 +65,8 @@
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-12">
-                                    <label for="email">Email</label>
-                                    <input type="text" class="form-control" formControlName="email"
+                                    <label for="email">Email *</label>
+                                    <input type="text" class="form-control" formControlName="email" placeholder="example@email.com"
                                         [class.is-invalid]="(supportFormGroup.get('email').hasError('required') || supportFormGroup.get('email').hasError('pattern')) && supportFormGroup.get('email').touched"
                                         id="email">
                                     <span
@@ -77,8 +78,8 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="comment">Comment</label>
-                                <textarea class="form-control" formControlName="comment"
+                                <label for="comment">Comment *</label>
+                                <textarea class="form-control" formControlName="comment" placeholder="Share your comments, suggestions or questions"
                                     [class.is-invalid]="supportFormGroup.get('comment').hasError('required') && supportFormGroup.get('comment').touched"
                                     id="comment" rows="3"></textarea>
                                 <span
