@@ -7,7 +7,7 @@ import { EmailService } from '../services/email.service';
   styleUrls: ['./contact.component.scss']
 })
 export class ContactComponent implements OnInit {
-
+  loading = false;
   supportFormGroup: FormGroup;
   constructor(
     private emailService: EmailService
@@ -33,24 +33,29 @@ export class ContactComponent implements OnInit {
   }
 
   submitMessage(fMessage):void {
-    console.log(fMessage.value);
+    window.scrollTo(0, 0);
+    this.loading = true;
+    document.body.style.overflow = "hidden";
     this.emailService.supportEmail(fMessage.value).subscribe((data:any) => {
-      console.log(data);
       if(data.status === 200){
         this.alert.class = 'success';
         this.alert.msg = data.msg;
         this.alert.active = true;
+        this.loading = false;
+        document.body.style.overflow = "auto";
         setTimeout(()=> {
           this.alert.active = false;
-        }, 5000);
+        }, 3000);
         this.supportFormGroup.reset();   
       } else {   
         this.alert.class = 'danger';
         this.alert.msg = data.msg;       
         this.alert.active = true;
+        this.loading = false;
+        document.body.style.overflow = "auto";
         setTimeout(()=> {
           this.alert.active = false;
-        }, 5000);
+        }, 3000);
       }
     });
   }

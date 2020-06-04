@@ -67,6 +67,8 @@ export class StepOneComponent implements OnInit, OnDestroy {
     submit: ''
   }
 
+  minGuest = 0;
+  zipValue = 0;
   ngOnInit() {
     window.scrollTo(0, 0);
     this.getContent();
@@ -74,12 +76,17 @@ export class StepOneComponent implements OnInit, OnDestroy {
       fName: new FormControl('', [Validators.required, Validators.maxLength(25)]),
       lName: new FormControl('', [Validators.required, Validators.maxLength(25)]),
       addr: new FormControl ('', [Validators.required, Validators.maxLength(50)]),
+      city: new FormControl('', [Validators.required, Validators.maxLength(50)]),
+      zip: new FormControl('', [Validators.required, Validators.maxLength(15)]),
       phone: new FormControl('', [Validators.required, Validators.maxLength(15)]),
       email: new FormControl('', [Validators.required, Validators.pattern(this.patterns.email)]),
+      
       evtAddr: new FormControl('', [Validators.required, Validators.maxLength(50)]),
+      evtCity: new FormControl('', [Validators.required, Validators.maxLength(50)]),
+      evtZC: new FormControl('', [Validators.required]),
       evtDate: new FormControl('', Validators.required),
       evtTTE: new FormControl('', Validators.required),
-      evtGC: new FormControl('', Validators.required),
+      evtGC: new FormControl(this.minGuest, Validators.required),
       evtToE: new FormControl('', Validators.required),
       evtSS: new FormControl('', Validators.required),
       evtSC: new FormControl('', Validators.required),
@@ -112,6 +119,35 @@ export class StepOneComponent implements OnInit, OnDestroy {
 
   next() {
     this.messageEvent.emit({pInfo: this.contactFormGroup.value, step: 'step2'});
+  }
+
+  updateGuestCount(sstype){
+    if(sstype == 'Catering'){
+      this.minGuest = 12;
+      this.contactFormGroup.get('evtGC').setValue(12);
+    }
+    if(sstype == 'Buffet'){
+      this.minGuest = 50;
+      this.contactFormGroup.get('evtGC').setValue(50);
+    }
+  }
+
+  validateGC(evt, val) {
+    if(evt == 'Buffet'){
+      if(val < 50){
+        this.contactFormGroup.get('evtGC').setValue(50);
+        this.minGuest = 50;
+      } else {
+        this.minGuest = val;
+      }
+    }
+    if(evt == 'Catering') {
+      if(val < 10){
+        this.contactFormGroup.get('evtGC').setValue(12);
+      } else {
+        this.minGuest = val;
+      }
+    }
   }
 
   ngOnDestroy(){

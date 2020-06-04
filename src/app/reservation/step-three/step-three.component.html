@@ -1,4 +1,7 @@
-<section>
+<!-- <div class="loader-container" *ngIf="loading">
+    <div class="loader"></div>
+</div> -->
+<section class="origin">
     <div class="container">
         <div class="steps-form">
             <div class="steps-row setup-panel">
@@ -17,8 +20,7 @@
             </div>
         </div>
     </div>
-</section>
-<section>
+
     <div class="container">
         <h3>Summary</h3>
         <div class="card" style="width: 100%">
@@ -32,6 +34,14 @@
                     </div>
                     <div class="col-12 col-md-6">
                         <p> <strong>Address: </strong> {{ pInfo.addr }}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        <p> <strong>City: </strong>{{ pInfo.city }} </p>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <p><strong>Email: </strong>{{ pInfo.zip }}</p>
                     </div>
                 </div>
                 <div class="row">
@@ -52,15 +62,21 @@
                     <div class="col-12 col-md-6">
                         <p> <strong>Event Address: </strong> {{ pInfo.evtAddr }} </p>
                     </div>
-                    <div class="col-12 col-md-6">
-                        <p> <strong>Date: </strong> {{ pInfo.evtDate }}</p>
+                    <div class="col-12 col-md-3">
+                        <p> <strong>Zip Code: </strong>{{ pInfo.evtZC }} </p>
+                    </div>
+                    <div class="col-12 col-md-3">
+                        <p> <strong>City: </strong> {{ pInfo.evtCity }}</p>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-12 col-md-6">
+                    <div class="col-12 col-md-4">
+                        <p><strong>Date: </strong>{{ pInfo.evtDate }}</p>
+                    </div>
+                    <div class="col-12 col-md-4">
                         <p><strong>Guest Count: </strong>{{ pInfo.evtGC }}</p>
                     </div>
-                    <div class="col-12 col-md-6">
+                    <div class="col-12 col-md-4">
                         <p><strong>Service Style: </strong>{{ pInfo.evtSS }}</p>
                     </div>
                 </div>
@@ -81,7 +97,7 @@
                     <thead>
                         <tr>
                             <th scope="col">#</th>
-                            <th scope="col">Food</th>
+                            <th scope="col">Food/Others</th>
                             <th scope="col">Qty</th>
                             <th scope="col">Unit Price</th>
                         </tr>
@@ -94,15 +110,32 @@
                             <td class="price_right">$ {{ item.price }}</td>
                         </tr>
                         <tr>
+                            <th scope="row">Subtotal</th>
+                            <td colspan="4" class="price_right"> ${{ expenses.subtotal | number : '1.2-2'  }}</td>
+                        </tr>
+                        <tr *ngIf="summary.personalInfo.evtSS == 'Buffet'">
+                            <th scope="row">Equipment and Labort - 10%</th>
+                            <td colspan="4" class="price_right"> ${{ expenses.eq | number : '1.2-2'  }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Tax - 8.75%</th>
+                            <td colspan="4" class="price_right"> ${{ expenses.tax | number : '1.2-2'  }}</td>
+                        </tr>
+                        <tr>
                             <th scope="row">Total</th>
-                            <td colspan="4" class="price_right"> ${{ total }}</td>
-                          </tr>
+                            <td colspan="4" class="price_right"> ${{ expenses.total | number : '1.2-2'  }}</td>
+                        </tr>
                     </tbody>
                 </table>
-                <button type="button" class="btn btn-danger"
-                (click)="finish()">Submit</button>
-                <button type="button" class="btn btn-danger"
-                (click)="reset('cancel')">Cancel</button>
+                <div class="form-group form-check">
+                    <input type="checkbox" class="form-check-input" [checked]="checked" id="exampleCheck1"
+                        (change)="checked = !checked">
+                    <label class="form-check-label" for="exampleCheck1">I have review the <a
+                            href="../../assets/docs/Policy.pdf" target="_blank">Policy Document</a>. I am ready to
+                        submit my information for review. </label>
+                </div>
+                <button type="button" class="btn btn-danger" [disabled]="!checked || loading" (click)="finish()">Submit</button>
+                <button type="button" class="btn btn-danger" (click)="reset('cancel')">Cancel</button>
             </div>
         </div>
     </div>

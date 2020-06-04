@@ -40,27 +40,17 @@ export class ReservationComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   alertStatus($event) {
-    console.log($event);
     this.alert.class = $event.class;
     this.alert.msg = $event.msg;
     this.alert.active = true;
     setTimeout(() => {
       this.alert.active = false;
-    }, 5000);
+    }, 3000);
 
   }
 
   resetReservation($event) {
-    console.log($event);
-    if ($event.origin === 'cancel') {
-      this.activeChild = 'step1';
-    }
-    if($event.origin === 'complete') {
-      setTimeout(()=> {
-        this.activeChild = 'step1';
-      }, 5000);
-    }
-    console.log("Reseting reservation");
+    this.activeChild = 'step1';
   }
 
   ngAfterViewInit() { }

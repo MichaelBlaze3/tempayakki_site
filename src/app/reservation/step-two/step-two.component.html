@@ -1,9 +1,9 @@
-<section>
+<section class="origin">
     <div class="container">
         <div class="steps-form">
             <div class="steps-row setup-panel">
                 <div class="steps-step">
-                    <button class="btn btn-indigo btn-circle done" >1</button>
+                    <button class="btn btn-indigo btn-circle done">1</button>
                     <p>Event Info</p>
                 </div>
                 <div class="steps-step">
@@ -17,62 +17,108 @@
             </div>
         </div>
     </div>
-</section>
-<section class="container">
-    <div class="card mb-3">
-        <div class="card-body">
-            
-            <div *ngIf="pInfo.evtSS == 'Catering' && available">
-                <h3>Catering</h3>
-                <div class="row" *ngFor="let item of menuListCatering.catering">
-                    <div class="col-8 col-md-10">
-                        <p>{{ item.name }} - <strong>$ {{item.price}}</strong></p>
-                    </div>
-                    <div class="col-4 col-md-2">
-                        <input type="number" class="form-control" [value] = "item.qty" (input)="item.qty = $event.target.value">
-                    </div>
-                </div>
-                <h3>Sides</h3>
-                <div class="row" *ngFor="let item of menuListCatering.sides">
-                    <div class="col-8 col-md-10">
-                        <p>{{ item.name }} - <strong>$ {{item.price}}</strong></p>
-                    </div>
-                    <div class="col-4 col-md-2">
-                        <input type="number" class="form-control" [value] = "item.qty" (input)="item.qty = $event.target.value">
-                    </div>
-                </div>
-            </div>
 
-            <div *ngIf="pInfo.evtSS == 'Buffet'">
-                <h3>Main Buffet</h3>
-                <div class="row" *ngFor="let item of menu.main">
-                    <div class="col-8 col-md-10">
-                        <p>{{ item.name }} - <strong>$ {{item.price}}</strong> </p>
+    <div class="container">
+        <div class="card mb-3">
+            <div class="card-body">
+
+                <div *ngIf="pInfo.evtSS == 'Catering' && available">
+                    <h3>Catering</h3>
+                    <div class="row" *ngFor="let item of menuListCatering.catering">
+                        <div class="col-8 col-md-10">
+                            <p>{{ item.name }} - <strong>$ {{item.price}}</strong></p>
+                        </div>
+                        <div class="col-4 col-md-2">
+                            <input type="number" class="form-control" [value]="item.qty" min="0"
+                                (input)="item.qty = $event.target.value" (change)="calculateAndNext()">
+                        </div>
                     </div>
-                    <div class="col-4 col-md-2">
-                        <input type="number" class="form-control" [value] = "item.qty" (input)="item.qty = $event.target.value">
+                    <h3>Catering for Kids</h3>
+                    <div class="row" *ngFor="let item of menuListCatering.catering_kids">
+                        <div class="col-8 col-md-10">
+                            <p>{{ item.name }} - <strong>$ {{item.price}}</strong></p>
+                        </div>
+                        <div class="col-4 col-md-2">
+                            <input type="number" class="form-control" [value]="item.qty" min="0"
+                                (input)="item.qty = $event.target.value" (change)="calculateAndNext()">
+                        </div>
+                    </div>
+                    <h3>Sides</h3>
+                    <div class="row" *ngFor="let item of menuListCatering.sides">
+                        <div class="col-8 col-md-10">
+                            <p>{{ item.name }} - <strong>$ {{item.price}}</strong></p>
+                        </div>
+                        <div class="col-4 col-md-2">
+                            <input type="number" class="form-control" [value]="item.qty" min="0"
+                                (input)="item.qty = $event.target.value" (change)="calculateAndNext()">
+                        </div>
+                    </div>
+                    <h3>Others</h3>
+                    <div class="row" *ngFor="let item of menuListCatering.extras">
+                        <div class="col-8 col-md-10">
+                            <p>{{ item.name }} - <strong>$ {{item.price}}</strong></p>
+                        </div>
+                        <div class="col-4 col-md-2">
+                            <input type="number" class="form-control" [value]="item.qty" min="0"
+                                (input)="item.qty = $event.target.value" (change)="calculateAndNext()">
+                        </div>
                     </div>
                 </div>
-                <h3>Kids Buffet</h3>
-                <div class="row" *ngFor="let item of menu.kids">
-                    <div class="col-8 col-md-10">
-                        <p>{{ item.name }} - <strong>$ {{item.price}}</strong></p>
+
+                <div *ngIf="pInfo.evtSS == 'Buffet'">
+                    <h3>Main Buffet</h3>
+                    <div class="row" *ngFor="let item of menu.main">
+                        <div class="col-8 col-md-10">
+                            <p>{{ item.name }} - <strong>$ {{item.price}}</strong> </p>
+                        </div>
+                        <div class="col-4 col-md-2">
+                            <input type="number" class="form-control" [value]="item.qty" min="0"
+                                (input)="item.qty = $event.target.value" (change)="calculateAndNext()">
+                        </div>
                     </div>
-                    <div class="col-4 col-md-2">
-                        <input type="number" class="form-control" [value] = "item.qty" (input)="item.qty = $event.target.value">
+                    <div class="row" *ngFor="let item of menu.kids">
+                        <div class="col-8 col-md-10">
+                            <p>{{ item.name }} - <strong>$ {{item.price}}</strong></p>
+                        </div>
+                        <div class="col-4 col-md-2">
+                            <input type="number" class="form-control" [value]="item.qty" min="0"
+                                (input)="item.qty = $event.target.value" (change)="calculateAndNext()">
+                        </div>
+                    </div>
+                    <h3>Sides</h3>
+                    <div class="row" *ngFor="let item of menu.sides">
+                        <div class="col-8 col-md-10">
+                            <p>{{ item.name }} - <strong>$ {{item.price}}</strong></p>
+                        </div>
+                        <div class="col-4 col-md-2">
+                            <input type="number" class="form-control" [value]="item.qty" min="0"
+                                (input)="item.qty = $event.target.value" (change)="calculateAndNext()">
+                        </div>
+                    </div>
+                    <h3>Extras</h3>
+                    <div class="row" *ngFor="let item of menu.extras">
+                        <div class="col-8 col-md-10">
+                            <p>{{ item.name }} - <strong>$ {{item.price}}</strong></p>
+                        </div>
+                        <div class="col-4 col-md-2">
+                            <input type="number" class="form-control" [value]="item.qty" min="0"
+                                (input)="item.qty = $event.target.value" (change)="calculateAndNext()">
+                        </div>
+                    </div>
+
+                    <h3>Others</h3>
+                    <div class="row" *ngFor="let item of menu.others">
+                        <div class="col-8 col-md-10">
+                            <p>{{ item.name }} - <strong>$ {{item.price}}</strong></p>
+                        </div>
+                        <div class="col-4 col-md-2">
+                            <input type="number" class="form-control" [value]="item.qty" min="0"
+                                (input)="item.qty = $event.target.value" (change)="calculateAndNext()">
+                        </div>
                     </div>
                 </div>
-                <h3>Sides</h3>
-                <div class="row" *ngFor="let item of menu.sides">
-                    <div class="col-8 col-md-10">
-                        <p>{{ item.name }} - <strong>$ {{item.price}}</strong></p>
-                    </div>
-                    <div class="col-4 col-md-2">
-                        <input type="number" class="form-control" [value] = "item.qty" (input)="item.qty = $event.target.value">
-                    </div>
-                </div>
+                <button type="button" class="btn btn-danger" [disabled]="total === 0" (click)="next()">{{ template.next }}</button>
             </div>
-            <button type="button" class="btn btn-danger" (click)="calculateAndNext()">{{ template.next }}</button>
         </div>
     </div>
 </section>

@@ -15,6 +15,7 @@ import { MessengerService } from './services/messenger.service';
 import { StepOneComponent } from './reservation/step-one/step-one.component';
 import { StepTwoComponent } from './reservation/step-two/step-two.component';
 import { StepThreeComponent } from './reservation/step-three/step-three.component';
+import { PhoneMaskDirective } from './phone-mask.directive';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +28,8 @@ import { StepThreeComponent } from './reservation/step-three/step-three.componen
     ReservationComponent,
     StepOneComponent,
     StepTwoComponent,
-    StepThreeComponent
+    StepThreeComponent,
+    PhoneMaskDirective
   ],
   imports: [
     BrowserModule,
@@ -35,6 +37,7 @@ import { StepThreeComponent } from './reservation/step-three/step-three.componen
     ReactiveFormsModule,
     HttpClientModule
   ],
+  exports: [ PhoneMaskDirective ],
   providers: [ MessengerService ],
   bootstrap: [AppComponent]
 })

@@ -1,4 +1,4 @@
-<section>
+<section class="origin">
     <div class="container">
         <div class="steps-form">
             <div class="steps-row setup-panel">
@@ -17,140 +17,214 @@
             </div>
         </div>
     </div>
-</section>
 
-<div class="container contact">
-    <div class="card mb-3">
-        <div class="card-body">
-            <section class="step-section event_info">
-                <form [formGroup]="contactFormGroup">
-                    <div class="form-row">
-                        <div class="col-12">
-                            <h3>{{ template.contact.header }}</h3>
-                            <span>* Required</span>
+    <div class="container contact">
+        <div class="card mb-3">
+            <div class="card-body">
+                <section class="step-section event_info">
+                    <form [formGroup]="contactFormGroup">
+                        <div class="form-row">
+                            <div class="col-12">
+                                <h3>{{ template.contact.header }}</h3>
+                                <span>* Required</span>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="fName">{{ template.contact.name }} * </label>
+                                <input type="text" class="form-control" formControlName="fName"
+                                    [class.is-invalid]="contactFormGroup.get('fName').hasError('required') && contactFormGroup.get('fName').touched"
+                                    id="fName" placeholder="Max length of 25 characters" maxlength="25" required>
+                                <span
+                                    *ngIf="contactFormGroup.get('fName').hasError('required') && contactFormGroup.get('fName').touched"
+                                    class="invalid-feedback">Required</span>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="lName">{{ template.contact.last }} * </label>
+                                <input type="text" class="form-control" formControlName="lName"
+                                    [class.is-invalid]="contactFormGroup.get('lName').hasError('required') && contactFormGroup.get('lName').touched"
+                                    placeholder="Max length of 25 characters" maxlength="25" id="lName" required>
+                                <span
+                                    *ngIf="contactFormGroup.get('lName').hasError('required') && contactFormGroup.get('lName').touched"
+                                    class="invalid-feedback">Required</span>
+                            </div>
+                            <div class="form-group col-md-12">
+                                <label for="address">{{ template.contact.addr }} * </label>
+                                <input type="text" class="form-control" formControlName="addr"
+                                    [class.is-invalid]="contactFormGroup.get('addr').hasError('required') && contactFormGroup.get('addr').touched"
+                                    placeholder="Max length of 50 characters" maxlength="50" id="address" required>
+                                <span
+                                    *ngIf="contactFormGroup.get('addr').hasError('required') && contactFormGroup.get('addr').touched"
+                                    class="invalid-feedback">Required</span>
+                            </div>
+                            
+                            <div class="form-group col-md-6">
+                                <label for="address">City * </label>
+                                <input type="text" class="form-control" formControlName="city"
+                                    [class.is-invalid]="contactFormGroup.get('city').hasError('required') && contactFormGroup.get('city').touched"
+                                    placeholder="Max length of 50 characters" maxlength="50" id="city" required>
+                                <span
+                                    *ngIf="contactFormGroup.get('city').hasError('required') && contactFormGroup.get('city').touched"
+                                    class="invalid-feedback">Required</span>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <label for="zip">Zip Code * </label>
+                                <input type="number" class="form-control" formControlName="zip" maxlength="7" placeholder="00000" 
+                                oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                                    [class.is-invalid]="contactFormGroup.get('zip').hasError('required') && contactFormGroup.get('zip').touched"
+                                    placeholder="Zip Code" id="zip">
+                                <span
+                                    *ngIf="contactFormGroup.get('zip').hasError('required') && contactFormGroup.get('zip').touched"
+                                    class="invalid-feedback">Zip Code is Required</span>
+                            </div>
+
+
+                            <div class="form-group col-md-6">
+                                <label for="phone">{{ template.contact.phone }} * </label>
+                                <input type="tel" class="form-control" formControlName="phone" appPhoneMask
+                                    [class.is-invalid]="contactFormGroup.get('phone').hasError('required') && contactFormGroup.get('phone').touched"
+                                    placeholder="{{ template.req }}" placeholder="{{ template.req }}" id="phone">
+                                <span
+                                    *ngIf="contactFormGroup.get('phone').hasError('required') && contactFormGroup.get('phone').touched"
+                                    class="invalid-feedback">Required</span>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="email">{{ template.contact.email }} * </label>
+                                <input type="email" class="form-control" formControlName="email"
+                                    [class.is-invalid]="(contactFormGroup.get('email').hasError('required') || contactFormGroup.get('email').hasError('pattern')) && contactFormGroup.get('email').touched"
+                                    placeholder="{{ template.req }}" placeholder="{{ template.req }}" id="email">
+                                <span
+                                    *ngIf="contactFormGroup.get('email').hasError('required') && contactFormGroup.get('email').touched"
+                                    class="invalid-feedback">Required</span>
+                                <span
+                                    *ngIf="contactFormGroup.get('email').hasError('pattern') && contactFormGroup.get('email').touched"
+                                    class="invalid-feedback">Enter a valid email</span>
+                            </div>
                         </div>
-                        <div class="form-group col-md-6">
-                            <label for="fName">{{ template.contact.name }} * </label>
-                            <input type="text" class="form-control" formControlName="fName"
-                                [class.is-invalid]="contactFormGroup.get('fName').hasError('required') && contactFormGroup.get('fName').touched" id="fName" placeholder="Max length of 25 characters" maxlength="25" required>
-                                <span *ngIf="contactFormGroup.get('fName').hasError('required') && contactFormGroup.get('fName').touched"
-                                class="invalid-feedback">Required</span>
+                        <div class="form-row">
+                            <div class="col-12">
+                                <h3>{{ template.event.header }}</h3>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="evtAddr">{{ template.event.addr }} * </label>
+                                <input type="text" class="form-control" formControlName="evtAddr" maxlength="50"
+                                    [class.is-invalid]="contactFormGroup.get('evtAddr').hasError('required') && contactFormGroup.get('evtAddr').touched" placeholder="Max length of 50 characters"
+                                    id="evtAddr">
+                                <span
+                                    *ngIf="contactFormGroup.get('evtAddr').hasError('required') && contactFormGroup.get('evtAddr').touched"
+                                    class="invalid-feedback">Event Address is Required</span>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="evtCity">City * </label>
+                                <input type="text" class="form-control" formControlName="evtCity"
+                                    [class.is-invalid]="contactFormGroup.get('evtCity').hasError('required') && contactFormGroup.get('evtCity').touched"
+                                    placeholder="Max length of 50 characters" maxlength="50" id="evtCity" required>
+                                <span
+                                    *ngIf="contactFormGroup.get('evtCity').hasError('required') && contactFormGroup.get('evtCity').touched"
+                                    class="invalid-feedback">Required</span>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="evtZC">Zip Code * </label>
+                                <input type="number" class="form-control" formControlName="evtZC" maxlength="7" placeholder="00000" 
+                                oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                                    [class.is-invalid]="contactFormGroup.get('evtZC').hasError('required') && contactFormGroup.get('evtZC').touched"
+                                    placeholder="Zip Code" id="evtZC">
+                                <span
+                                    *ngIf="contactFormGroup.get('evtZC').hasError('required') && contactFormGroup.get('evtZC').touched"
+                                    class="invalid-feedback">Zip Code is Required</span>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="evtSS">{{ template.event.style.label }} * </label>
+                                <select class="form-control" formControlName="evtSS"
+                                    (change)="updateGuestCount($event.target.value)"
+                                    [class.is-invalid]="contactFormGroup.get('evtSS').hasError('required') && contactFormGroup.get('evtSS').touched"
+                                    id="evtSS">
+                                    <option disabled>{{ template.default }}</option>
+                                    <option *ngFor="let item of template.event.style.items"> {{ item.text }}
+                                    </option>
+                                </select>
+                                <span
+                                    *ngIf="contactFormGroup.get('evtSS').hasError('required') && contactFormGroup.get('evtSS').touched"
+                                    class="invalid-feedback">Serving Style is Required</span>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="evtDate">{{ template.event.date }} * </label>
+                                <input type="date" class="form-control" formControlName="evtDate"
+                                    [class.is-invalid]="contactFormGroup.get('evtDate').hasError('required') && contactFormGroup.get('evtDate').touched"
+                                    placeholder="mm/dd/YYYY" name="trip-start" id="evtDate">
+                                <span
+                                    *ngIf="contactFormGroup.get('evtDate').hasError('required') && contactFormGroup.get('evtDate').touched"
+                                    class="invalid-feedback">Date of Event is Required</span>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="evtTTE">{{ template.event.tte }} * </label>
+                                <input type="time" class="form-control" formControlName="evtTTE"
+                                    [class.is-invalid]="contactFormGroup.get('evtTTE').hasError('required') && contactFormGroup.get('evtTTE').touched"
+                                    placeholder="Example: 06:30 PM" id="evtTTE">
+                                <span
+                                    *ngIf="contactFormGroup.get('evtTTE').hasError('required') && contactFormGroup.get('evtTTE').touched"
+                                    class="invalid-feedback">Required</span>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <label for="evtGC">{{ template.event.gcount }} * </label>
+                                <p *ngIf="contactFormGroup.get('evtSS').value != 'Buffet' && contactFormGroup.get('evtSS').value != 'Catering'">Select a service style</p>
+                                <input type="number" *ngIf="contactFormGroup.get('evtSS').value === 'Catering'"
+                                    class="form-control" formControlName="evtGC"
+                                    [class.is-invalid]="contactFormGroup.get('evtGC').hasError('required') && contactFormGroup.get('evtGC').touched"
+                                    [value]="minGuest" (blur)="validateGC(contactFormGroup.get('evtSS').value, $event.target.value)" min="12" id="evtGC" placeholder="Minimun Catering guest count is 10">
+                                <input type="number" *ngIf="contactFormGroup.get('evtSS').value === 'Buffet'"
+                                    class="form-control" formControlName="evtGC"
+                                    [class.is-invalid]="contactFormGroup.get('evtGC').hasError('required') && contactFormGroup.get('evtGC').touched"
+                                    [value]="minGuest" (blur)="validateGC(contactFormGroup.get('evtSS').value, $event.target.value)" min="50" id="evtGC" placeholder="Minimun Buffet guest count is 50">
+                                <span
+                                    *ngIf="contactFormGroup.get('evtGC').hasError('required') && contactFormGroup.get('evtGC').touched"
+                                    class="invalid-feedback">Required</span>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <label for="evtToE">{{ template.event.type.label }} * </label>
+                                <select class="form-control" formControlName="evtToE"
+                                    [class.is-invalid]="contactFormGroup.get('evtToE').hasError('required') && contactFormGroup.get('evtToE').touched"
+                                    id="evtToE">
+                                    <option disabled>{{ template.default }}</option>
+                                    <option *ngFor="let item of template.event.type.items"> {{ item.text }}
+                                    </option>
+                                </select>
+                                <span
+                                    *ngIf="contactFormGroup.get('evtToE').hasError('required') && contactFormGroup.get('evtToE').touched"
+                                    class="invalid-feedback">Required</span>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="evtSC">{{ template.event.setup.label }} * </label>
+                                <p *ngIf="contactFormGroup.get('evtSS').value != 'Buffet' && contactFormGroup.get('evtSS').value != 'Catering'"> Select a service style</p>
+                                <select class="form-control" formControlName="evtSC"
+                                    *ngIf="contactFormGroup.get('evtSS').value === 'Buffet'"
+                                    [class.is-invalid]="contactFormGroup.get('evtSC').hasError('required') && contactFormGroup.get('evtSC').touched"
+                                    id="evtSC">
+                                    <option disabled>{{ template.default }}</option>
+                                    <option selected>All black - Free</option>
+                                </select>
+
+                                <select class="form-control" formControlName="evtSC"
+                                    *ngIf="contactFormGroup.get('evtSS').value === 'Catering'"
+                                    [class.is-invalid]="contactFormGroup.get('evtSC').hasError('required') && contactFormGroup.get('evtSC').touched"
+                                    id="evtSC">
+                                    <option disabled>{{ template.default }}</option>
+                                    <option *ngFor="let item of template.event.setup.items"> {{ item.text }}
+                                    </option>
+                                </select>
+                                <span
+                                    *ngIf="contactFormGroup.get('evtSC').hasError('required') && contactFormGroup.get('evtSC').touched"
+                                    class="invalid-feedback">Required</span>
+                            </div>
+                            <div class="form-group col-12">
+                                <label for="comments">Comments</label>
+                                <textarea class="form-control" formControlName="comments"
+                                    placeholder="Share any allergies or any especial requirements" id="comments"
+                                    maxlenght="150" rows="3"></textarea>
+                            </div>
                         </div>
-                        <div class="form-group col-md-6">
-                            <label for="lName">{{ template.contact.last }} * </label>
-                            <input type="text" class="form-control" formControlName="lName"
-                                [class.is-invalid]="contactFormGroup.get('lName').hasError('required') && contactFormGroup.get('lName').touched"
-                                placeholder="Max length of 25 characters" maxlength="25" id="lName" required>
-                                <span *ngIf="contactFormGroup.get('lName').hasError('required') && contactFormGroup.get('lName').touched"
-                                class="invalid-feedback">Required</span>
-                        </div>
-                        <div class="form-group col-md-12">
-                            <label for="address">{{ template.contact.addr }} * </label>
-                            <input type="text" class="form-control" formControlName="addr"
-                                [class.is-invalid]="contactFormGroup.get('addr').hasError('required') && contactFormGroup.get('addr').touched"
-                                placeholder="Max length of 50 characters" maxlength="50" id="address" required>
-                                <span *ngIf="contactFormGroup.get('addr').hasError('required') && contactFormGroup.get('addr').touched"
-                                class="invalid-feedback">Required</span>
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="phone">{{ template.contact.phone }} * </label>
-                            <input type="tel" class="form-control" formControlName="phone"
-                                [class.is-invalid]="contactFormGroup.get('phone').hasError('required') && contactFormGroup.get('phone').touched"
-                                placeholder="{{ template.req }}" placeholder="{{ template.req }}" id="phone">
-                                <span *ngIf="contactFormGroup.get('phone').hasError('required') && contactFormGroup.get('phone').touched"
-                                class="invalid-feedback">Required</span>
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="email">{{ template.contact.email }} * </label>
-                            <input type="email" class="form-control" formControlName="email"
-                                [class.is-invalid]="(contactFormGroup.get('email').hasError('required') || contactFormGroup.get('email').hasError('pattern')) && contactFormGroup.get('email').touched"
-                                placeholder="{{ template.req }}" placeholder="{{ template.req }}" id="email">
-                            <span
-                                *ngIf="contactFormGroup.get('email').hasError('required') && contactFormGroup.get('email').touched"
-                                class="invalid-feedback">Required</span>
-                            <span
-                                *ngIf="contactFormGroup.get('email').hasError('pattern') && contactFormGroup.get('email').touched"
-                                class="invalid-feedback">Enter a valid email</span>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="col-12">
-                            <h3>{{ template.event.header }}</h3>
-                        </div>
-                        <div class="form-group col-md-12">
-                            <label for="evtAddr">{{ template.event.addr }} * </label>
-                            <input type="text" class="form-control" formControlName="evtAddr"
-                                [class.is-invalid]="contactFormGroup.get('evtAddr').hasError('required') && contactFormGroup.get('evtAddr').touched"
-                                placeholder="{{ template.req }}" placeholder="{{ template.event.addr }}" id="evtAddr">
-                                <span *ngIf="contactFormGroup.get('phone').hasError('required') && contactFormGroup.get('phone').touched"
-                                class="invalid-feedback">Required</span>
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="evtDate">{{ template.event.date }} * </label>
-                            <input type="date" class="form-control" formControlName="evtDate"
-                                [class.is-invalid]="contactFormGroup.get('evtDate').hasError('required') && contactFormGroup.get('evtDate').touched"
-                                placeholder="mm/dd/YYYY" name="trip-start" id="evtDate">
-                                <span *ngIf="contactFormGroup.get('evtDate').hasError('required') && contactFormGroup.get('evtDate').touched"
-                                class="invalid-feedback">Required</span>
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="evtTTE">{{ template.event.tte }} * </label>
-                            <input type="time" class="form-control" formControlName="evtTTE"
-                                [class.is-invalid]="contactFormGroup.get('evtTTE').hasError('required') && contactFormGroup.get('evtTTE').touched"
-                                placeholder="Example: 06:30 PM" id="evtTTE">
-                                <span *ngIf="contactFormGroup.get('evtTTE').hasError('required') && contactFormGroup.get('evtTTE').touched"
-                                class="invalid-feedback">Required</span>
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="evtGC">{{ template.event.gcount }} * </label>
-                            <input type="number" class="form-control" formControlName="evtGC"
-                                [class.is-invalid]="contactFormGroup.get('evtGC').hasError('required') && contactFormGroup.get('evtGC').touched"
-                                value="20" min="0" id="evtGC">
-                                <span *ngIf="contactFormGroup.get('evtGC').hasError('required') && contactFormGroup.get('evtGC').touched"
-                                class="invalid-feedback">Required</span>
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="evtToE">{{ template.event.type.label }} * </label>
-                            <select class="form-control" formControlName="evtToE"
-                                [class.is-invalid]="contactFormGroup.get('evtToE').hasError('required') && contactFormGroup.get('evtToE').touched"
-                                id="evtToE">
-                                <option disabled>{{ template.default }}</option>
-                                <option *ngFor="let item of template.event.type.items"> {{ item.text }}
-                                </option>
-                            </select>
-                            <span *ngIf="contactFormGroup.get('evtToE').hasError('required') && contactFormGroup.get('evtToE').touched"
-                            class="invalid-feedback">Required</span>
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="evtSS">{{ template.event.style.label }} * </label>
-                            <select class="form-control" formControlName="evtSS"
-                                [class.is-invalid]="contactFormGroup.get('evtSS').hasError('required') && contactFormGroup.get('evtSS').touched"
-                                id="evtSS">
-                                <option disabled>{{ template.default }}</option>
-                                <option *ngFor="let item of template.event.style.items"> {{ item.text }}
-                                </option>
-                            </select>
-                            <span *ngIf="contactFormGroup.get('evtSS').hasError('required') && contactFormGroup.get('evtSS').touched"
-                            class="invalid-feedback">Required</span>
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="evtSC">{{ template.event.setup.label }} * </label>
-                            <select class="form-control" formControlName="evtSC"
-                                [class.is-invalid]="contactFormGroup.get('evtSC').hasError('required') && contactFormGroup.get('evtSC').touched"
-                                id="evtSC">
-                                <option disabled>{{ template.default }}</option>
-                                <option *ngFor="let item of template.event.setup.items"> {{ item.text }}
-                                </option>
-                            </select>
-                            <span *ngIf="contactFormGroup.get('evtSC').hasError('required') && contactFormGroup.get('evtSC').touched"
-                            class="invalid-feedback">Required</span>
-                        </div>
-                        <div class="form-group col-12">
-                            <label for="comments">Comments</label>
-                            <textarea class="form-control" formControlName="comments" placeholder="" id="comments" rows="3"></textarea>
-                          </div>
-                    </div>
-                    <button type="button" class="btn btn-danger" (click)="next()" [disabled]="contactFormGroup.get('fName').hasError('required') ||
+                        <button type="button" class="btn btn-danger" (click)="next()" [disabled]="contactFormGroup.get('fName').hasError('required') ||
                                     contactFormGroup.get('lName').hasError('required') ||
                                     contactFormGroup.get('lName').hasError('required') ||
                                     contactFormGroup.get('addr').hasError('required') ||
@@ -163,8 +237,9 @@
                                     contactFormGroup.get('evtToE').hasError('required') || 
                                     contactFormGroup.get('evtSS').hasError('required') || 
                                     contactFormGroup.get('evtSC').hasError('required')">{{ template.next }}</button>
-                </form>
-            </section>
+                    </form>
+                </section>
+            </div>
         </div>
     </div>
-</div>
+</section>

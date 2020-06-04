@@ -3,118 +3,150 @@
         {
             "catering": [
                 {
-                    "name": "Teppanyaki Chicken & shrimp",
+                    "name": "Teppanyaki Chicken & shrimp.",
                     "description": "6 oz. garlic butter chicken & 4 oz. of garlic lemon shrimp.",
                     "price": 52,
                     "qty": 0
                 },
                 {
-                    "name": "Teppanyaki Chicken & steak",
+                    "name": "Teppanyaki Chicken & steak.",
                     "description": "4 oz. garlic butter chicken & 6 oz. New York steak.",
                     "price": 56,
                     "qty": 0
                 },
                 {
-                    "name": "Teppanyaki Chicken, steak & shrimp",
+                    "name": "Teppanyaki Chicken, steak & shrimp.",
                     "description": "4 oz. garlic butter chicken, 6 oz. New York steak & 4 oz. of garlic lemon shrimp.",
-                    "price": 65,
+                    "price": 60,
                     "qty": 0
                 },
                 {
-                    "name": "Teppanyaki steak & lobster",
-                    "description": "8 oz. New York steak & lobster per person",
+                    "name": "Teppanyaki steak & lobster.",
+                    "description": "8 oz. New York steak & lobster per person.",
                     "price": 70,
                     "qty": 0
                 },
                 {
-                    "name": "Teppanyaki Mignon & shrimp",
+                    "name": "Teppanyaki Mignon & shrimp.",
                     "description": "8 oz. Fillet mignon & 4 oz. of garlic lemon shrimp.",
+                    "price": 61,
+                    "qty": 0
+                },
+                {
+                    "name": "Teppanyaki Mignon.",
+                    "description": "8 oz. Fillet Mignon.",
+                    "price": 55,
+                    "qty": 0
+                },
+                {
+                    "name": "Teppanyaki Mignon & scallops.",
+                    "description": "8 oz. Fillet Mignon.",
                     "price": 65,
                     "qty": 0
                 },
                 {
-                    "name": "Teppanyaki Mignon",
-                    "description": "8 oz. Fillet Mignon.",
-                    "price": 58,
-                    "qty": 0
-                },
-                {
-                    "name": "Teppanyaki Mignon & scallops",
-                    "description": "8 oz. Fillet Mignon.",
-                    "price": 68,
-                    "qty": 0
-                },
-                {
-                    "name": "Teppanyaki Mignon & lobster",
+                    "name": "Teppanyaki Mignon & lobster.",
                     "description": "8 oz. Fillet Mignon & lobster per person.",
-                    "price": 80,
+                    "price": 70,
                     "qty": 0
                 },
                 {
-                    "name": "Teppanyaki Mignon & salmon",
+                    "name": "Teppanyaki Mignon & salmon.",
                     "description": "6 oz. Fillet Mignon & 6 oz. garlic lemon salmon.",
-                    "price": 65,
+                    "price": 66,
                     "qty": 0
                 },
                 {
-                    "name": "Teppanyaki Mignon, chicken & shrimp",
+                    "name": "Teppanyaki Mignon, chicken & shrimp.",
                     "description": "6 oz. Fillet Mignon, 4 oz. garlic butter chicken & 4oz. of garlic lemon shrimp.",
                     "price": 70,
                     "qty": 0
                 },
                 {
-                    "name": "Teppanyaki Rib eye & shrimp",
+                    "name": "Teppanyaki Rib eye & shrimp.",
                     "description": "8 oz. Rib eye & 4 oz. of garlic lemon shrimp.",
                     "price": 65,
                     "qty": 0
                 },
                 {
-                    "name": "Teppanyaki Rib eye & scallop",
+                    "name": "Teppanyaki Rib eye & scallop.",
                     "description": "8 oz. Rib eye & 4 pieces of scallops per person.",
+                    "price": 67,
+                    "qty": 0
+                },
+                {
+                    "name": "Teppanyaki Rib eye & lobster.",
+                    "description": "8 oz. Rib eye & lobster per person.",
                     "price": 70,
                     "qty": 0
                 },
                 {
-                    "name": "Teppanyaki Rib eye & lobster",
-                    "description": "8 oz. Rib eye & lobster per person.",
-                    "price": 75,
+                    "name": "Teppanyaki Special Fillet Mignon, scallops & lobster.",
+                    "description": "6 oz. Fillet Mignon, 4 pieces of scallops & lobster per person.",
+                    "price": 90,
                     "qty": 0
                 },
                 {
-                    "name": "Teppanyaki Special Fillet Mignon, scallops & lobster",
+                    "name": "Teppanyaki Steak & Shrimp.",
+                    "description": "6 oz. Garlic butter steak & 4 oz. garlic lemon shrimp.",
+                    "price": 55,
+                    "qty": 0
+                },
+                {
+                    "name": "Teppanyaki Vegetarian.",
+                    "description": "",
+                    "price": 40,
+                    "qty": 0
+                }
+            ],
+            "catering_kids" : [
+                {
+                    "name": "Teppanyaki Chicken & Steak.",
+                    "description": "4 oz. butter chicken & 4 oz. New York steak per kid.",
+                    "price": 35,
+                    "qty": 0
+                },
+                {
+                    "name": "Teppanyaki Steak & Shrimp.",
+                    "description": "4 oz. new york steak & 6 piece of garlic lemon shrimp per kid.",
+                    "price": 40,
+                    "qty": 0
+                },
+                {
+                    "name": "Teppanyaki Chicken & Shrimp.",
                     "description": "6 oz. Fillet Mignon, 4 pieces of scallops & lobster per person.",
-                    "price": 95,
+                    "price": 30,
                     "qty": 0
                 }
             ],
             "buffet": {
                 "main": [
                     {
-                        "name": "Teppanyaki Shrimp & Steak",
+                        "name": "Teppanyaki Shrimp & Steak.",
                         "description": "8 piece of garlic lemon shrimp per person & 6 oz. New York steak.",
                         "price": 38,
                         "qty": 0
                     },
                     {
-                        "name": "Teppanyaki Chicken & Steak",
+                        "name": "Teppanyaki Chicken & Steak.",
                         "description": "4 oz.  butter chicken & 6 oz. New York steak.",
                         "price": 35,
                         "qty": 0
                     },
                     {
-                        "name": "Teppanyaki chicken & shrimp",
+                        "name": "Teppanyaki chicken & shrimp.",
                         "description": "4 oz. butter chicken & 8 piece of garlic lemon shrimp per person.",
                         "price": 34,
                         "qty": 0
                     },
                     {
-                        "name": "Teppanyaki shrimp, chicken & steak",
+                        "name": "Teppanyaki shrimp, chicken & steak.",
                         "description": "8 piece of garlic lemon shrimp per person, 4 oz. butter chicken & 6 oz. New York steak",
                         "price": 42,
                         "qty": 0
                     },
                     {
-                        "name": "Teppanyaki shrimp, chicken & filet mignon",
+                        "name": "Teppanyaki shrimp, chicken & filet mignon.",
                         "description": "8 piece of garlic lemon shrimp per person, 4 oz. butter chicken & 5 oz. filet Mignon.",
                         "price": 50,
                         "qty": 0
@@ -122,19 +154,19 @@
                 ],
                 "kids": [
                     {
-                        "name": "Teppanyaki chicken & steak",
+                        "name": "Teppanyaki chicken & steak.",
                         "description": "4 oz. butter chicken & 4 oz. New York steak.",
                         "price": 35,
                         "qty": 0
                     },
                     {
-                        "name": "Teppanyaki steak & shrimp",
+                        "name": "Teppanyaki steak & shrimp.",
                         "description": "4 oz. New York steak & 6 piece of garlic lemon shrimp per kid",
                         "price": 40,
                         "qty": 0
                     },
                     {
-                        "name": "Teppanyaki chicken & shrimp",
+                        "name": "Teppanyaki chicken & shrimp.",
                         "description": "4 oz. butter chicken & 6 piece of garlic lemon shrimp per kid.",
                         "price": 35,
                         "qty": 0
@@ -142,38 +174,202 @@
                 ],
                 "sides": [
                     {
-                        "name": "Veggie fried rice",
+                        "name": "Veggie fried rice.",
                         "price": 5.50,
                         "qty": 0
                     },
                     {
-                        "name": "Seasoned grilled asparagus",
+                        "name": "Seasoned grilled asparagus.",
                         "price": 6,
                         "qty": 0
                     },
                     {
-                        "name": "Grilled pineapple",
+                        "name": "Grilled pineapple.",
                         "price": 5,
                         "qty": 0
                     },
                     {
-                        "name": "Grilled mushroom",
+                        "name": "Grilled mushroom.",
                         "price": 6,
                         "qty": 0
                     },
                     {
-                        "name": "Grilled garlic greenbeans",
+                        "name": "Grilled garlic greenbeans.",
                         "price": 6,
                         "qty": 0
                     },
                     {
-                        "name": "Grilled garlic corn",
+                        "name": "Grilled garlic corn.",
                         "price": 6,
                         "qty": 0
                     },
                     {
-                        "name": "Soup of the day (Miso, broccoli & potato soup) ",
+                        "name": "Soup of the day (Miso, broccoli & potato soup).",
                         "price": 5,
+                        "qty": 0
+                    }
+                ],
+                "extras":[
+                    {
+                        "name": "Salmon - 5lb.",
+                        "price": 90,
+                        "qty": 0
+                    },
+                    {
+                        "name": "Garlic bread - 50pc.",
+                        "price": 55,
+                        "qty": 0
+                    },
+                    {
+                        "name": "Rib eye - 5lb.",
+                        "price": 120,
+                        "qty": 0
+                    },
+                    {
+                        "name": "Shrimp - 5lb.",
+                        "price": 100,
+                        "qty": 0
+                    },
+                    {
+                        "name": "Scallops - 5lb.",
+                        "price": 150,
+                        "qty": 0
+                    },
+                    {
+                        "name": "Lobster - 5lb.",
+                        "price": 200,
+                        "qty": 0
+                    },
+                    {
+                        "name": "Fried Rice.",
+                        "price": 2.50,
+                        "qty": 0
+                    },
+                    {
+                        "name": "Hoodles.",
+                        "price": 6,
+                        "qty": 0
+                    },
+                    {
+                        "name": "Chicken Fried Rice.",
+                        "price": 3.50,
+                        "qty": 0
+                    }
+                ]
+            },
+            "extras": {
+                "buffet": [
+                    {
+                        "name": "Chef - 4hrs.",
+                        "price": 150,
+                        "qty": 0 
+                    },
+                    {
+                        "name": "Server - 4hrs.",
+                        "price": 110,
+                        "qty": 0
+                    },
+                    {
+                        "name": "Wine glasses.",
+                        "price": 2,
+                        "qty": 0
+                    },
+                    {
+                        "name": "Patio heater & propane gas.",
+                        "price": 65,
+                        "qty": 0
+                    },
+                    {
+                        "name": "Tent 20x20 (40 persons).",
+                        "price": 150,
+                        "qty": 0
+                    },
+                    {
+                        "name": "Tent 20x30 (60 persons).",
+                        "price": 200,
+                        "qty": 0
+                    },
+                    {
+                        "name": "Tent 20x40 (80 persons).",
+                        "price": 250,
+                        "qty": 0
+                    },
+                    {
+                        "name": "Tent 20x60 (100 persons).",
+                        "price": 300,
+                        "qty": 0
+                    },
+                    {
+                        "name": "Rectangular tables (8 sits).",
+                        "price": 7,
+                        "qty": 0
+                    },
+                    {
+                        "name": "Round tables(7 sits).",
+                        "price": 8,
+                        "qty": 0
+                    },
+                    {
+                        "name": "Regular chair(each).",
+                        "price": 1.50,
+                        "qty": 0
+                    },
+                    {
+                        "name": "Resin chair(white/brown - each).",
+                        "price": 3.50,
+                        "qty": 0
+                    },
+                    {
+                        "name": "Tablecloth(white/black - each).",
+                        "price": 7,
+                        "qty": 0
+                    },
+                    {
+                        "name": "Chair cover(white/black - each).",
+                        "price": 1.50,
+                        "qty": 0
+                    }
+
+                ],
+                "catering": [
+                    {
+                        "name": "Chef - 4hrs.",
+                        "price": 150,
+                        "qty": 0 
+                    },
+                    {
+                        "name": "Server - 4hrs.",
+                        "price": 110,
+                        "qty": 0
+                    },
+                    {
+                        "name": "Wine glasses.",
+                        "price": 2,
+                        "qty": 0
+                    },
+                    {
+                        "name": "Patio heater & propane gas.",
+                        "price": 65,
+                        "qty": 0
+                    },
+                    {
+                        "name": "Tent 20x20 (40 persons).",
+                        "price": 150,
+                        "qty": 0
+                    },
+                    {
+                        "name": "Tent 20x30 (60 persons).",
+                        "price": 200,
+                        "qty": 0
+                    },
+                    {
+                        "name": "Tent 20x40 (80 persons).",
+                        "price": 250,
+                        "qty": 0
+                    },
+                    {
+                        "name": "Tent 20x60 (100 persons).",
+                        "price": 300,
                         "qty": 0
                     }
                 ]

@@ -1,3 +1,4 @@
+
 <div class="container container_alert" *ngIf="alert.active">
     <div class="alert" [ngClass]="{'alert-success': alert.class == 'success', 'alert-danger': alert.class == 'danger'}"
         role="alert">
@@ -86,7 +87,7 @@
                                     *ngIf="supportFormGroup.get('comment').invalid && supportFormGroup.get('comment').touched"
                                     class="invalid-feedback">Enter your comment</span>
                             </div>
-                            <button type="submit" class="btn btn-danger" [disabled]="supportFormGroup.invalid">Send
+                            <button type="submit" class="btn btn-danger" [disabled]="supportFormGroup.invalid || loading">Send
                                 Message</button>
                         </form>
                     </div>
