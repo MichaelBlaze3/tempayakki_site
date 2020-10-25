@@ -1,7 +1,7 @@
 <!-- <div class="loader-container" *ngIf="loading">
     <div class="loader"></div>
 </div> -->
-<section class="origin">
+<section class="origin" id="contentToConvert">
     <div class="container">
         <div class="steps-form">
             <div class="steps-row setup-panel">
@@ -88,6 +88,15 @@
                         <p><strong>Time To Eat: </strong>{{ pInfo.evtTTE }}</p>
                     </div>
                 </div>
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        <p *ngIf="pInfo.evtIsSurprise"><strong>Surprise Event:</strong> Yes</p>
+                        <p *ngIf="!pInfo.evtIsSurprise"><strong>Surprise Event:</strong> No</p>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <p><strong>Comment: </strong>{{ pInfo.comments }}</p>
+                    </div>
+                </div>
             </div>
             <div class="card-header">
                 Cost
@@ -96,7 +105,7 @@
                 <table class="table table-responsive table-borderless">
                     <thead>
                         <tr>
-                            <th scope="col">#</th>
+                            <!-- <th scope="col">#</th> -->
                             <th scope="col">Food/Others</th>
                             <th scope="col">Qty</th>
                             <th scope="col">Unit Price</th>
@@ -104,10 +113,18 @@
                     </thead>
                     <tbody>
                         <tr *ngFor="let item of order; let i = index;">
-                            <th scope="row">{{ i + 1 }}</th>
-                            <td>{{ item.name }}</td>
+                            <td *ngIf="pInfo.evtSS  === 'Catering'">{{ item.name }}</td>
+                            <td *ngIf="pInfo.evtSS  === 'Buffet'">
+                                <p><strong>{{ item.name }}</strong></p>
+                                <p>{{ item.description }}</p>
+                            </td>
                             <td>{{ item.qty }}</td>
                             <td class="price_right">$ {{ item.price }}</td>
+                        </tr>
+                        <tr>
+                            <td>{{ summary.personalInfo.evtSC.text }}</td>
+                            <td>1</td>
+                            <td class="price_right">$ {{ summary.personalInfo.evtSC.price }}</td>
                         </tr>
                         <tr>
                             <th scope="row">Subtotal</th>
@@ -134,9 +151,39 @@
                             href="../../assets/docs/Policy.pdf" target="_blank">Policy Document</a>. I am ready to
                         submit my information for review. </label>
                 </div>
-                <button type="button" class="btn btn-danger" [disabled]="!checked || loading" (click)="finish()">Submit</button>
+                <button type="button" class="btn btn-danger" [disabled]="!checked || loading"
+                    (click)="finish()">Submit</button>
                 <button type="button" class="btn btn-danger" (click)="reset('cancel')">Cancel</button>
             </div>
         </div>
     </div>
 </section>
+
+<!-- Modal -->
+<button #mdlBtn type="button" style="width: 0; height: 0; visibility: hidden;" data-toggle="modal" data-target="#exampleModalCenter">
+    Launch demo modal
+</button>
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false"
+    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <h4>{{ alertMessage.header }}</h4>
+                <p>{{ alertMessage.msg }} <strong>{{pInfo.email}}</strong></p>
+                <div class="progress" style="height: 5px;">
+                    <div class="progress-bar"
+                        [ngClass]="{'bg-success': progressBar === 100, 'bg-danger': progressBar === 0}"
+                        role="progressbar" style="width: 100%;" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button *ngIf="progressBar === 100" type="button" class="btn btn-success" data-dismiss="modal"
+                    (click)="reset('complete')">Complete</button>
+                <button *ngIf="progressBar === 0" type="button" class="btn btn-secondary" data-dismiss="modal"
+                    (click)="reset('complete')">Close</button>
+                <button *ngIf="progressBar === 0" type="button" class="btn btn-danger" data-dismiss="modal" (click)="goToSupport()">Contact
+                    Support</button>
+            </div>
+        </div>
+    </div>
+</div>

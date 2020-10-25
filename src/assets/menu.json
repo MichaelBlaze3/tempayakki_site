@@ -17,7 +17,7 @@
                 {
                     "name": "Teppanyaki Chicken, steak & shrimp.",
                     "description": "4 oz. garlic butter chicken, 6 oz. New York steak & 4 oz. of garlic lemon shrimp.",
-                    "price": 60,
+                    "price": 63,
                     "qty": 0
                 },
                 {
@@ -83,13 +83,25 @@
                 {
                     "name": "Teppanyaki Special Fillet Mignon, scallops & lobster.",
                     "description": "6 oz. Fillet Mignon, 4 pieces of scallops & lobster per person.",
-                    "price": 90,
+                    "price": 110,
                     "qty": 0
                 },
                 {
                     "name": "Teppanyaki Steak & Shrimp.",
                     "description": "6 oz. Garlic butter steak & 4 oz. garlic lemon shrimp.",
                     "price": 55,
+                    "qty": 0
+                },
+                {
+                    "name": "Teppanyaki Steak, Lobster and Shrimp.",
+                    "description": "6 oz. New York Steak, 1 Lobster per person and 4 oz of garlic lemon shrimp.",
+                    "price": 76,
+                    "qty": 0
+                },
+                {
+                    "name": "Teppanyaki Chef Special fillet Mignon, Lobster and Shrimp.",
+                    "description": "6 oz. Fillet Mignon, Lobster per person and 4 oz. of garlic lemon shrimp.",
+                    "price": 90,
                     "qty": 0
                 },
                 {
@@ -114,7 +126,7 @@
                 },
                 {
                     "name": "Teppanyaki Chicken & Shrimp.",
-                    "description": "6 oz. Fillet Mignon, 4 pieces of scallops & lobster per person.",
+                    "description": "6 oz. Butter chicken and 4 oz of garlic lemon shrimp per kid.",
                     "price": 30,
                     "qty": 0
                 }
@@ -122,33 +134,15 @@
             "buffet": {
                 "main": [
                     {
-                        "name": "Teppanyaki Shrimp & Steak.",
-                        "description": "8 piece of garlic lemon shrimp per person & 6 oz. New York steak.",
-                        "price": 38,
+                        "name": "Combination 1",
+                        "description": "Pineapple Shrimp, Teppanyaki chicken, Yakisora Noddles & New York Steak Broccoli.",
+                        "price": 36,
                         "qty": 0
                     },
                     {
-                        "name": "Teppanyaki Chicken & Steak.",
-                        "description": "4 oz.  butter chicken & 6 oz. New York steak.",
-                        "price": 35,
-                        "qty": 0
-                    },
-                    {
-                        "name": "Teppanyaki chicken & shrimp.",
-                        "description": "4 oz. butter chicken & 8 piece of garlic lemon shrimp per person.",
-                        "price": 34,
-                        "qty": 0
-                    },
-                    {
-                        "name": "Teppanyaki shrimp, chicken & steak.",
-                        "description": "8 piece of garlic lemon shrimp per person, 4 oz. butter chicken & 6 oz. New York steak",
-                        "price": 42,
-                        "qty": 0
-                    },
-                    {
-                        "name": "Teppanyaki shrimp, chicken & filet mignon.",
-                        "description": "8 piece of garlic lemon shrimp per person, 4 oz. butter chicken & 5 oz. filet Mignon.",
-                        "price": 50,
+                        "name": "Combination 2",
+                        "description": "Grill Asparagus, Pineapple Shrimp, Teppanyaki Chiken, Spicy Chicken, Yakisora Noddles and NY Steak broccoli. ",
+                        "price": 39,
                         "qty": 0
                     }
                 ],
@@ -173,11 +167,6 @@
                     }
                 ],
                 "sides": [
-                    {
-                        "name": "Veggie fried rice.",
-                        "price": 5.50,
-                        "qty": 0
-                    },
                     {
                         "name": "Seasoned grilled asparagus.",
                         "price": 6,
@@ -204,8 +193,28 @@
                         "qty": 0
                     },
                     {
-                        "name": "Soup of the day (Miso, broccoli & potato soup).",
+                        "name": "Miso Soup",
                         "price": 5,
+                        "qty": 0
+                    },
+                    {
+                        "name": "Fried Rice",
+                        "price": 3,
+                        "qty": 0
+                    },
+                    {
+                        "name": "Noodles",
+                        "price": 6.5,
+                        "qty": 0
+                    },
+                    {
+                        "name": "House Salad",
+                        "price": 5,
+                        "qty": 0
+                    },
+                    {
+                        "name": "Chicken Fried Rice",
+                        "price": 4,
                         "qty": 0
                     }
                 ],
@@ -241,18 +250,8 @@
                         "qty": 0
                     },
                     {
-                        "name": "Fried Rice.",
-                        "price": 2.50,
-                        "qty": 0
-                    },
-                    {
-                        "name": "Hoodles.",
+                        "name": "Noodles.",
                         "price": 6,
-                        "qty": 0
-                    },
-                    {
-                        "name": "Chicken Fried Rice.",
-                        "price": 3.50,
                         "qty": 0
                     }
                 ]

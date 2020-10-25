@@ -2,24 +2,7 @@ import { Component, OnInit, Output, EventEmitter, Input, OnDestroy } from '@angu
 import { HttpClient } from '@angular/common/http';
 import { MessengerService } from 'src/app/services/messenger.service';
 import { Subscription } from 'rxjs';
-export interface PersonalInfo {
-  fName: string,
-  lName: string,
-  addr: string,
-  phone: string,
-  city: string,
-  zip: number,
-  email: string,
-  evtAddr: string,
-  evtCity: string,
-  evtZC: number,
-  evtDate: Date,
-  evtGC: number,
-  evtSC: string,
-  evtSS: string,
-  evtTTE: string,
-  evtToE: string
-}
+import { PersonalInfo } from '../../interfaces/personalInfo.interface';
 
 @Component({
   selector: 'app-step-two',
@@ -43,7 +26,12 @@ export class StepTwoComponent implements OnInit, OnDestroy {
   finalOrderList = [];
 
   total: number = 0;
-  menu: any;
+  menu = {
+    main: [],
+    extras: [],
+    sides: [],
+    others: []
+  };
   menuListCatering = {
     catering: [],
     catering_kids: [],
@@ -68,16 +56,19 @@ export class StepTwoComponent implements OnInit, OnDestroy {
   }
 
   getMenu() {
-    this.httpClient.get<any>('../assets/menu.json').subscribe(data => {
+    this.httpClient.get<any>('../assets/menu_v2.json').subscribe(data => {
       if (this.pInfo.evtSS === 'Buffet') {
-        this.menu = data.categories[0].buffet;
-        this.menu.others = data.categories[0].extras.buffet;
+        this.menu.main = data.categories.buffet.main;
+        this.menu.extras = data.categories.buffet.extras;
+        this.menu.sides = data.categories.sides.main;
+        this.menu.others = data.categories.others.main;
+        console.log(this.menu);
       }
       if (this.pInfo.evtSS === 'Catering') {
-        this.menuListCatering.catering = data.categories[0].catering;
-        this.menuListCatering.catering_kids = data.categories[0].catering_kids;
-        this.menuListCatering.sides = data.categories[0].buffet.sides;
-        this.menuListCatering.extras = data.categories[0].extras.catering;
+        this.menuListCatering.catering = data.categories.catering.main;
+        this.menuListCatering.catering_kids = data.categories.catering.kids;
+        this.menuListCatering.sides = data.categories.sides.main;
+        this.menuListCatering.extras = data.categories.others.main;
       }
       this.available = true;
     });
@@ -98,9 +89,13 @@ export class StepTwoComponent implements OnInit, OnDestroy {
     });
   }
 
+  totalSidesSelected:number = 0;
+  
   calculateAndNext() {
     this.finalOrderList = [];
     this.total = 0;
+    this.totalSidesSelected = 0;
+    // Catering
     if (this.pInfo.evtSS == 'Catering') {
       this.menuListCatering.catering.forEach(element => {
         if (element.qty > 0) {
@@ -116,8 +111,10 @@ export class StepTwoComponent implements OnInit, OnDestroy {
       });
       this.menuListCatering.sides.forEach(element => {
         if (element.qty > 0) {
+          this.totalSidesSelected += Number(element.qty);
           this.finalOrderList.push(element);
         }
+        console.log(this.totalSidesSelected);
         this.total += element.qty * element.price
       });
       this.menuListCatering.extras.forEach(element => {
@@ -127,6 +124,7 @@ export class StepTwoComponent implements OnInit, OnDestroy {
         this.total += element.qty * element.price
       });
     }
+    // Buffet
     if (this.pInfo.evtSS == 'Buffet') {
       this.menu.main.forEach(element => {
         if (element.qty > 0) {
@@ -135,18 +133,13 @@ export class StepTwoComponent implements OnInit, OnDestroy {
         this.total += element.qty * element.price
       });
 
-      this.menu.kids.forEach(element => {
-        if (element.qty > 0) {
-          this.finalOrderList.push(element);
-        }
-        this.total += element.qty * element.price
-      });
-
       this.menu.sides.forEach(element => {
         if (element.qty > 0) {
+          this.totalSidesSelected += Number(element.qty);
           this.finalOrderList.push(element);
         }
-        this.total += element.qty * element.price
+        console.log(this.totalSidesSelected);
+        this.total += element.qty * element.price;
       });
 
       this.menu.extras.forEach(element => {
@@ -162,10 +155,12 @@ export class StepTwoComponent implements OnInit, OnDestroy {
         }
         this.total += element.qty * element.price
       });
+
     }
   }
 
   next() {
+    console.log(this.finalOrderList);
     this.messageEvent.emit({ price: this.total, step: 'step3', order: this.finalOrderList })
   }
 

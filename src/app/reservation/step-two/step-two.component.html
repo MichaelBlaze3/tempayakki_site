@@ -65,36 +65,42 @@
                     </div>
                 </div>
 
+                <!-- Buffer Section  -->
                 <div *ngIf="pInfo.evtSS == 'Buffet'">
                     <h3>Main Buffet</h3>
                     <div class="row" *ngFor="let item of menu.main">
                         <div class="col-8 col-md-10">
-                            <p>{{ item.name }} - <strong>$ {{item.price}}</strong> </p>
+                            <div class="row">
+                                <div class="col-8">
+                                    <p><strong>{{ item.name }} </strong></p>
+                                    <p> {{ item.description }}</p>
+                                </div>
+                                <div class="col-4">
+                                    <strong>$ {{item.price}}</strong>
+                                </div>
+                            </div>
+
                         </div>
                         <div class="col-4 col-md-2">
                             <input type="number" class="form-control" [value]="item.qty" min="0"
                                 (input)="item.qty = $event.target.value" (change)="calculateAndNext()">
                         </div>
                     </div>
-                    <div class="row" *ngFor="let item of menu.kids">
-                        <div class="col-8 col-md-10">
-                            <p>{{ item.name }} - <strong>$ {{item.price}}</strong></p>
-                        </div>
-                        <div class="col-4 col-md-2">
-                            <input type="number" class="form-control" [value]="item.qty" min="0"
-                                (input)="item.qty = $event.target.value" (change)="calculateAndNext()">
-                        </div>
-                    </div>
+
                     <h3>Sides</h3>
-                    <div class="row" *ngFor="let item of menu.sides">
-                        <div class="col-8 col-md-10">
-                            <p>{{ item.name }} - <strong>$ {{item.price}}</strong></p>
-                        </div>
-                        <div class="col-4 col-md-2">
-                            <input type="number" class="form-control" [value]="item.qty" min="0"
-                                (input)="item.qty = $event.target.value" (change)="calculateAndNext()">
+                    <h5>Minimum 10 items</h5>
+                    <div *ngIf="menu.sides.length > 0">
+                        <div class="row" *ngFor="let item of menu.sides">
+                            <div class="col-8 col-md-10">
+                                <p>{{ item.name }} - <strong>$ {{item.price}}</strong></p>
+                            </div>
+                            <div class="col-4 col-md-2">
+                                <input type="number" class="form-control" [value]="item.qty" min="0"
+                                    (input)="item.qty = $event.target.value" (change)="calculateAndNext()">
+                            </div>
                         </div>
                     </div>
+
                     <h3>Extras</h3>
                     <div class="row" *ngFor="let item of menu.extras">
                         <div class="col-8 col-md-10">
@@ -117,7 +123,11 @@
                         </div>
                     </div>
                 </div>
-                <button type="button" class="btn btn-danger" [disabled]="total === 0" (click)="next()">{{ template.next }}</button>
+
+                <button *ngIf="totalSidesSelected > 0" type="button" class="btn btn-danger"
+                    [disabled]="total === 0 || totalSidesSelected < 10" (click)="next()">{{ template.next }}</button>
+                <button *ngIf="totalSidesSelected == 0" type="button" class="btn btn-danger" [disabled]="total === 0"
+                    (click)="next()">{{ template.next }}</button>
             </div>
         </div>
     </div>

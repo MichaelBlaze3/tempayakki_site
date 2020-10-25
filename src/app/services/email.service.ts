@@ -10,13 +10,18 @@ export class EmailService {
     private httpClient: HttpClient
   ) { }
 
-  serverIP: string = '192.168.0.12';
-  serverPORT: string = '3000';
-  serverURL: string = 'http://' + this.serverIP + ':' + this.serverPORT + '/';
-
-  test() {
-    return this.httpClient.get(this.serverURL, { responseType: 'text' });
+  environment = {
+    dev: 'http://teppanyaki-catering.com/test/index.php',
+    prod: 'http://teppanyaki-catering.com/email/index.php'
   }
+
+  // serverIP: string = '192.168.0.12';
+  // serverPORT: string = '3000';
+  // serverURL: string = 'http://' + this.serverIP + ':' + this.serverPORT + '/';
+
+  // test() {
+  //   return this.httpClient.get(this.serverURL, { responseType: 'text' });
+  // }
 
   supportEmail(support) {
     const httpParams = new HttpParams().set('type', 'support').set('fName', support.fName).set('lName', support.lName).set('email', support.email).set('comment', support.comment);
@@ -55,7 +60,7 @@ export class EmailService {
       .set('evtCity', reservation.personalInfo.evtCity)
       .set('evtDate', reservation.personalInfo.evtDate)
       .set('evtGC', reservation.personalInfo.evtGC)
-      .set('evtSC', reservation.personalInfo.evtSC)
+      .set('evtSC', reservation.personalInfo.evtSC.text)
       .set('evtSS', reservation.personalInfo.evtSS)
       .set('evtTTE', reservation.personalInfo.evtTTE)
       .set('evtToE', reservation.personalInfo.evtToE)
@@ -66,9 +71,10 @@ export class EmailService {
       .set('tax', reservation.exp.tax)
       .set('eq', reservation.exp.eq)
       .set('total', reservation.exp.total)
+      .set('evtIsSurprise', reservation.personalInfo.evtIsSurprise)
 
       // httpParams.append('order', JSON.stringify(reservation.order));
-    return this.httpClient.post('http://teppanyaki-catering.com/email/index.php', httpParams, { headers: headerOptions });
+    return this.httpClient.post(this.environment.dev, httpParams, { headers: headerOptions });
   }
 
 }

@@ -24,14 +24,11 @@ export class MenuComponent implements OnInit {
 
   ngOnInit() {
 
-    // this.router.events.subscribe((evt) => {
-    //   if (!(evt instanceof NavigationEnd)) {
-    //     return;
-    //   }
-    //   window.scrollTo(0, 0)
+    // this.httpClient.get('assets/menu.json').subscribe(res => {
+    //   console.log(res);
+    //   this.dishes = res;
     // });
-
-    this.httpClient.get('assets/menu.json').subscribe(res => {
+    this.httpClient.get('assets/menu_v2.json').subscribe(res => {
       console.log(res);
       this.dishes = res;
     });

@@ -29,7 +29,7 @@
                         {
                             "val": "other",
                             "text": "Other"
-                        }                        
+                        }
                     ]
                 },
                 "style": {
@@ -42,7 +42,7 @@
                         {
                             "val": "bug",
                             "text": "Buffet"
-                        }                        
+                        }
                     ]
                 },
                 "setup": {
@@ -50,63 +50,78 @@
                     "items": [
                         {
                             "val": "ab",
-                            "text": "All black - Free"
+                            "text": "All black - Free",
+                            "price": 0
                         },
                         {
                             "val": "br",
-                            "text": "Black/Red - Free"
+                            "text": "Black/Red - Free",
+                            "price": 0
                         },
                         {
                             "val": "bp",
-                            "text": "Black/Pink - Free"
+                            "text": "Black/Pink - Free",
+                            "price": 0
                         },
                         {
                             "val": "bb",
-                            "text": "Black/Blue - Free"
+                            "text": "Black/Blue - Free",
+                            "price": 0
                         },
                         {
                             "val": "bw",
-                            "text": "Black/White - Extra $60"
+                            "text": "Black/White - Free",
+                            "price": 0
                         },
                         {
                             "val": "bgold",
-                            "text": "Black/Gold - Extra $60"
+                            "text": "Black/Gold - Free",
+                            "price": 0
                         },
                         {
                             "val": "bs",
-                            "text": "Black/Silver - Extra $60"
+                            "text": "Black/Silver - Free",
+                            "price": 0
                         },
                         {
                             "val": "awhite",
-                            "text": "All White - Extra $80"
+                            "text": "All White - Extra $80",
+                            "price": 80
                         },
                         {
                             "val": "wg",
-                            "text": "White/Gold - Extra $60"
+                            "text": "White/Gold - Extra $60",
+                            "price": 60
                         },
                         {
                             "val": "ws",
-                            "text": "White/Silver - Extra $60"
+                            "text": "White/Silver - Extra $60",
+                            "price": 60
                         },
                         {
                             "val": "wb",
-                            "text": "White/Blue - Extra $60"
+                            "text": "White/Blue - Extra $60",
+                            "price": 60
                         },
                         {
                             "val": "wgreen",
-                            "text": "White/Green - Extra $60"
+                            "text": "White/Green - Extra $60",
+                            "price": 60
                         },
                         {
                             "val": "wp",
-                            "text": "White/Pink - Extra $60"
+                            "text": "White/Pink - Extra $60",
+                            "price": 60
                         },
                         {
                             "val": "wo",
-                            "text": "White/Orange - Extra $60"
+                            "text": "White/Orange - Extra $60",
+                            "price": 60
                         },
                         {
                             "val": "wr",
-                            "text": "White/Red - Extra $60"
+                            "text": "White/Red - Extra $60",
+                            "price": 60
                         }
                     ]
                 },
@@ -119,7 +134,7 @@
         "optional": "Optional",
         "required": "Required",
         "select_default": "-- Select an option --",
-        "previous": "Previous", 
+        "previous": "Previous",
         "next": "Next",
         "submit": "Send"
     },
@@ -153,7 +168,7 @@
                         {
                             "val": "other",
                             "text": "Otro"
-                        }                        
+                        }
                     ]
                 },
                 "style": {
@@ -166,7 +181,7 @@
                         {
                             "val": "bug",
                             "text": "Buffet"
-                        }                        
+                        }
                     ]
                 },
                 "setup": {

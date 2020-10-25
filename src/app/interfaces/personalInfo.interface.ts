@@ -1,0 +1,20 @@
+export interface PersonalInfo {
+    fName: string,
+    lName: string,
+    addr: string,
+    phone: string,
+    city: string,
+    zip: number,
+    email: string,
+    evtAddr: string,
+    evtCity: string,
+    evtZC: number,
+    evtDate: Date,
+    evtGC: number,
+    evtSC: object,
+    evtSS: string,
+    evtTTE: string,
+    evtToE: string,
+    evtIsSurprise: boolean,
+    comments: string
+}

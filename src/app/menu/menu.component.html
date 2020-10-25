@@ -32,7 +32,8 @@
                 <hr>
                 <ul>
                     <li>Minimum for catering 12 guest.</li>
-                    <li>All meals are served with fried rice or steamed rice, vegetables, grilled edamame & our special
+                    <li>Kid menu applies for kids between the age of 3 and 12 years old.</li>
+                    <li>All meals are served with steamed rice(Fried rice has a $3 extra charge), vegetables, grilled edamame & our special
                         homemade sauce.</li>
                 </ul>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
@@ -81,20 +82,17 @@
 
         <ul class="nav nav-pills mb-3" id="pills-tab-catering" role="tablist">
             <li class="nav-item">
-                <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home-catering" role="tab"
-                    aria-controls="pills-home" aria-selected="true">Main</a>
+                <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home-catering" role="tab" aria-controls="pills-home" aria-selected="true">Main</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact-kids" role="tab"
-                    aria-controls="pills-contact" aria-selected="false">Kids</a>
+                <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact-kids" role="tab" aria-controls="pills-contact" aria-selected="false">Kids</a>
             </li>
         </ul>
 
         <div class="tab-content" id="pills-tabContent">
-            <div class="tab-pane fade show active" id="pills-home-catering" role="tabpanel"
-                aria-labelledby="pills-home-tab">
+            <div class="tab-pane fade show active" id="pills-home-catering" role="tabpanel" aria-labelledby="pills-home-tab">
                 <div class="row menu-container">
-                    <div class="menu-item col-md-6" *ngFor="let category of dishes.categories[0].catering">
+                    <div class="menu-item col-md-6" *ngFor="let category of dishes.categories.catering.main">
                         <div class="row">
                             <div class="col-9 col-md-8">
                                 <h5 class="card-title">{{ category.name }}</h5>
@@ -110,7 +108,7 @@
             <div class="tab-pane fade" id="pills-contact-kids" role="tabpanel" aria-labelledby="pills-contact-tab">
                 <div class="row menu-container">
                     <!-- Start of menu list -->
-                    <div class="menu-item col-md-6" *ngFor="let category of dishes.categories[0].catering_kids">
+                    <div class="menu-item col-md-6" *ngFor="let category of dishes.categories.catering.kids">
                         <div class="row">
                             <div class="col-9 col-md-8">
                                 <h5 class="card-title">{{ category.name }}</h5>
@@ -142,7 +140,7 @@
                 <h4>Buffet details</h4>
                 <hr>
                 <ul>
-                    <li>Buffet includes fried rice or steamed rice, seasoned veggies, grilled edamame & season fruit
+                    <li>Buffet includes steamed rice, seasoned veggies, grilled edamame & season fruit
                         salad with homemade dressing.</li>
                 </ul>
                 <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
@@ -194,7 +192,7 @@
             <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
                 <div class="row menu-container">
                     <!-- Start of menu list -->
-                    <div class="menu-item col-md-6" *ngFor="let category of dishes.categories[0].buffet.main">
+                    <div class="menu-item col-md-6" *ngFor="let category of dishes.categories.buffet.main">
                         <div class="row">
                             <div class="col-9 col-md-8">
                                 <h5 class="card-title">{{ category.name }}</h5>
@@ -210,7 +208,7 @@
             <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
                 <div class="row menu-container">
                     <!-- Start of menu list -->
-                    <div class="menu-item col-md-6" *ngFor="let category of dishes.categories[0].buffet.sides">
+                    <div class="menu-item col-md-6" *ngFor="let category of dishes.categories.sides.main">
                         <div class="row">
                             <div class="col-9 col-md-8">
                                 <h5 class="card-title">{{ category.name }}</h5>
@@ -225,7 +223,7 @@
             <div class="tab-pane fade" id="pills-extras" role="tabpanel" aria-labelledby="pills-contact-tab">
                 <div class="row menu-container">
                     <!-- Start of menu list -->
-                    <div class="menu-item col-md-6" *ngFor="let category of dishes.categories[0].buffet.extras">
+                    <div class="menu-item col-md-6" *ngFor="let category of dishes.categories.buffet.extras">
                         <div class="row">
                             <div class="col-9 col-md-8">
                                 <h5 class="card-title">{{ category.name }}</h5>

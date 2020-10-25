@@ -1,8 +1,10 @@
-import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output, ViewChild, ElementRef } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { MessengerService } from 'src/app/services/messenger.service';
 import { EmailService } from 'src/app/services/email.service';
 import { Subscription } from 'rxjs';
+import { Router } from '@angular/router';
+
 export interface PersonalInfo {
   fName: string,
   lName: string,
@@ -16,10 +18,12 @@ export interface PersonalInfo {
   evtZC: number,
   evtDate: Date,
   evtGC: number,
-  evtSC: string,
+  evtSC: object,
   evtSS: string,
   evtTTE: string,
-  evtToE: string
+  evtToE: string,
+  evtIsSurprise: boolean,
+  comments: string
 }
 export interface Exp {
   subtotal: number,
@@ -38,16 +42,20 @@ export class StepThreeComponent implements OnInit {
   @Input() order: [];
   @Output() messageEvent = new EventEmitter<object>();
   @Output() resetEvent = new EventEmitter<object>();
+  @ViewChild("mdlBtn", {static: true}) mdlBtn: ElementRef<any>;
 
   constructor(
     private httpClient: HttpClient,
     private messanger: MessengerService,
-    private emailService: EmailService
+    private emailService: EmailService,
+    private router: Router
   ) {
     this.subscription = messanger.$notification.subscribe(res => {
       this.getContent();
     });
   }
+  progressBar: number = 1;
+  isModalHidden = true;
   loading = false;
   subscription: Subscription;
   template = {
@@ -93,7 +101,7 @@ export class StepThreeComponent implements OnInit {
     this.summary.total = this.total;
     this.summary.personalInfo = this.pInfo;
     this.summary.order = this.order;
-    this.expenses.subtotal = this.total;
+    this.expenses.subtotal = this.total  + (this.summary.personalInfo.evtSC.price > 0 ? this.summary.personalInfo.evtSC.price  : 0);
     this.expenses.tax = this.getTax();
     if(this.summary.personalInfo.evtSS == 'Buffet'){
       this.expenses.eq = this.getEqAndLabor()
@@ -105,20 +113,28 @@ export class StepThreeComponent implements OnInit {
     this.summary.exp.total = this.expenses.total.toFixed(2);
   }
 
+  alertMessage = {
+    header: 'Please wait',
+    msg: 'Sending reservation'
+  }
+
   finish() {
     window.scrollTo(0, 0);
     this.loading = true;
-    // document.body.style.overflow = "hidden";
+    this.mdlBtn.nativeElement.click();
     this.emailService.reservationEmail(this.summary).subscribe((data: any) => {
       if (data.status === 200) {
-        this.loading = false;
-        // document.body.style.overflow = "auto";
-        this.messageEvent.emit({ class: 'success', msg: data.msg });
-        this.reset('complete');
+        // for (let i = 0; i < 99; i++){
+        //   this.progressBar +=1;
+        // }
+        this.progressBar = 100;
+        this.alertMessage.header = 'Done!';
+        this.alertMessage.msg = 'Your reservation is complete. Sent a copy of the order to ';
+
       } else {
-        this.loading = false;
-        // document.body.style.overflow = "auto";
-        this.messageEvent.emit({ class: 'danger', msg: data.msg });
+        this.progressBar = 0;
+        this.alertMessage.header = 'Ups!';
+        this.alertMessage.msg = 'There was an error with your reservation. Please try again or contact support.';
       }
     });
   }
@@ -138,6 +154,10 @@ export class StepThreeComponent implements OnInit {
 
   reset(opt) {
     this.resetEvent.emit({ origin: opt });
+  }
+
+  goToSupport(){
+    this.router.navigate(['/contact']);
   }
 
 }

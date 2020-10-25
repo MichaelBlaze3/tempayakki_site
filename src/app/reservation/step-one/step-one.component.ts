@@ -80,7 +80,6 @@ export class StepOneComponent implements OnInit, OnDestroy {
       zip: new FormControl('', [Validators.required, Validators.maxLength(15)]),
       phone: new FormControl('', [Validators.required, Validators.maxLength(15)]),
       email: new FormControl('', [Validators.required, Validators.pattern(this.patterns.email)]),
-      
       evtAddr: new FormControl('', [Validators.required, Validators.maxLength(50)]),
       evtCity: new FormControl('', [Validators.required, Validators.maxLength(50)]),
       evtZC: new FormControl('', [Validators.required]),
@@ -90,6 +89,7 @@ export class StepOneComponent implements OnInit, OnDestroy {
       evtToE: new FormControl('', Validators.required),
       evtSS: new FormControl('', Validators.required),
       evtSC: new FormControl('', Validators.required),
+      evtIsSurprise: new FormControl(false),
       comments: new FormControl('', Validators.maxLength(150))
     });
   }
@@ -118,6 +118,8 @@ export class StepOneComponent implements OnInit, OnDestroy {
   }
 
   next() {
+    console.log(this.contactFormGroup.value);
+    console.log(this.contactFormGroup.value.evtSC);
     this.messageEvent.emit({pInfo: this.contactFormGroup.value, step: 'step2'});
   }
 
