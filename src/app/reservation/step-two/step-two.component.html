@@ -24,7 +24,7 @@
 
                 <div *ngIf="pInfo.evtSS == 'Catering' && available">
                     <h3>Catering</h3>
-                    <div class="row" *ngFor="let item of menuListCatering.catering">
+                    <div class="row drc" *ngFor="let item of menuListCatering.catering">
                         <div class="col-8 col-md-10">
                             <p>{{ item.name }} - <strong>$ {{item.price}}</strong></p>
                         </div>
@@ -34,7 +34,7 @@
                         </div>
                     </div>
                     <h3>Catering for Kids</h3>
-                    <div class="row" *ngFor="let item of menuListCatering.catering_kids">
+                    <div class="row drc" *ngFor="let item of menuListCatering.catering_kids">
                         <div class="col-8 col-md-10">
                             <p>{{ item.name }} - <strong>$ {{item.price}}</strong></p>
                         </div>
@@ -44,17 +44,7 @@
                         </div>
                     </div>
                     <h3>Sides</h3>
-                    <div class="row" *ngFor="let item of menuListCatering.sides">
-                        <div class="col-8 col-md-10">
-                            <p>{{ item.name }} - <strong>$ {{item.price}}</strong></p>
-                        </div>
-                        <div class="col-4 col-md-2">
-                            <input type="number" class="form-control" [value]="item.qty" min="0"
-                                (input)="item.qty = $event.target.value" (change)="calculateAndNext()">
-                        </div>
-                    </div>
-                    <h3>Others</h3>
-                    <div class="row" *ngFor="let item of menuListCatering.extras">
+                    <div class="row drc" *ngFor="let item of menuListCatering.sides">
                         <div class="col-8 col-md-10">
                             <p>{{ item.name }} - <strong>$ {{item.price}}</strong></p>
                         </div>
@@ -111,7 +101,7 @@
                                 (input)="item.qty = $event.target.value" (change)="calculateAndNext()">
                         </div>
                     </div>
-
+                    
                     <h3>Others</h3>
                     <div class="row" *ngFor="let item of menu.others">
                         <div class="col-8 col-md-10">

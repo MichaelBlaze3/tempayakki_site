@@ -30,9 +30,9 @@ export class StepOneComponent implements OnInit, OnDestroy {
   template = {
     contact: {
       header: '',
-      name: '',
-      last: '',
-      addr: '',
+      // name: '',
+      // last: '',
+      // addr: '',
       phone: '',
       email: ''
     },
@@ -75,9 +75,9 @@ export class StepOneComponent implements OnInit, OnDestroy {
     this.contactFormGroup = new FormGroup({
       fName: new FormControl('', [Validators.required, Validators.maxLength(25)]),
       lName: new FormControl('', [Validators.required, Validators.maxLength(25)]),
-      addr: new FormControl ('', [Validators.required, Validators.maxLength(50)]),
-      city: new FormControl('', [Validators.required, Validators.maxLength(50)]),
-      zip: new FormControl('', [Validators.required, Validators.maxLength(15)]),
+      // addr: new FormControl ('', [Validators.required, Validators.maxLength(50)]),
+      // city: new FormControl('', [Validators.required, Validators.maxLength(50)]),
+      // zip: new FormControl('', [Validators.required, Validators.maxLength(15)]),
       phone: new FormControl('', [Validators.required, Validators.maxLength(15)]),
       email: new FormControl('', [Validators.required, Validators.pattern(this.patterns.email)]),
       evtAddr: new FormControl('', [Validators.required, Validators.maxLength(50)]),

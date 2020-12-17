@@ -1,6 +1,4 @@
-<!-- <div class="loader-container" *ngIf="loading">
-    <div class="loader"></div>
-</div> -->
+
 <section class="origin" id="contentToConvert">
     <div class="container">
         <div class="steps-form">
@@ -31,17 +29,6 @@
                 <div class="row">
                     <div class="col-12 col-md-6">
                         <p> <strong>Name: </strong> {{ pInfo.fName }} {{ pInfo.lName }} </p>
-                    </div>
-                    <div class="col-12 col-md-6">
-                        <p> <strong>Address: </strong> {{ pInfo.addr }}</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-12 col-md-6">
-                        <p> <strong>City: </strong>{{ pInfo.city }} </p>
-                    </div>
-                    <div class="col-12 col-md-6">
-                        <p><strong>Email: </strong>{{ pInfo.zip }}</p>
                     </div>
                 </div>
                 <div class="row">
@@ -119,7 +106,7 @@
                                 <p>{{ item.description }}</p>
                             </td>
                             <td>{{ item.qty }}</td>
-                            <td class="price_right">$ {{ item.price }}</td>
+                            <td class="price_right">$ {{ item.price }} + tax</td>
                         </tr>
                         <tr>
                             <td>{{ summary.personalInfo.evtSC.text }}</td>

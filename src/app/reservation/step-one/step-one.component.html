@@ -25,7 +25,7 @@
                     <form [formGroup]="contactFormGroup">
                         <div class="form-row">
                             <div class="col-12">
-                                <h3>{{ template.contact.header }}</h3>
+                                <h3>{{ template.event.header }}</h3>
                                 <span>* Required</span>
                             </div>
                             <div class="form-group col-md-6">
@@ -46,7 +46,7 @@
                                     *ngIf="contactFormGroup.get('lName').hasError('required') && contactFormGroup.get('lName').touched"
                                     class="invalid-feedback">Required</span>
                             </div>
-                            <div class="form-group col-md-12">
+                            <!-- <div class="form-group col-md-12">
                                 <label for="address">{{ template.contact.addr }} * </label>
                                 <input type="text" class="form-control" formControlName="addr"
                                     [class.is-invalid]="contactFormGroup.get('addr').hasError('required') && contactFormGroup.get('addr').touched"
@@ -76,7 +76,7 @@
                                 <span
                                     *ngIf="contactFormGroup.get('zip').hasError('required') && contactFormGroup.get('zip').touched"
                                     class="invalid-feedback">Zip Code is Required</span>
-                            </div>
+                            </div> -->
 
 
                             <div class="form-group col-md-6">
@@ -102,9 +102,9 @@
                             </div>
                         </div>
                         <div class="form-row">
-                            <div class="col-12">
+                            <!-- <div class="col-12">
                                 <h3>{{ template.event.header }}</h3>
-                            </div>
+                            </div> -->
                             <div class="form-group col-md-6">
                                 <label for="evtAddr">{{ template.event.addr }} * </label>
                                 <input type="text" class="form-control" formControlName="evtAddr" maxlength="50"
@@ -244,7 +244,6 @@
                         <button type="button" class="btn btn-danger" (click)="next()" [disabled]="contactFormGroup.get('fName').hasError('required') ||
                                     contactFormGroup.get('lName').hasError('required') ||
                                     contactFormGroup.get('lName').hasError('required') ||
-                                    contactFormGroup.get('addr').hasError('required') ||
                                     contactFormGroup.get('phone').hasError('required') ||
                                     contactFormGroup.get('email').hasError('required') ||
                                     contactFormGroup.get('evtAddr').hasError('required') || 

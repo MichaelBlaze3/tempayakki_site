@@ -16,6 +16,9 @@ import { StepOneComponent } from './reservation/step-one/step-one.component';
 import { StepTwoComponent } from './reservation/step-two/step-two.component';
 import { StepThreeComponent } from './reservation/step-three/step-three.component';
 import { PhoneMaskDirective } from './phone-mask.directive';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,10 +38,11 @@ import { PhoneMaskDirective } from './phone-mask.directive';
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule
   ],
   exports: [ PhoneMaskDirective ],
-  providers: [ MessengerService ],
+  providers: [ MessengerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

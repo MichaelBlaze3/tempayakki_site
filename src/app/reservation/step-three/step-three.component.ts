@@ -8,10 +8,10 @@ import { Router } from '@angular/router';
 export interface PersonalInfo {
   fName: string,
   lName: string,
-  addr: string,
+  // addr: string,
   phone: string,
-  city: string,
-  zip: number,
+  // city: string,
+  // zip: number,
   email: string,
   evtAddr: string,
   evtCity: string,
