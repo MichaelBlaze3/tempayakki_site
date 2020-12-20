@@ -30,8 +30,8 @@ export class StepOneComponent implements OnInit, OnDestroy {
   template = {
     contact: {
       header: '',
-      // name: '',
-      // last: '',
+      name: '',
+      last: '',
       // addr: '',
       phone: '',
       email: ''

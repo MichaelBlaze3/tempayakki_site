@@ -121,17 +121,18 @@ export class StepThreeComponent implements OnInit {
   finish() {
     window.scrollTo(0, 0);
     this.loading = true;
-    this.mdlBtn.nativeElement.click();
     this.emailService.reservationEmail(this.summary).subscribe((data: any) => {
-      if (data.status === 200) {
+      if (data.status == 200) {
         // for (let i = 0; i < 99; i++){
         //   this.progressBar +=1;
         // }
+        this.mdlBtn.nativeElement.click();
         this.progressBar = 100;
         this.alertMessage.header = 'Done!';
         this.alertMessage.msg = 'Your reservation is complete. Sent a copy of the order to ';
 
       } else {
+        this.mdlBtn.nativeElement.click();
         this.progressBar = 0;
         this.alertMessage.header = 'Ups!';
         this.alertMessage.msg = 'There was an error with your reservation. Please try again or contact support.';

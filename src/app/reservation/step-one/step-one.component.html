@@ -243,7 +243,6 @@
                         </div>
                         <button type="button" class="btn btn-danger" (click)="next()" [disabled]="contactFormGroup.get('fName').hasError('required') ||
                                     contactFormGroup.get('lName').hasError('required') ||
-                                    contactFormGroup.get('lName').hasError('required') ||
                                     contactFormGroup.get('phone').hasError('required') ||
                                     contactFormGroup.get('email').hasError('required') ||
                                     contactFormGroup.get('evtAddr').hasError('required') || 
