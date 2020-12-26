@@ -26,6 +26,8 @@ $teppanyaki-theme: mat-light-theme($teppanyaki-primary, $teppanyaki-accent, $tep
 // that you are using.
 @include angular-material-theme($teppanyaki-theme);
 
+@import "~ng-pick-datetime/assets/style/picker.min.css";
+
 /* You can add global styles to this file, and also import other style files */
 .centered {
     text-align: center;

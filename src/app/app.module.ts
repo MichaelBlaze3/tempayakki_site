@@ -17,7 +17,7 @@ import { StepTwoComponent } from './reservation/step-two/step-two.component';
 import { StepThreeComponent } from './reservation/step-three/step-three.component';
 import { PhoneMaskDirective } from './phone-mask.directive';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 
 @NgModule({
   declarations: [
@@ -39,7 +39,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    OwlDateTimeModule,
+    OwlNativeDateTimeModule
   ],
   exports: [ PhoneMaskDirective ],
   providers: [ MessengerService],

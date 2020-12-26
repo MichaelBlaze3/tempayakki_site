@@ -76,6 +76,11 @@
                     </div>
                 </div>
                 <div class="row">
+                    <div class="col-12 col-md-12">
+                        <p><strong>Do we have to go up or down stairs to do the setup?: </strong>{{ pInfo.evtAccesibility }}</p>
+                    </div>
+                </div>
+                <div class="row">
                     <div class="col-12 col-md-6">
                         <p *ngIf="pInfo.evtIsSurprise"><strong>Surprise Event:</strong> Yes</p>
                         <p *ngIf="!pInfo.evtIsSurprise"><strong>Surprise Event:</strong> No</p>

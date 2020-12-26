@@ -75,9 +75,6 @@ export class StepOneComponent implements OnInit, OnDestroy {
     this.contactFormGroup = new FormGroup({
       fName: new FormControl('', [Validators.required, Validators.maxLength(25)]),
       lName: new FormControl('', [Validators.required, Validators.maxLength(25)]),
-      // addr: new FormControl ('', [Validators.required, Validators.maxLength(50)]),
-      // city: new FormControl('', [Validators.required, Validators.maxLength(50)]),
-      // zip: new FormControl('', [Validators.required, Validators.maxLength(15)]),
       phone: new FormControl('', [Validators.required, Validators.maxLength(15)]),
       email: new FormControl('', [Validators.required, Validators.pattern(this.patterns.email)]),
       evtAddr: new FormControl('', [Validators.required, Validators.maxLength(50)]),
@@ -90,13 +87,13 @@ export class StepOneComponent implements OnInit, OnDestroy {
       evtSS: new FormControl('', Validators.required),
       evtSC: new FormControl('', Validators.required),
       evtIsSurprise: new FormControl(false),
+      evtAccesibility: new FormControl('no', Validators.required),
       comments: new FormControl('', Validators.maxLength(150))
     });
   }
 
   getContent(){
     this.httpClient.get('assets/reservation_content.json').subscribe( res => {
-      console.log(res);
       if(localStorage.getItem("language") == "es") {
         this.template = res['es'].reservation;
         this.template.opt = res['es'].optional;
@@ -118,9 +115,24 @@ export class StepOneComponent implements OnInit, OnDestroy {
   }
 
   next() {
+    this.contactFormGroup.value.evtDate = this.contactFormGroup.value.evtDate.toDateString();
+    this.contactFormGroup.value.evtTTE = this.getTime(this.contactFormGroup.value.evtTTE);
     console.log(this.contactFormGroup.value);
-    console.log(this.contactFormGroup.value.evtSC);
     this.messageEvent.emit({pInfo: this.contactFormGroup.value, step: 'step2'});
+  }
+
+
+  getTime(time) {
+    let hour = time.getHours();
+    let min = time.getMinutes();
+    if(min == 0) {
+      min = '00';
+    } else {
+      if (min > 0 && min < 10){
+        min = '0'+ min;
+      }
+    }
+    return  hour + ':' + min;
   }
 
   updateGuestCount(sstype){

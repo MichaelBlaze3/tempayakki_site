@@ -150,21 +150,25 @@
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="evtDate">{{ template.event.date }} * </label>
-                                <input type="date" class="form-control" formControlName="evtDate"
+                                <input class="form-control" formControlName="evtDate" [owlDateTime]="dt1"
+                                    [owlDateTimeTrigger]="dt1"
                                     [class.is-invalid]="contactFormGroup.get('evtDate').hasError('required') && contactFormGroup.get('evtDate').touched"
-                                    placeholder="mm/dd/YYYY" name="trip-start" id="evtDate">
+                                    placeholder="Select your date" id="evtDate">
+                                <owl-date-time [pickerType]="'calendar'" #dt1></owl-date-time>
                                 <span
                                     *ngIf="contactFormGroup.get('evtDate').hasError('required') && contactFormGroup.get('evtDate').touched"
                                     class="invalid-feedback">Date of Event is Required</span>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="evtTTE">{{ template.event.tte }} * </label>
-                                <input type="time" class="form-control" formControlName="evtTTE"
+                                <input class="form-control" formControlName="evtTTE" [owlDateTime]="dt2"
+                                    [owlDateTimeTrigger]="dt2"
                                     [class.is-invalid]="contactFormGroup.get('evtTTE').hasError('required') && contactFormGroup.get('evtTTE').touched"
-                                    placeholder="Example: 06:30 PM" id="evtTTE">
+                                    placeholder="Select your event time" id="evtDate">
+                                <owl-date-time [pickerType]="'timer'" #dt2></owl-date-time>
                                 <span
                                     *ngIf="contactFormGroup.get('evtTTE').hasError('required') && contactFormGroup.get('evtTTE').touched"
-                                    class="invalid-feedback">Required</span>
+                                    class="invalid-feedback">Time of Event is Required</span>
                             </div>
 
                             <div class="form-group col-md-6">
@@ -212,7 +216,8 @@
                                     [class.is-invalid]="contactFormGroup.get('evtSC').hasError('required') && contactFormGroup.get('evtSC').touched"
                                     id="evtSC">
                                     <option disabled>{{ template.default }}</option>
-                                    <option selected [ngValue]='template.event.setup.items[0]'>{{template.event.setup.items[0].text}}</option>
+                                    <option selected [ngValue]='template.event.setup.items[0]'>
+                                        {{template.event.setup.items[0].text}}</option>
                                 </select>
 
                                 <select class="form-control" formControlName="evtSC"
@@ -220,7 +225,8 @@
                                     [class.is-invalid]="contactFormGroup.get('evtSC').hasError('required') && contactFormGroup.get('evtSC').touched"
                                     id="evtSC">
                                     <option disabled> -- Select an Option -- </option>
-                                    <option *ngFor="let item of template.event.setup.items" [ngValue]='item'> {{ item.text }}
+                                    <option *ngFor="let item of template.event.setup.items" [ngValue]='item'> {{
+                                        item.text }}
                                     </option>
                                 </select>
                                 <span
@@ -233,6 +239,22 @@
                                         formControlName="evtIsSurprise">
                                     <label class="form-check-label" for="exampleCheck1">Surprise Event</label>
                                 </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <p>Do we have to go up or down stairs to do the setup?
+                                </p>
+                                <div class="form-check">
+                                    <input class="form-check-input" formControlName="evtAccesibility" type="radio" name="evtAccesibility" id="flexRadioDefault1" value="no">
+                                    <label class="form-check-label" for="flexRadioDefault1">
+                                      No
+                                    </label>
+                                  </div>
+                                  <div class="form-check">
+                                    <input class="form-check-input" formControlName="evtAccesibility" type="radio" name="evtAccesibility" id="flexRadioDefault2" value="yes">
+                                    <label class="form-check-label" for="flexRadioDefault2">
+                                      Yes
+                                    </label>
+                                  </div>
                             </div>
                             <div class="form-group col-12">
                                 <label for="comments">Comments</label>

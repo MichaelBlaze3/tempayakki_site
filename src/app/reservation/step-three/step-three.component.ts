@@ -23,6 +23,7 @@ export interface PersonalInfo {
   evtTTE: string,
   evtToE: string,
   evtIsSurprise: boolean,
+  evtAccesibility: string,
   comments: string
 }
 export interface Exp {

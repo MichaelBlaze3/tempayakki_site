@@ -69,9 +69,10 @@ export class EmailService {
       .set('eq', reservation.exp.eq)
       .set('total', reservation.exp.total)
       .set('evtIsSurprise', reservation.personalInfo.evtIsSurprise)
+      .set('evtAccesibility', reservation.personalInfo.evtAccesibility)
 
       // httpParams.append('order', JSON.stringify(reservation.order));
-    return this.httpClient.post(this.environment.dev, httpParams, { headers: headerOptions });
+    return this.httpClient.post(this.environment.prod, httpParams, { headers: headerOptions });
   }
 
 }
