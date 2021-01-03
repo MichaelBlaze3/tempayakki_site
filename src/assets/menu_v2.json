@@ -109,6 +109,36 @@
                     "description": "",
                     "price": 40,
                     "qty": 0
+                },
+                {
+                    "name": "Teppanyaki Seafood Combo.",
+                    "description": "4 oz Salmon, 4 oz  Garlic Shrimp & 4 oz Scallops.",
+                    "price": 55,
+                    "qty": 0
+                },
+                {
+                    "name": "Teppanyaki Salmon.",
+                    "description": "8 oz Salmon.",
+                    "price": 60,
+                    "qty": 0
+                },
+                {
+                    "name": "Teppanyaki Shrimp.",
+                    "description": "8 oz Garlic Shrimp.",
+                    "price": 53,
+                    "qty": 0
+                },
+                {
+                    "name": "Teppanyaki Scallops.",
+                    "description": "10 pc Garlic Scallops.",
+                    "price": 50,
+                    "qty": 0
+                },
+                {
+                    "name": "Teppanyaki Wild Lobster.",
+                    "description": "14 oz Garlic Lobster.",
+                    "price": 90,
+                    "qty": 0
                 }
             ],
             "kids": [
@@ -289,6 +319,38 @@
                 {
                     "name": "Chair cover(white/black - each).",
                     "price": 1.50,
+                    "qty": 0
+                }
+            ],
+            "catering": [
+                {
+                    "name": "Extra Check Service.",
+                    "price": 150,
+                    "qty": 0
+                },
+                {
+                    "name": "Extra Server.",
+                    "price": 110,
+                    "qty": 0
+                },
+                {
+                    "name": "Patio Heater Propane Gas.",
+                    "price": 70,
+                    "qty": 0
+                },
+                {
+                    "name": "Sake Cups /1 pc.",
+                    "price": 2,
+                    "qty": 0
+                },
+                {
+                    "name": "Wine Glasses /1 pc.",
+                    "price": 2,
+                    "qty": 0
+                },
+                {
+                    "name": "Setup 24 hrs.",
+                    "price": 250,
                     "qty": 0
                 }
             ]

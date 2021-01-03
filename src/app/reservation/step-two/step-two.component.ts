@@ -36,7 +36,8 @@ export class StepTwoComponent implements OnInit, OnDestroy {
     catering: [],
     catering_kids: [],
     sides: [],
-    extras: []
+    extras: [],
+    others: []
   }
   subscription: Subscription;
   template = {
@@ -69,6 +70,7 @@ export class StepTwoComponent implements OnInit, OnDestroy {
         this.menuListCatering.catering_kids = data.categories.catering.kids;
         this.menuListCatering.sides = data.categories.sides.main;
         this.menuListCatering.extras = data.categories.others.main;
+        this.menuListCatering.others = data.categories.others.catering;
       }
       this.available = true;
     });
@@ -123,6 +125,12 @@ export class StepTwoComponent implements OnInit, OnDestroy {
         }
         this.total += element.qty * element.price
       });
+      this.menuListCatering.others.forEach(element => {
+        if (element.qty > 0) {
+          this.finalOrderList.push(element);
+        }
+        this.total += element.qty * element.price
+      });
     }
     // Buffet
     if (this.pInfo.evtSS == 'Buffet') {
@@ -160,7 +168,7 @@ export class StepTwoComponent implements OnInit, OnDestroy {
   }
 
   next() {
-    console.log(this.finalOrderList);
+    // console.log(this.finalOrderList);
     this.messageEvent.emit({ price: this.total, step: 'step3', order: this.finalOrderList })
   }
 
