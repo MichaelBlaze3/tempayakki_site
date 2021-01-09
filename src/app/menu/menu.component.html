@@ -85,6 +85,9 @@
                 <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home-catering" role="tab" aria-controls="pills-home" aria-selected="true">Main</a>
             </li>
             <li class="nav-item">
+                <a class="nav-link" id="pills-home-tab" data-toggle="pill" href="#pills-home-seafood" role="tab" aria-controls="pills-home-season" aria-selected="true">Seafood</a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact-kids" role="tab" aria-controls="pills-contact" aria-selected="false">Kids</a>
             </li>
         </ul>
@@ -93,6 +96,21 @@
             <div class="tab-pane fade show active" id="pills-home-catering" role="tabpanel" aria-labelledby="pills-home-tab">
                 <div class="row menu-container">
                     <div class="menu-item col-md-6" *ngFor="let category of dishes.categories.catering.main">
+                        <div class="row">
+                            <div class="col-9 col-md-8">
+                                <h5 class="card-title">{{ category.name }}</h5>
+                                <p class="card-text">{{ category.description }}</p>
+                            </div>
+                            <div class="col-3 col-md-4">
+                                <h4 class="card-text"> ${{ category.price }}</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="pills-home-seafood" role="tabpanel" aria-labelledby="pills-home-tab">
+                <div class="row menu-container">
+                    <div class="menu-item col-md-6" *ngFor="let category of dishes.categories.catering.seafood">
                         <div class="row">
                             <div class="col-9 col-md-8">
                                 <h5 class="card-title">{{ category.name }}</h5>
@@ -246,8 +264,9 @@
                 <h3>For these and other delicious choices, you can take a look to our menu</h3>
             </div>
             <div class="col-12">
-                <a href="../../assets/docs/Teppanyaki Menuv3.pdf" target="_blank"><button type="button"
-                        class="btn btn-dark p-centered">Get Our Menu</button></a>
+                <a href="../../assets/docs/Teppanyaki Menuv3.pdf" class="p-centered" target="_blank">
+                    <button type="button" style="display: block; margin: auto;"class="btn btn-dark">Get Our Menu</button>
+                </a>
             </div>
         </div>
     </div>

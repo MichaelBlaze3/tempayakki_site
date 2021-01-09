@@ -109,7 +109,9 @@
                     "description": "",
                     "price": 40,
                     "qty": 0
-                },
+                }
+            ],
+            "seafood": [
                 {
                     "name": "Teppanyaki Seafood Combo.",
                     "description": "4 oz Salmon, 4 oz  Garlic Shrimp & 4 oz Scallops.",
@@ -324,7 +326,7 @@
             ],
             "catering": [
                 {
-                    "name": "Extra Check Service.",
+                    "name": "Extra Chef Service.",
                     "price": 150,
                     "qty": 0
                 },

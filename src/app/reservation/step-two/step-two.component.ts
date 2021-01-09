@@ -34,6 +34,7 @@ export class StepTwoComponent implements OnInit, OnDestroy {
   };
   menuListCatering = {
     catering: [],
+    catering_seafood: [],
     catering_kids: [],
     sides: [],
     extras: [],
@@ -67,6 +68,7 @@ export class StepTwoComponent implements OnInit, OnDestroy {
       }
       if (this.pInfo.evtSS === 'Catering') {
         this.menuListCatering.catering = data.categories.catering.main;
+        this.menuListCatering.catering_seafood = data.categories.catering.seafood;
         this.menuListCatering.catering_kids = data.categories.catering.kids;
         this.menuListCatering.sides = data.categories.sides.main;
         this.menuListCatering.extras = data.categories.others.main;
@@ -100,6 +102,12 @@ export class StepTwoComponent implements OnInit, OnDestroy {
     // Catering
     if (this.pInfo.evtSS == 'Catering') {
       this.menuListCatering.catering.forEach(element => {
+        if (element.qty > 0) {
+          this.finalOrderList.push(element);
+        }
+        this.total += element.qty * element.price
+      });
+      this.menuListCatering.catering_seafood.forEach(element => {
         if (element.qty > 0) {
           this.finalOrderList.push(element);
         }
