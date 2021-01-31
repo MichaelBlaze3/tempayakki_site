@@ -17,7 +17,9 @@
                 <p>Set up and clean up is included on final price.</p>
                 <p>If you have any food allergies and/or special request, please be sure to take note of that before the
                     event.</p>
-                <p>Our mobile set up can go to almost any location of choice. Our teppanyaki has been popular in people's backyards, beaches, farms and vineyards we can travel from north to south across california.</p>
+                <p>Our mobile set up can go to almost any location of choice. Our teppanyaki has been popular in
+                    people's backyards, beaches, farms and vineyards we can travel from north to south across
+                    california.</p>
                 <a href="../../assets/docs/Policy.pdf" style="font-size: 22px;" target="_blank">Policy Document</a>
             </div>
         </div>
@@ -33,7 +35,8 @@
                 <ul>
                     <li>Minimum for catering 12 guest.</li>
                     <li>Kid menu applies for kids between the age of 3 and 12 years old.</li>
-                    <li>All meals are served with steamed rice(Fried rice has a $3 extra charge), vegetables, grilled edamame & our special
+                    <li>All meals are served with steamed rice(Fried rice has a $3 extra charge), vegetables, grilled
+                        edamame & our special
                         homemade sauce.</li>
                 </ul>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
@@ -82,18 +85,22 @@
 
         <ul class="nav nav-pills mb-3" id="pills-tab-catering" role="tablist">
             <li class="nav-item">
-                <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home-catering" role="tab" aria-controls="pills-home" aria-selected="true">Main</a>
+                <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home-catering" role="tab"
+                    aria-controls="pills-home" aria-selected="true">Main</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" id="pills-home-tab" data-toggle="pill" href="#pills-home-seafood" role="tab" aria-controls="pills-home-season" aria-selected="true">Seafood</a>
+                <a class="nav-link" id="pills-sea-tab" data-toggle="pill" href="#pills-sea-seafood" role="tab"
+                    aria-controls="pills-sea-season" aria-selected="true">Seafood</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact-kids" role="tab" aria-controls="pills-contact" aria-selected="false">Kids</a>
+                <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact-kids" role="tab"
+                    aria-controls="pills-contact" aria-selected="false">Kids</a>
             </li>
         </ul>
 
-        <div class="tab-content" id="pills-tabContent">
-            <div class="tab-pane fade show active" id="pills-home-catering" role="tabpanel" aria-labelledby="pills-home-tab">
+        <div class="tab-content" id="pills-tabContent" *ngIf="isLoaded">
+            <div class="tab-pane fade show active" id="pills-home-catering" role="tabpanel"
+                aria-labelledby="pills-home-tab">
                 <div class="row menu-container">
                     <div class="menu-item col-md-6" *ngFor="let category of dishes.categories.catering.main">
                         <div class="row">
@@ -108,7 +115,7 @@
                     </div>
                 </div>
             </div>
-            <div class="tab-pane fade" id="pills-home-seafood" role="tabpanel" aria-labelledby="pills-home-tab">
+            <div class="tab-pane fade" id="pills-sea-seafood" role="tabpanel" aria-labelledby="pills-sea-tab">
                 <div class="row menu-container">
                     <div class="menu-item col-md-6" *ngFor="let category of dishes.categories.catering.seafood">
                         <div class="row">
@@ -265,7 +272,8 @@
             </div>
             <div class="col-12">
                 <a href="../../assets/docs/Teppanyaki Menuv3.pdf" class="p-centered" target="_blank">
-                    <button type="button" style="display: block; margin: auto;"class="btn btn-dark">Get Our Menu</button>
+                    <button type="button" style="display: block; margin: auto;" class="btn btn-dark">Get Our
+                        Menu</button>
                 </a>
             </div>
         </div>

@@ -46,39 +46,6 @@
                                     *ngIf="contactFormGroup.get('lName').hasError('required') && contactFormGroup.get('lName').touched"
                                     class="invalid-feedback">Required</span>
                             </div>
-                            <!-- <div class="form-group col-md-12">
-                                <label for="address">{{ template.contact.addr }} * </label>
-                                <input type="text" class="form-control" formControlName="addr"
-                                    [class.is-invalid]="contactFormGroup.get('addr').hasError('required') && contactFormGroup.get('addr').touched"
-                                    placeholder="Max length of 50 characters" maxlength="50" id="address" required>
-                                <span
-                                    *ngIf="contactFormGroup.get('addr').hasError('required') && contactFormGroup.get('addr').touched"
-                                    class="invalid-feedback">Required</span>
-                            </div>
-
-                            <div class="form-group col-md-6">
-                                <label for="address">City * </label>
-                                <input type="text" class="form-control" formControlName="city"
-                                    [class.is-invalid]="contactFormGroup.get('city').hasError('required') && contactFormGroup.get('city').touched"
-                                    placeholder="Max length of 50 characters" maxlength="50" id="city" required>
-                                <span
-                                    *ngIf="contactFormGroup.get('city').hasError('required') && contactFormGroup.get('city').touched"
-                                    class="invalid-feedback">Required</span>
-                            </div>
-
-                            <div class="form-group col-md-6">
-                                <label for="zip">Zip Code * </label>
-                                <input type="number" class="form-control" formControlName="zip" maxlength="7"
-                                    placeholder="00000"
-                                    oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                                    [class.is-invalid]="contactFormGroup.get('zip').hasError('required') && contactFormGroup.get('zip').touched"
-                                    placeholder="Zip Code" id="zip">
-                                <span
-                                    *ngIf="contactFormGroup.get('zip').hasError('required') && contactFormGroup.get('zip').touched"
-                                    class="invalid-feedback">Zip Code is Required</span>
-                            </div> -->
-
-
                             <div class="form-group col-md-6">
                                 <label for="phone">{{ template.contact.phone }} * </label>
                                 <input type="tel" class="form-control" formControlName="phone" appPhoneMask
@@ -102,9 +69,6 @@
                             </div>
                         </div>
                         <div class="form-row">
-                            <!-- <div class="col-12">
-                                <h3>{{ template.event.header }}</h3>
-                            </div> -->
                             <div class="form-group col-md-6">
                                 <label for="evtAddr">{{ template.event.addr }} * </label>
                                 <input type="text" class="form-control" formControlName="evtAddr" maxlength="50"
@@ -244,17 +208,19 @@
                                 <p>Do we have to go up or down stairs to do the setup?
                                 </p>
                                 <div class="form-check">
-                                    <input class="form-check-input" formControlName="evtAccesibility" type="radio" name="evtAccesibility" id="flexRadioDefault1" value="no">
+                                    <input class="form-check-input" formControlName="evtAccesibility" type="radio"
+                                        name="evtAccesibility" id="flexRadioDefault1" value="no">
                                     <label class="form-check-label" for="flexRadioDefault1">
-                                      No
+                                        No
                                     </label>
-                                  </div>
-                                  <div class="form-check">
-                                    <input class="form-check-input" formControlName="evtAccesibility" type="radio" name="evtAccesibility" id="flexRadioDefault2" value="yes">
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" formControlName="evtAccesibility" type="radio"
+                                        name="evtAccesibility" id="flexRadioDefault2" value="yes">
                                     <label class="form-check-label" for="flexRadioDefault2">
-                                      Yes
+                                        Yes
                                     </label>
-                                  </div>
+                                </div>
                             </div>
                             <div class="form-group col-12">
                                 <label for="comments">Comments</label>

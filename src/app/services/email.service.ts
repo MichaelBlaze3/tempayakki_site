@@ -72,7 +72,7 @@ export class EmailService {
       .set('evtAccesibility', reservation.personalInfo.evtAccesibility)
 
       // httpParams.append('order', JSON.stringify(reservation.order));
-    return this.httpClient.post(this.environment.prod, httpParams, { headers: headerOptions });
+    return this.httpClient.post(this.environment.dev, httpParams, { headers: headerOptions });
   }
 
 }

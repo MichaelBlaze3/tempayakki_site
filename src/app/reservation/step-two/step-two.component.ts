@@ -64,7 +64,6 @@ export class StepTwoComponent implements OnInit, OnDestroy {
         this.menu.extras = data.categories.buffet.extras;
         this.menu.sides = data.categories.sides.main;
         this.menu.others = data.categories.others.main;
-        console.log(this.menu);
       }
       if (this.pInfo.evtSS === 'Catering') {
         this.menuListCatering.catering = data.categories.catering.main;
