@@ -15,14 +15,6 @@ export class EmailService {
     prod: 'http://teppanyaki-catering.com/email/index.php'
   }
 
-  // serverIP: string = '192.168.0.12';
-  // serverPORT: string = '3000';
-  // serverURL: string = 'http://' + this.serverIP + ':' + this.serverPORT + '/';
-
-  // test() {
-  //   return this.httpClient.get(this.serverURL, { responseType: 'text' });
-  // }
-
   supportEmail(support) {
     const httpParams = new HttpParams().set('type', 'support').set('fName', support.fName).set('lName', support.lName).set('email', support.email).set('comment', support.comment);
     let headerOptions = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
@@ -71,8 +63,7 @@ export class EmailService {
       .set('evtIsSurprise', reservation.personalInfo.evtIsSurprise)
       .set('evtAccesibility', reservation.personalInfo.evtAccesibility)
 
-      // httpParams.append('order', JSON.stringify(reservation.order));
-    return this.httpClient.post(this.environment.dev, httpParams, { headers: headerOptions });
+    return this.httpClient.post(this.environment.prod, httpParams, { headers: headerOptions });
   }
 
 }
