@@ -8,10 +8,7 @@ import { Router } from '@angular/router';
 export interface PersonalInfo {
   fName: string,
   lName: string,
-  // addr: string,
   phone: string,
-  // city: string,
-  // zip: number,
   email: string,
   evtAddr: string,
   evtCity: string,
@@ -41,6 +38,7 @@ export class StepThreeComponent implements OnInit {
   @Input() pInfo: any;
   @Input() total: number;
   @Input() order: [];
+  @Input() skip: boolean = false;
   @Output() messageEvent = new EventEmitter<object>();
   @Output() resetEvent = new EventEmitter<object>();
   @ViewChild("mdlBtn", {static: true}) mdlBtn: ElementRef<any>;
@@ -59,6 +57,7 @@ export class StepThreeComponent implements OnInit {
   isModalHidden = true;
   loading = false;
   subscription: Subscription;
+  checked = false;
   template = {
     previous: '',
     next: '',
@@ -68,6 +67,7 @@ export class StepThreeComponent implements OnInit {
     personalInfo: [],
     order: [],
     total: 0,
+    skip: false,
     exp: {
       subtotal: '',
       tax: '',
@@ -99,19 +99,28 @@ export class StepThreeComponent implements OnInit {
   ngOnInit() {
     window.scrollTo(0, 0);
     this.getContent();
+    this.summary.skip = this.skip;
     this.summary.total = this.total;
     this.summary.personalInfo = this.pInfo;
-    this.summary.order = this.order;
-    this.expenses.subtotal = this.total  + (this.summary.personalInfo.evtSC.price > 0 ? this.summary.personalInfo.evtSC.price  : 0);
-    this.expenses.tax = this.getTax();
-    if(this.summary.personalInfo.evtSS == 'Buffet'){
-      this.expenses.eq = this.getEqAndLabor()
+    if(!this.summary.skip) {
+      this.summary.order = this.order;
+      this.expenses.subtotal = this.total  + (this.summary.personalInfo.evtSC.price > 0 ? this.summary.personalInfo.evtSC.price  : 0);
+      this.expenses.tax = this.getTax();
+      if(this.summary.personalInfo.evtSS == 'Buffet'){
+        this.expenses.eq = this.getEqAndLabor()
+      }
+      this.expenses.total = this.expenses.tax + this.expenses.subtotal + this.expenses.eq;
+      this.summary.exp.subtotal = this.expenses.subtotal.toFixed(2);
+      this.summary.exp.tax = this.expenses.tax.toFixed(2);
+      this.summary.exp.eq = this.expenses.eq.toFixed(2);
+      this.summary.exp.total = this.expenses.total.toFixed(2);
+    } else {
+      this.summary.exp.subtotal  = 0;
+      this.summary.exp.tax  = 0;
+      this.summary.exp.eq = 0;
+      this.summary.exp.total = 0;
     }
-    this.expenses.total = this.expenses.tax + this.expenses.subtotal + this.expenses.eq;
-    this.summary.exp.subtotal = this.expenses.subtotal.toFixed(2);
-    this.summary.exp.tax = this.expenses.tax.toFixed(2);
-    this.summary.exp.eq = this.expenses.eq.toFixed(2);
-    this.summary.exp.total = this.expenses.total.toFixed(2);
+
   }
 
   alertMessage = {
@@ -124,9 +133,6 @@ export class StepThreeComponent implements OnInit {
     this.loading = true;
     this.emailService.reservationEmail(this.summary).subscribe((data: any) => {
       if (data.status == 200) {
-        // for (let i = 0; i < 99; i++){
-        //   this.progressBar +=1;
-        // }
         this.mdlBtn.nativeElement.click();
         this.progressBar = 100;
         this.alertMessage.header = 'Done!';
@@ -149,7 +155,6 @@ export class StepThreeComponent implements OnInit {
     return this.total * 0.1;
   }
 
-  checked = false;
   toogleBtn() {
     this.checked = !this.checked;
   }

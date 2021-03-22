@@ -121,7 +121,7 @@
                                 (input)="item.qty = $event.target.value" (change)="calculateAndNext()">
                         </div>
                     </div>
-                    
+
                     <h3>Others</h3>
                     <div class="row" *ngFor="let item of menu.others">
                         <div class="col-8 col-md-10">
@@ -138,6 +138,7 @@
                     [disabled]="total === 0 || totalSidesSelected < 10" (click)="next()">{{ template.next }}</button>
                 <button *ngIf="totalSidesSelected == 0" type="button" class="btn btn-danger" [disabled]="total === 0"
                     (click)="next()">{{ template.next }}</button>
+                <button type="button" class="btn btn-warning" (click)="skip()">Skip >></button>
             </div>
         </div>
     </div>

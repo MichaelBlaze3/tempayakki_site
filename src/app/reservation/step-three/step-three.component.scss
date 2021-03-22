@@ -10,10 +10,14 @@
     margin-bottom: 20px;
 }
 
-.btn.btn-danger {
+.btn.btn-danger, .btn.btn-warning {
     margin-right: 15px;
 }
 section.origin {
     margin-top: 40px;
     margin-bottom: 55px;
+}
+
+.card-body-empty {
+    padding: 0 20px;
 }

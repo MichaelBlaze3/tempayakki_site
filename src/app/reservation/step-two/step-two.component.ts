@@ -22,10 +22,10 @@ export class StepTwoComponent implements OnInit, OnDestroy {
       this.getContent();
     });
   }
-
-  finalOrderList = [];
-
-  total: number = 0;
+// Varible and objects
+  finalOrderList = []; // collection of items that compose the order
+  total: number = 0; // This is the total cost for the food and other items selected
+  available = false; // Flag to enable a section on html once the api call is resolve. otherwise throws and error
   menu = {
     main: [],
     extras: [],
@@ -46,14 +46,14 @@ export class StepTwoComponent implements OnInit, OnDestroy {
     next: '',
     submit: ''
   }
-  available = false;
+  
   ngOnInit() {
     window.scrollTo(0, 0);
     this.getMenu();
     this.getContent();
   }
 
-  valueUpdated(){
+  valueUpdated() {
     this.calculateAndNext();
   }
 
@@ -92,8 +92,8 @@ export class StepTwoComponent implements OnInit, OnDestroy {
     });
   }
 
-  totalSidesSelected:number = 0;
-  
+  totalSidesSelected: number = 0;
+
   calculateAndNext() {
     this.finalOrderList = [];
     this.total = 0;
@@ -153,7 +153,6 @@ export class StepTwoComponent implements OnInit, OnDestroy {
           this.totalSidesSelected += Number(element.qty);
           this.finalOrderList.push(element);
         }
-        console.log(this.totalSidesSelected);
         this.total += element.qty * element.price;
       });
 
@@ -170,13 +169,15 @@ export class StepTwoComponent implements OnInit, OnDestroy {
         }
         this.total += element.qty * element.price
       });
-
     }
   }
 
   next() {
-    // console.log(this.finalOrderList);
-    this.messageEvent.emit({ price: this.total, step: 'step3', order: this.finalOrderList })
+    this.messageEvent.emit({ price: this.total, step: 'step3', order: this.finalOrderList, skip: false});
+  }
+
+  skip() {
+    this.messageEvent.emit({ price: 0, step: 'step3', order: [], skip: true });
   }
 
   ngOnDestroy() {

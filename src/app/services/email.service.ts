@@ -18,11 +18,11 @@ export class EmailService {
   supportEmail(support) {
     const httpParams = new HttpParams().set('type', 'support').set('fName', support.fName).set('lName', support.lName).set('email', support.email).set('comment', support.comment);
     let headerOptions = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
-    console.log(httpParams.toString());
     return this.httpClient.post('http://teppanyaki-catering.com/email/index.php', httpParams.toString(), { headers: headerOptions });
   }
 
   reservationEmail(reservation) {
+    console.log(reservation);
     let order_names = [];
     let order_price = [];
     let order_qty = [];
@@ -62,8 +62,9 @@ export class EmailService {
       .set('total', reservation.exp.total)
       .set('evtIsSurprise', reservation.personalInfo.evtIsSurprise)
       .set('evtAccesibility', reservation.personalInfo.evtAccesibility)
+      .set('skip', reservation.skip.toString())
 
-    return this.httpClient.post(this.environment.prod, httpParams, { headers: headerOptions });
+    return this.httpClient.post(this.environment.dev, httpParams, { headers: headerOptions });
   }
 
 }

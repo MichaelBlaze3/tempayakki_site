@@ -11,6 +11,9 @@ section.origin {
     background-color: gainsboro;
 }
 
-.btn.btn-danger {
+.btn.btn-danger, .btn.btn-warning {
     margin-top: 10px;
+}
+.btn.btn-danger, .btn.btn-warning {
+    margin-right: 15px;
 }

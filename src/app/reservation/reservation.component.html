@@ -9,4 +9,4 @@
 
 <app-step-two (messageEvent)="receiveMessageTwo($event)" [pInfo]="personalInformationObj" *ngIf="activeChild == 'step2'"></app-step-two>
 
-<app-step-three (messageEvent)="alertStatus($event)" (resetEvent)="resetReservation($event)" [pInfo]="personalInformationObj" [total]="total" [order]="order" *ngIf="activeChild == 'step3'"></app-step-three>
+<app-step-three (messageEvent)="alertStatus($event)" (resetEvent)="resetReservation($event)" [pInfo]="personalInformationObj" [total]="total" [order]="order" [skip]="skip" *ngIf="activeChild == 'step3'"></app-step-three>
