@@ -64,7 +64,7 @@ export class EmailService {
       .set('evtAccesibility', reservation.personalInfo.evtAccesibility)
       .set('skip', reservation.skip.toString())
 
-    return this.httpClient.post(this.environment.dev, httpParams, { headers: headerOptions });
+    return this.httpClient.post(this.environment.prod, httpParams, { headers: headerOptions });
   }
 
 }

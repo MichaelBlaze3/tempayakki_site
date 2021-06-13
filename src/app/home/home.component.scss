@@ -1,6 +1,5 @@
 .jumbotron {
     margin-bottom: 0;
-    // font-family: Copperplate;
 }
 section.banner {
     height: 500px;
@@ -18,7 +17,6 @@ section.banner {
             font-size: 36px;
             font-weight: 500;
             strong {
-                // font-family: Copperplate-Bold;
                 color: #961c00;
             }
         }
@@ -44,14 +42,9 @@ section.red-banner {
     padding-bottom: 50px;
     background-color: #961c00;
     text-align: center;
-    h1 {
-        // font-family: Copperplate-Bold;
-        color: #000000;
-    }
+    color: #ffffff;
     h3, h4 {
         text-align: center;
-        color: #ffffff;
-        // font-family: Copperplate;
     }
     button {
         border: 2px solid #ffffff;
@@ -83,7 +76,16 @@ section.red-banner {
     }
     
 }
-
+.btn-solid {
+    background-color: transparent !important;
+    border: 2px solid #961c00 !important;
+    color: #961c00 !important;
+    &:hover {
+        background-color: #961c00 !important;
+        border: 2px solid #961c00 !important;
+        color: #ffffff !important;
+    }
+}
 .card-container {
     margin: 20px 0 10px 0;
     .card {

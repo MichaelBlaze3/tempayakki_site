@@ -5,79 +5,79 @@
                 {
                     "name": "Teppanyaki Chicken & shrimp.",
                     "description": "6 oz. garlic butter chicken & 4 oz. of garlic lemon shrimp.",
-                    "price": 52,
+                    "price": 58,
                     "qty": 0
                 },
                 {
                     "name": "Teppanyaki Chicken & steak.",
                     "description": "4 oz. garlic butter chicken & 6 oz. New York steak.",
-                    "price": 56,
+                    "price": 60,
                     "qty": 0
                 },
                 {
                     "name": "Teppanyaki Chicken, steak & shrimp.",
                     "description": "4 oz. garlic butter chicken, 6 oz. New York steak & 4 oz. of garlic lemon shrimp.",
-                    "price": 63,
+                    "price": 69,
                     "qty": 0
                 },
                 {
                     "name": "Teppanyaki steak & lobster.",
                     "description": "8 oz. New York steak & lobster per person.",
-                    "price": 70,
+                    "price": 75,
                     "qty": 0
                 },
                 {
                     "name": "Teppanyaki Mignon & shrimp.",
                     "description": "8 oz. Fillet mignon & 4 oz. of garlic lemon shrimp.",
-                    "price": 61,
+                    "price": 70,
                     "qty": 0
                 },
                 {
                     "name": "Teppanyaki Mignon.",
                     "description": "8 oz. Fillet Mignon.",
-                    "price": 55,
+                    "price": 62,
                     "qty": 0
                 },
                 {
                     "name": "Teppanyaki Mignon & scallops.",
                     "description": "8 oz. Fillet Mignon.",
-                    "price": 65,
+                    "price": 73,
                     "qty": 0
                 },
                 {
                     "name": "Teppanyaki Mignon & lobster.",
                     "description": "8 oz. Fillet Mignon & lobster per person.",
-                    "price": 70,
+                    "price": 80,
                     "qty": 0
                 },
                 {
                     "name": "Teppanyaki Mignon & salmon.",
                     "description": "6 oz. Fillet Mignon & 6 oz. garlic lemon salmon.",
-                    "price": 66,
+                    "price": 70,
                     "qty": 0
                 },
                 {
                     "name": "Teppanyaki Mignon, chicken & shrimp.",
                     "description": "6 oz. Fillet Mignon, 4 oz. garlic butter chicken & 4oz. of garlic lemon shrimp.",
-                    "price": 70,
+                    "price": 75,
                     "qty": 0
                 },
                 {
                     "name": "Teppanyaki Rib eye & shrimp.",
                     "description": "8 oz. Rib eye & 4 oz. of garlic lemon shrimp.",
-                    "price": 65,
+                    "price": 72,
                     "qty": 0
                 },
                 {
                     "name": "Teppanyaki Rib eye & scallop.",
                     "description": "8 oz. Rib eye & 4 pieces of scallops per person.",
-                    "price": 67,
+                    "price": 75,
                     "qty": 0
                 },
                 {
                     "name": "Teppanyaki Rib eye & lobster.",
                     "description": "8 oz. Rib eye & lobster per person.",
-                    "price": 70,
+                    "price": 80,
                     "qty": 0
                 },
                 {
@@ -95,19 +95,19 @@
                 {
                     "name": "Teppanyaki Steak, Lobster and Shrimp.",
                     "description": "6 oz. New York Steak, 1 Lobster per person and 4 oz of garlic lemon shrimp.",
-                    "price": 76,
+                    "price": 82,
                     "qty": 0
                 },
                 {
                     "name": "Teppanyaki Chef Special fillet Mignon, Lobster and Shrimp.",
                     "description": "6 oz. Fillet Mignon, Lobster per person and 4 oz. of garlic lemon shrimp.",
-                    "price": 90,
+                    "price": 120,
                     "qty": 0
                 },
                 {
                     "name": "Teppanyaki Vegetarian.",
                     "description": "",
-                    "price": 40,
+                    "price": 45,
                     "qty": 0
                 }
             ],
