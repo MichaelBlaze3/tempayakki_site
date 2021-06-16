@@ -193,13 +193,15 @@ section.gallery {
 
 @media screen and (max-width: 768px) {
     .banner {
-        height: 350px !important;
+        height: 400px !important;
         .hidden {
             display: none;
         }
     }
     section.banner {
         .jumbo-banner {
+            // background-image: url(../../assets/c1865ad8-bb09-4829-90fb-c6b6927f9ea6.jpeg);
+            // background-size: cover;
             padding: 4rem 2rem;
             h1 {
                 font-size: 44px;

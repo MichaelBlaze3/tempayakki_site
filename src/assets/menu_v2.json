@@ -89,7 +89,7 @@
                 {
                     "name": "Teppanyaki Steak & Shrimp.",
                     "description": "6 oz. Garlic butter steak & 4 oz. garlic lemon shrimp.",
-                    "price": 55,
+                    "price": 63,
                     "qty": 0
                 },
                 {
@@ -112,6 +112,12 @@
                 }
             ],
             "seafood": [
+                {
+                    "name": "Teppanyaki Ahi Tune.",
+                    "description": "8 oz Seared Ahi Tuna.",
+                    "price": 55,
+                    "qty": 0
+                },
                 {
                     "name": "Teppanyaki Seafood Combo.",
                     "description": "4 oz Salmon, 4 oz  Garlic Shrimp & 4 oz Scallops.",
