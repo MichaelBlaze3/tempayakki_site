@@ -173,15 +173,15 @@
         "buffet": {
             "main": [
                 {
-                    "name": "Combination 1.",
-                    "description": "Pineapple Shrimp, Teppanyaki chicken, Yakisora Noddles & New York Steak Broccoli.",
-                    "price": 36,
+                    "name": "TEPPANYAKI BUFFET.",
+                    "description": "Fried rice,Vegetables - -Asparagus - Garlic shrimp-chicken - Teriyaki chicken - brocoli beef-garlic edamame.",
+                    "price": 35,
                     "qty": 0
                 },
                 {
-                    "name": "Combination 2.",
-                    "description": "Grill Asparagus, Pineapple Shrimp, Teppanyaki Chiken, Spicy Chicken, Yakisora Noddles and NY Steak broccoli. ",
-                    "price": 39,
+                    "name": "SUPREME BUFFET.",
+                    "description": "Fried rice - Steamed rice - Vegetables -Asparagus - Garlic Shrimp - Spicy chicken - Teriyaki chicken - yakisoba noodle - NY & brocoli and Chicken and Vegie Gyoza.",
+                    "price": 38,
                     "qty": 0
                 }
             ],
